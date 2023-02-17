@@ -1,0 +1,26 @@
+Restaurant_Name: "Dominoes"
+Menu_Items:
+Margherita
+Pepperoni
+Garlic_Bread
+Veg_Taco
+Pepsi
+Chicken_Tikka
+
+Restaurant_Id: "106"
+Prices:
+169
+322
+169
+149
+80
+255
+
+Stock:
+14
+12
+13
+11
+12
+13
+14
