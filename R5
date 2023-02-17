@@ -1,0 +1,26 @@
+Restaurant_Name: "ChaiPoint"
+Menu_Items:
+Masala_Chai
+Maggi
+Samosa
+Iced_Coffee
+Mango_Shake
+Green_Tea
+
+Restaurant_Id: "105"
+Prices:
+69
+122
+49
+49
+80
+55
+
+Stock:
+14
+12
+13
+11
+12
+13
+14
