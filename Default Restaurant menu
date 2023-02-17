@@ -6,4 +6,21 @@ Food3
 Food4
 Food5
 Food6
+
 Restaurant_Id: "Token to check if correct or not"
+
+Price:
+p1
+p2
+p3
+p4
+p5
+p6
+
+Stock:
+s1
+s2
+s3
+s4
+s5
+s6
