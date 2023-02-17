@@ -1,0 +1,27 @@
+Restaurant_Name: "Burger-King"
+Menu_Items:
+Crispy_Chicken_Burger
+Veg_Whopper
+Mango_Shake
+Boneless_Wings_Regular
+Veg_Volcano
+King_Fries
+
+Restaurant_Id: "101"
+
+Prices:
+90
+139
+60
+49
+70
+100
+
+Stock:
+10
+12
+13
+14
+15
+13
+15
