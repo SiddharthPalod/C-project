@@ -8,13 +8,12 @@ void Menu_generator(char Restaurant_Name[], int Restaurant_Id, char* Menu_Items[
         fprintf(menu, "Restaurant_Name: %s\n", Restaurant_Name);
         fprintf(menu, "Menu_Items:\n");
         for (int i = 0; i < n; i++) {
-            fprintf(menu, "%s\n", Menu_Items[i]);
+            fprintf(menu, "%d. ", i);
+            fprintf(menu, "%s ", Menu_Items[i]);
+            fprintf(menu, "$%d\n", Prices[i]);
         }
+        fprintf(menu, "$ 1\n");
         fprintf(menu, "Restaurant_Id: %d\n", Restaurant_Id);
-        fprintf(menu, "Prices:\n");
-        for (int i = 0; i < n; i++) {
-            fprintf(menu, "%d\n", Prices[i]);
-        }
         fprintf(menu, "Stocks:\n");
         for (int i = 0; i < n; i++) {
             fprintf(menu, "%d\n", Stock[i]);
