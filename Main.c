@@ -25,7 +25,7 @@ void Menu_generator(char Restaurant_Name[],int Restaurant_Id,char* Menu_Items[n]
 int main(int argc, char *argv[]){
     //to open all files in database and search for a specific string
     //(let us assume 20 restaurants 10 are premade and max 10 can be created)
-    char fileNames[20][8] = { "R1.txt", "R2.txt", "R3.txt", "R4.txt","R5.txt","R6.txt","R7.txt","R8.txt"."R9.txt","R10.txt","R11.txt", "R12.txt", "R13.txt", "R14.txt","R15.txt","R16.txt","R17.txt","R18.txt"."R19.txt","R20.txt"};
+    char fileNames[20][8] = { "Burger King", "KFC", "McDonalds", "Dominoes","Pizza Hut","Juicy","Onesta","Chai Point"."Truffles","Wow Momo","R11", "R12", "R13", "R14","R15","R16","R17","R18"."R19","R20"};
     for (int i = 0; i < 20; i++) {
         FILE *pFile = fopen(fileNames[i], "r");
         bool bExists = searchInFile(pFile, searchStr);
