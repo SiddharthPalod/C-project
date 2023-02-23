@@ -19,10 +19,9 @@ void main()
     FILE* fpt;
     FILE* fpttr;
     char id[16];
-	fpt = fopen("restroslist.txt", "r");	// open file+
+	fpt = fopen("restroslist.txt", "r");	// open file
 	
 	FILE* fp;
-	//fp = fopen("restros.txt", "r");	// open file
 	printf("Welcome !!!! \n");
 	labelstart:
 	printf("\n\n\nEnter 1 to see restaurant list, \n2 for key word search and \n3 for filter search \n4 to exit: \n");
@@ -32,7 +31,6 @@ void main()
 		char wrd[256], buffer[256], buffer2[256], temp[256],rev[256],rev2[256];
 		int bufflen, len, i, j, l,p,q, k, line,check;
 	
-		//FILE* fp;
 		fp = fopen("restros.txt", "r");	// open file
 		fgets(wrd,100,stdin);
 		system("/usr/bin/clear"); 
@@ -74,7 +72,6 @@ void main()
 					for(int c= 0; c<strlen(buffer);c++)
 					{
 						buffer2[c]=buffer[c];
-						//printf("yo \n%c", buffer[c]);
 					}
 
 					empty =1;
@@ -86,7 +83,6 @@ void main()
 					{
 					// going back and storing the line until we encounter a new line
 					rev[k]=buffer2[l];
-					//printf("yo \n%c", rev[k]);
 					k++;
 					l--;
 					}
@@ -98,12 +94,9 @@ void main()
 						temp[q]=buffer[p];
 						q++;
 						p++;
-					//printf("hi %c\n", temp[q]);
 					}
-					// strcat(temp,"\0");
 					temp[q] = '\0';
 
-					//printf("%s", strrev(rev));
 					printf("%s", rever(rev));
 					printf("%s\n", temp); 
 					//printing the combined line
@@ -116,8 +109,7 @@ void main()
 					++i;
 				}
 				++i;
-				//free(temp);
-				//free(rev);
+				
 				
 			}
 
@@ -135,21 +127,10 @@ void main()
 		fclose(fp);
 
 
-		// temp =[];
-		// free(rev);
-		// free(wrd);
-		// free(buffer);
-		// free(buffer2);
-		//freeing up the memory
-
-		
-
 		empty=0;
 
 		fp = fopen("menuitems.txt", "r");	// open file
 
-		// printf("Enter What do you want to eat : ");
-		// gets(wrd);
 
 		len = strlen(wrd); // length of input word
 		printf("\n\nDishes you might be interested in:\n");
@@ -184,11 +165,9 @@ void main()
 				// is equal to input word
 				if ((i == bufflen || buffer[i] == ' ' || buffer[i] == '\n') && j == len) 
 				{
-					//printf("Line: %d ", line);
 					for(int c= 0; c<strlen(buffer);c++)
 					{
 						buffer2[c]=buffer[c];
-						//printf("yo \n%c", buffer[c]);
 					}
 					empty=1;
 					check=1;
@@ -200,7 +179,6 @@ void main()
 					{
 					// going back and storing the line until we encounter a new line
 					rev[k]=buffer2[l];
-					//printf("yo \n%c", rev[k]);
 					k++;
 					l--;
 					}
@@ -212,11 +190,9 @@ void main()
 						temp[q]=buffer[p];
 						q++;
 						p++;
-					//printf("hi %c\n", temp[q]);
 					}
 					if (check ==1)
 					{
-						//strcat(temp,"\0");
 						temp[q]='\0'; 
 						printf("%s", rever(rev));
 						printf("%s\n", temp); 
@@ -235,9 +211,7 @@ void main()
 					++i;
 				}
 				++i;
-				//free(temp);
-				//free(rev);
-				//freeing up the memory
+			
 
 			}
 
@@ -256,16 +230,16 @@ void main()
 	{
 		// Read contents from file
     c = fgetc(fpt);
-    while (c != EOF)
+    while (c != EOF)		//until end of file isn't encountered
     {
         printf ("%c", c);
-        c = fgetc(fpt);
+        c = fgetc(fpt);		//PRINTING RESTAURANT LIST
     }
   
     fclose(fpt);
     label1:
     printf("Enter the ID of the restaurant whose menu you wish to see and e if you want to go back : \n");
-    scanf("%s", id);
+    scanf("%s", id);		//taking input and checking cases
     if(strcmp(id,"e")==0)
     {
         goto labelstart;
@@ -299,7 +273,7 @@ void main()
 		if(choice2 == 1)
 		{
 			printf("Dishes you want:\n");
-
+			//running the function with the filter based in user choice
 			search("veg");
 		}
 		else if(choice2 == 2)
@@ -340,22 +314,19 @@ void main()
 	}
 	else if(choice == 4)
 	{
-		//exit(0);
-		
-		//goto labelend;
+		//letting the program run out
 
 	}
 	else
 	{
 		printf("INVALID ID  !!!\nPlease enter correct ID\n");
-		goto labelstart;
+		goto labelstart;	//go back to the begining
 	}
-	//labelend:
-// 		fclose(fp);
-// 		fclose(fpttr);
+	
 }
 void search(char word[])
 {
+	//function to find a string in a given text file
 	FILE* fp;
 	char  buffer[256],buffer2[256], temp[256],rev[256];
 	int bufflen, len, i, j, l,p,q, k, line,check,choice,choice2,empty=0;
@@ -397,7 +368,6 @@ void search(char word[])
 					for(int c= 0; c<strlen(buffer);c++)
 					{
 						buffer2[c]=buffer[c];
-						//printf("yo \n%c", buffer[c]);
 					}
 
 					empty =1;
@@ -409,7 +379,6 @@ void search(char word[])
 					{
 					// going back and storing the line until we encounter a new line
 					rev[k]=buffer2[l];
-					//printf("yo \n%c", rev[k]);
 					k++;
 					l--;
 					}
@@ -421,9 +390,7 @@ void search(char word[])
 						temp[q]=buffer[p];
 						q++;
 						p++;
-					//printf("hi %c\n", temp[q]);
 					}
-					// strcat(temp,"\0");
 					temp[q] = '\0';
 
 					printf("%s", rever(rev));
@@ -438,8 +405,7 @@ void search(char word[])
 					++i;
 				}
 				++i;
-				//free(temp);
-				//free(rev);
+			
 				
 			}
 
