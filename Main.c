@@ -28,18 +28,7 @@ int main(int argc, char *argv[]) {
     char searchStr[] = "search_string";
     for (int i = 0; i < 20; i++) {
         FILE *pFile = fopen(fileNames[i], "r");
-        if (pFile != NULL) {
-            bool bExists = false;
-            char buffer[100];
-            while (fgets(buffer, sizeof(buffer), pFile) != NULL) {
-                if (strstr(buffer, searchStr) != NULL) {
-                    bExists = true;
-                    break;
-                }
-            }
-            if (bExists) {
-                printf("%s contains %s\n", fileNames[i], searchStr);
-            }
+        
             fclose(pFile);
         }
     }
