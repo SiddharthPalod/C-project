@@ -101,7 +101,7 @@ void menu_file_editor(char* name) {
 }
 
 void menu_file(char* name) {
-    FILE* abc = fopen(name, "w");
+    FILE* abc = fopen(name, "a");
     // TODO: Implement menu file editor
     fclose(abc);
 }
