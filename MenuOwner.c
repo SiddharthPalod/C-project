@@ -106,7 +106,7 @@ void menu_file(char* name) {
     fclose(abc);
 }
 
-int mainfile() {
+int main() {
     
     char name[100]; //replace it with the owner name variable given by shiven
     printf("Enter name of menu file: ");
@@ -119,7 +119,7 @@ int mainfile() {
     }
     char line[202];
     int file_found = 0;
-    int flag=0
+    int flag=0;
     char c;
     menu_file(name);
     while (fgets(line, sizeof(line), databaseowner) != NULL) {
