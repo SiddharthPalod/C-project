@@ -7,6 +7,7 @@ void Menu_generator(char* Menu_Items[], int Prices[], FILE* menu, int no) {
         fprintf(menu, "%s ", Menu_Items[i]);
         fprintf(menu, "$%d\n", Prices[i]);
     }
+        fputs("$ 1",menu);    
 }
 
 void menu_file_maker(char* name) {
@@ -24,7 +25,7 @@ void menu_file_maker(char* name) {
         printf("Prices=\t");
         scanf("%d", &Prices[i]);
     }
-    Menu_generator(Menu_Items, Prices, abc, n);    
+    Menu_generator(Menu_Items, Prices, abc, n);
     fclose(abc);
 }
 
@@ -33,8 +34,32 @@ void menu_file_editor(char* name) {
     printf("Press 1 to add items\nPress 2 to delete items\nPress 3 to create new\n");
     scanf("%d",&command);
     if (command == 1) {
-        FILE* abc = fopen(name, "a");
+        FILE* abc = fopen(name, "r");
         int n;
+        //code to delete $ 1
+        char word[]="$ 1";
+        FILE *temp_file = fopen("temp.txt", "w");
+        if (temp_file == NULL) {
+            printf("Could not create temporary file\n");
+            return;
+        }
+        char buffer[1000];
+        // Read each line from the input file and write it to the output file
+        while (fgets(buffer, sizeof(buffer), abc) != NULL) {
+            // If the line does not contain the word, write it to the output file
+            if (strstr(buffer, word) == NULL) {
+                fputs(buffer, temp_file);
+            }
+        }
+        // Close the input and output files
+        fclose(abc);
+        fclose(temp_file);
+        // Rename the temporary file to the original file
+        remove(name);
+        rename("temp.txt", name);
+        
+        //Command code:
+        FILE* abcd = fopen(name, "a");
         printf("\nEnter no of menu items to add: ");
         scanf("%d",&n);
         char* Menu_Items[n];
@@ -47,8 +72,8 @@ void menu_file_editor(char* name) {
             printf("Prices=\t");
             scanf("%d", &Prices[i]);
         }
-        Menu_generator(Menu_Items, Prices, abc, n);    
-        fclose(abc);
+        Menu_generator(Menu_Items, Prices, abcd, n);  
+        fclose(abcd);
     }
     else if (command == 2) {
         FILE* abc = fopen(name, "r");
@@ -151,4 +176,5 @@ int main() {
     {printf("%s was found in the database\n", name); 
     return 1;}
 }
+
 
