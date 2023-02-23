@@ -1,102 +1,103 @@
-butter chicken - shiv Sagar
+butter chicken ( non-veg ) - shiv Sagar
+gulab jamun  ( desert ) - shiv Sagar
 chicken wings - Kentucky Fried Chicken
-pani puri - Chaat Bazaar
-biryani - Shiv Sagar
-sev puri - Chaat Bazaar
-pani puri - Ganesh Bhel
-chole bhature - Shiv Sagar
-chicken burger - Burger King 
-veg whopper - Burger King 
-mango shake - Burger King 
-boneless wings regular - Burger King 
-veg burger - Burger King 
-fries - Burger King 
-masala chai - Chai point
-maggi - Chai point
-samosa - Chai point
-iced coffee - Chai point
-mango shake - Chai point
-green tea - Chai point
-margherita pizza - Dominoes
-peppperoni pizza - Dominoes
-garlic bread  - Dominoes
-veg taco - Dominoes
-pepsi - Dominoes
-chicken tikka - Dominoes
-burritto - Taco Bell
-taco - Taco Bell
-churro - Taco Bell
-quesedilla - Taco Bell
-mexican rice - Taco Bell
-walter white - los pollos hermanos
-jesse pinkman - los pollos hermanos
-saul goodman - los pollos hermanos
-gus fring - los pollos hermanos
-mike erhmantraut - los pollos hermanos
-vada pav - rohit vadewale
-misal pav - rohit vadewale
-pav bhaji - rohit vadewale
-chicken zinger - Kentucky Fried Chicken
-bucket - Kentucky Fried Chicken
-bhel - Chaat Bazaar
-dahi puri - Chaat Bazaar
-breadsticks - Olive garden
-pasta - Olive garden
-lobster - Red Lobster
-wet bhel - Ganesh Bhel
-dry bhel - Ganesh Bhel
-spicy bhel - Ganesh Bhel
-dahi bhel - Ganesh Bhel
-special bhel - Ganesh Bhel
-mumbai bhel - Ganesh Bhel
-bacon burger - Wendy's
-mango Shake - Juicy
-veg momo - Juicy
-samosa - Juicy
-iced coffee - Juicy
-lemon juice - Juicy
-veg burger - Juicy
-chicken biryani - Kentucky Fried Chicken
-veg biryani - Kentucky Fried Chicken
+pani puri ( veg ) - Chaat Bazaar
+chicken biryani ( non-veg )( spicy ) - Shiv Sagar
+sev puri ( veg ) - Chaat Bazaar
+pani puri ( veg ) - Ganesh Bhel
+chole bhature ( veg ) - Shiv Sagar
+chicken burger ( non-veg ) - Burger King 
+veg whopper ( veg ) - Burger King 
+mango shake ( veg ) - Burger King 
+boneless wings regular ( non-veg ) - Burger King 
+veg burger ( veg ) - Burger King 
+fries ( veg ) - Burger King 
+masala chai ( veg ) - Chai point
+maggi ( veg ) - Chai point
+samosa ( veg ) - Chai point
+iced coffee ( beverage ) - Chai point
+mango shake ( beverage ) - Chai point
+green tea ( beverage ) - Chai point
+margherita pizza ( veg ) - Dominoes
+pepperoni pizza - Dominoes
+garlic bread ( veg ) - Dominoes
+veg taco ( veg ) - Dominoes
+pepsi ( beverage ) - Dominoes
+chicken tikka pizza ( non-veg ) - Dominoes
+burritto ( veg ) - Taco Bell
+taco ( veg ) - Taco Bell
+churro ( veg ) - Taco Bell
+quesedilla ( veg ) - Taco Bell
+mexican chicken rice ( non-veg ) - Taco Bell
+walter white ( non-veg ) - los pollos hermanos
+jesse pinkman ( veg ) - los pollos hermanos
+saul goodman ( non-veg ) - los pollos hermanos
+gus fring ( non-veg ) - los pollos hermanos
+mike erhmantraut ( veg ) - los pollos hermanos
+vada pav ( veg ) - rohit vadewale
+misal pav ( veg ) - rohit vadewale
+pav bhaji ( veg ) - rohit vadewale
+chicken zinger ( non-veg )( spicy ) - Kentucky Fried Chicken
+bucket ( non-veg ) - Kentucky Fried Chicken
+bhel ( veg ) - Chaat Bazaar
+dahi puri ( veg ) - Chaat Bazaar
+breadsticks ( veg ) - Olive garden
+pasta ( veg ) - Olive garden
+lobster ( non-veg ) - Red Lobster
+wet bhel ( veg ) - Ganesh Bhel
+dry bhel ( veg ) - Ganesh Bhel
+spicy bhel ( veg ) - Ganesh Bhel
+dahi bhel ( veg ) - Ganesh Bhel
+special bhel ( veg ) - Ganesh Bhel
+mumbai bhel ( veg ) - Ganesh Bhel
+bacon burger ( non-veg ) - Wendy's
+mango Shake ( veg ) - Juicy
+veg momo ( veg ) - Juicy
+samosa ( veg ) - Juicy
+iced coffee ( beverage ) - Juicy
+lemon juice ( beverage ) - Juicy
+veg burger ( veg ) - Juicy
+chicken biryani ( non-veg )( spicy ) - Kentucky Fried Chicken
+veg biryani ( veg ) - Kentucky Fried Chicken
 chicken tikka - Kentucky Fried Chicken
-veg burger - Kentucky Fried Chicken
+veg burger ( veg ) - Kentucky Fried Chicken
 boneless chicken wings- Kentucky Fried Chicken
-fries - Kentucky Fried Chicken
-chicken burger - McDonalds
-veg burger - McDonalds
+fries ( veg ) - Kentucky Fried Chicken
+chicken burger ( non-veg ) - McDonalds
+veg burger ( veg ) - McDonalds
 boneless chicken wings - McDonalds
-fries - McDonalds
-iced cofee - McDonalds
-mango shake - McDonalds  
-margherita  pizza- onesta
-chicken tikka - onesta
-garlic bread - onesta
-fries - onesta
+fries ( veg ) - McDonalds
+iced coffee ( beverage ) - McDonalds
+mango shake ( beverage ) - McDonalds  
+margherita  pizza ( veg )- onesta
+chicken tikka ( non-veg ) - onesta
+garlic bread ( veg ) - onesta
+fries ( veg ) - onesta
 pepsi - onesta
-veg burger - onesta
-margherita pizza - Pizza Hut
-tandoori paneer pizza - Pizza Hut
-chicken tikka pizza - Pizza Hut
-pepperoni pizza - Pizza Hut
-garlic bread pizza - Pizza Hut
-pepsi pizza - Pizza Hut
-mango shake - Truffles
-chicken burger - Truffles
-veg burger - Truffles
-fries - Truffles
-chicken biryani - Truffles
-veg tacos - Truffles
-chocolate truffle - Truffles
-chicken momo - Wow Momo
-veg momo - Wow Momo
-pepsi - Wow Momo
-boneless chicken wings - Wow Momo
-chicken fried momo - Wow Momo
-veg burger - Wow Momo
-roasted fish - Red Lobster
-tuna fish - Red Lobster
-steak and cheese sandwich - subway
-meatball sandwich - subway
-chicken teriyaki sandwich - subway
-tuna fish sandwich - subway
-club sandwich - subway
+veg burger ( veg ) - onesta
+margherita pizza ( veg ) - Pizza Hut
+tandoori paneer pizza ( veg ) - Pizza Hut
+chicken tikka pizza ( non-veg ) - Pizza Hut
+pepperoni pizza ( non-veg ) - Pizza Hut
+garlic bread ( veg ) - Pizza Hut
+pepsi ( beverage ) - Pizza Hut
+mango shake ( beverage ) - Truffles
+chicken burger ( non-veg ) - Truffles
+veg burger ( veg ) - Truffles
+fries ( veg ) - Truffles
+chicken biryani ( non-veg ) - Truffles
+veg tacos ( veg ) - Truffles
+chocolate truffle ( desert ) - Truffles
+chicken momo ( non-veg ) - Wow Momo
+veg momo ( veg ) - Wow Momo
+pepsi ( beverage ) - Wow Momo
+boneless chicken wings ( non-veg ) - Wow Momo
+chicken fried momo ( non-veg ) - Wow Momo
+veg burger ( veg ) - Wow Momo
+roasted fish ( non-veg ) - Red Lobster
+tuna fish ( non-veg ) - Red Lobster
+steak and cheese sandwich ( non-veg ) - subway
+meatball sandwich ( non-veg ) - subway
+chicken teriyaki sandwich ( non-veg ) - subway
+tuna fish sandwich ( non-veg ) - subway
+club sandwich ( veg ) - subway
