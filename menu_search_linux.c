@@ -1,5 +1,5 @@
 //Aaditya Gole IMT2022087
-//Used- pointers,file pointers,File I/O, dynamic memory allocation,array, string functions, array operations
+//Used- pointers,file pointers,File I/O, dynamic memory allocation,array, string functions, array operations, functions
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
