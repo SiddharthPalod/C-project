@@ -347,7 +347,8 @@ void main()
 	}
 	else if(choice == 4)
 	{
-		exit(0);
+		//exit(0);
+		goto labelend;
 
 	}
 	else
@@ -355,8 +356,9 @@ void main()
 		printf("INVALID ID  !!!\nPlease enter correct ID\n");
 		goto labelstart;
 	}
-	fclose(fp);
-	fclose(fpttr);
+	labelend:
+		fclose(fp);
+		fclose(fpttr);
 }
 void search(char word[])
 {
