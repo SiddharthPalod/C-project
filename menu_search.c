@@ -1,5 +1,5 @@
 //Aaditya Gole IMT2022087
-//Used- pointers,file pointers,File I/O, dynamic memory allocation,array, string functions, array operations
+//Used- pointers,file pointers,File I/O, dynamic memory allocation,array, string functions, array operations, functions
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -29,13 +29,9 @@ void main()
 		char wrd[256], buffer[256], buffer2[256], temp[256],rev[256],rev2[256];
 		int bufflen, len, i, j, l,p,q, k, line,check;
 	
-		FILE* fp;
-		fp = fopen("restros.txt", "r");	// open file
-		//printf("Welcome !!!! \n");
-		//printf("Enter What do you want to eat : ");
+		
 		gets(wrd);
-		fp = fopen("restros.txt", "r");
-		system("usr/bin/clear"); 
+		//system("usr/bin/clear"); 
 		// this command will clear the screen in linux
 
 		printf("\nEnter What do you want to eat : ");
@@ -78,7 +74,6 @@ void main()
 					for(int c= 0; c<strlen(buffer);c++)
 					{
 						buffer2[c]=buffer[c];
-						//printf("yo \n%c", buffer[c]);
 					}
 
 					empty =1;
@@ -102,9 +97,7 @@ void main()
 						temp[q]=buffer[p];
 						q++;
 						p++;
-					//printf("hi %c\n", temp[q]);
 					}
-					// strcat(temp,"\0");
 					temp[q] = '\0';
 
 					printf("%s", strrev(rev));
@@ -119,8 +112,6 @@ void main()
 					++i;
 				}
 				++i;
-				//free(temp);
-				//free(rev);
 				
 			}
 
@@ -137,22 +128,13 @@ void main()
 
 		fclose(fp);
 
-
-		// temp =[];
-		// free(rev);
-		// free(wrd);
-		// free(buffer);
-		// free(buffer2);
-		//freeing up the memory
-
 		
 
 		empty=0;
 
 		fp = fopen("menuitems.txt", "r");	// open file
 
-		// printf("Enter What do you want to eat : ");
-		// gets(wrd);
+
 
 		len = strlen(wrd); // length of input word
 		printf("\n\nDishes you might be interested in:\n");
@@ -187,11 +169,9 @@ void main()
 				// is equal to input word
 				if ((i == bufflen || buffer[i] == ' ' || buffer[i] == '\n') && j == len) 
 				{
-					//printf("Line: %d ", line);
 					for(int c= 0; c<strlen(buffer);c++)
 					{
 						buffer2[c]=buffer[c];
-						//printf("yo \n%c", buffer[c]);
 					}
 					empty=1;
 					check=1;
@@ -203,7 +183,6 @@ void main()
 					{
 					// going back and storing the line until we encounter a new line
 					rev[k]=buffer2[l];
-					//printf("yo \n%c", rev[k]);
 					k++;
 					l--;
 					}
@@ -215,11 +194,9 @@ void main()
 						temp[q]=buffer[p];
 						q++;
 						p++;
-					//printf("hi %c\n", temp[q]);
 					}
 					if (check ==1)
 					{
-						//strcat(temp,"\0");
 						temp[q]='\0'; 
 						printf("%s", strrev(rev));
 						printf("%s\n", temp); 
@@ -238,9 +215,6 @@ void main()
 					++i;
 				}
 				++i;
-				//free(temp);
-				//free(rev);
-				//freeing up the memory
 
 			}
 
@@ -252,13 +226,15 @@ void main()
 		{
 			printf("no relevant dishes found :(\n");
 		}
+			fclose(fp);
+
 		goto labelstart;
 	}
 	else if (choice ==1)
 	{
 		// Read contents from file
     c = fgetc(fpt);
-    while (c != EOF)
+    while (c != EOF)		//printing until we encounter end of file
     {
         printf ("%c", c);
         c = fgetc(fpt);
@@ -298,7 +274,7 @@ void main()
 		scanf("%d", &choice2);
 
 		if(choice2 == 1)
-		{
+		{		//runnning functions based on filter chosen by user
 			printf("Dishes you want:\n");
 
 			search("veg");
@@ -334,6 +310,8 @@ void main()
 			printf("INVALID ID  !!!\nPlease enter correct ID\n");
 			goto labelfilter;
 		}
+			fclose(fpttr);
+
 		goto labelstart;
 	
 
@@ -349,11 +327,9 @@ void main()
 		printf("INVALID ID  !!!\nPlease enter correct ID\n");
 		goto labelstart;
 	}
-	fclose(fp);
-	fclose(fpttr);
 }
 void search(char word[])
-{
+{	//function to search a word in a file
 	FILE* fp;
 	char  buffer[256],buffer2[256], temp[256],rev[256];
 	int bufflen, len, i, j, l,p,q, k, line,check,choice,choice2,empty=0;
@@ -391,11 +367,9 @@ void search(char word[])
 				// is equal to input word
 				if ((i == bufflen || buffer[i] == ' ' || buffer[i] == '\n') && j == len) 
 				{
-					//printf("Line: %d ", line);
 					for(int c= 0; c<strlen(buffer);c++)
 					{
 						buffer2[c]=buffer[c];
-						//printf("yo \n%c", buffer[c]);
 					}
 
 					empty =1;
@@ -407,7 +381,6 @@ void search(char word[])
 					{
 					// going back and storing the line until we encounter a new line
 					rev[k]=buffer2[l];
-					//printf("yo \n%c", rev[k]);
 					k++;
 					l--;
 					}
@@ -419,9 +392,7 @@ void search(char word[])
 						temp[q]=buffer[p];
 						q++;
 						p++;
-					//printf("hi %c\n", temp[q]);
 					}
-					// strcat(temp,"\0");
 					temp[q] = '\0';
 
 					printf("%s", strrev(rev));
@@ -436,8 +407,6 @@ void search(char word[])
 					++i;
 				}
 				++i;
-				//free(temp);
-				//free(rev);
 				
 			}
 
