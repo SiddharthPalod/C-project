@@ -95,7 +95,7 @@ void main()
 						q++;
 						p++;
 					}
-					temp[q] = '\0';
+					temp[q] = '\0';	//ending the string
 
 					printf("%s", rever(rev));
 					printf("%s\n", temp); 
@@ -193,7 +193,7 @@ void main()
 					}
 					if (check ==1)
 					{
-						temp[q]='\0'; 
+						temp[q]='\0'; 		//ending the string
 						printf("%s", rever(rev));
 						printf("%s\n", temp); 
 						//printing the combined line
@@ -391,7 +391,7 @@ void search(char word[])
 						q++;
 						p++;
 					}
-					temp[q] = '\0';
+					temp[q] = '\0';		//end a string
 
 					printf("%s", rever(rev));
 					printf("%s\n", temp); 
@@ -421,7 +421,7 @@ void search(char word[])
 
 
 char *rever(char *str)
-{
+{ //function to reverse a string
     
 	int i;
 	char temp;
