@@ -22,7 +22,7 @@ void main()
 	fpt = fopen("restroslist.txt", "r");	// open file+
 	
 	FILE* fp;
-	fp = fopen("restros.txt", "r");	// open file
+	//fp = fopen("restros.txt", "r");	// open file
 	printf("Welcome !!!! \n");
 	labelstart:
 	printf("\n\n\nEnter 1 to see restaurant list, \n2 for key word search and \n3 for filter search \n4 to exit: \n");
@@ -32,24 +32,15 @@ void main()
 		char wrd[256], buffer[256], buffer2[256], temp[256],rev[256],rev2[256];
 		int bufflen, len, i, j, l,p,q, k, line,check;
 	
-		FILE* fp;
+		//FILE* fp;
 		fp = fopen("restros.txt", "r");	// open file
-		//printf("Welcome !!!! \n");
-		//printf("Enter What do you want to eat : ");
 		fgets(wrd,100,stdin);
-
-		fp = fopen("restros.txt", "r");
 		system("/usr/bin/clear"); 
 		// this command will clear the screen in linux
-
 		printf("\nEnter What do you want to eat : ");
 		scanf("%s", wrd);
-		
-
 		len = strlen(wrd); // length of input word
 		printf("\nRestros you might be interested in:\n");
-
-
 		line = 0;
 		// the following loop the file fp line by line
 		// each line is stored in buffer
@@ -258,6 +249,7 @@ void main()
 		{
 			printf("no relevant dishes found :(\n");
 		}
+		fclose(fp);
 		goto labelstart;
 	}
 	else if (choice ==1)
@@ -294,6 +286,7 @@ void main()
         a = fgetc(fpttr);
     }
     printf("\n");
+	fclose(fpttr);
     goto label1;
 	}
 	else if(choice == 3)
@@ -348,7 +341,8 @@ void main()
 	else if(choice == 4)
 	{
 		//exit(0);
-		goto labelend;
+		
+		//goto labelend;
 
 	}
 	else
@@ -356,9 +350,9 @@ void main()
 		printf("INVALID ID  !!!\nPlease enter correct ID\n");
 		goto labelstart;
 	}
-	labelend:
-		fclose(fp);
-		fclose(fpttr);
+	//labelend:
+// 		fclose(fp);
+// 		fclose(fpttr);
 }
 void search(char word[])
 {
