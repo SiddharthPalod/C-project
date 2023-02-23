@@ -1,0 +1,6 @@
+1. Margherita $99
+2. Tandoori_Paneer $209
+3. Chicken_Tikka $249
+4. Pepperoni $169
+5. Garlic_Bread $119
+6. Pepsi $79

@@ -1,0 +1,21 @@
+1.taco bell 
+2.los pollos hermanos 
+3.rohit vadewale 
+4.kentucky fried chicken 
+5.shiv sagar 
+6.chaat bazaar 
+7.olive garden 
+8.red lobster 
+9.ganesh bhel 
+10.wendy's 
+11.burger king 
+12.chai point
+13.dominoes
+14.juicy
+15.McDonalds
+16.onesta
+17.pizza hut
+18.truffles
+19.wow momo
+20.subway
+enter 'e' to exit
