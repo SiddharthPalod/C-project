@@ -52,13 +52,13 @@ void menu_file_editor(char* name) {
     }
     else if (command == 2) {
         FILE* abc = fopen(name, "r");
-        printf("\n\n\n Menu \n");
+        printf("\n\n Menu \n");
         char str1[20] = "cat ";
         strcat(str1, name);
         system(str1);
         char word[100];
         while(1){
-        printf("\n\n\nEnter the name of menu item to delete: ");
+        printf("\nEnter the name of menu item to delete: ");
         scanf("%s",word);
         // Create a temporary output file
         FILE *temp_file = fopen("temp.txt", "w");
@@ -83,7 +83,7 @@ void menu_file_editor(char* name) {
         printf("\nTo stop deleting press 1: ");
         int temp;
         scanf("%d",&temp);
-        if(temp)
+        if(temp==1)
             break;
         }
     }
@@ -151,6 +151,5 @@ int main() {
     {printf("%s was found in the database\n", name); 
     return 1;}
 }
-
 
 
