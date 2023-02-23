@@ -1,18 +1,8 @@
-1. Chicken_Burger $312
-2. Veg_Burger $219
-3. Boneless_Chicken_Wings $249
-4. Fries $169
-5. Iced_Coffee $180
-6. Mango_Shake $205
+Chicken_Burger $312
+Veg_Burger $219
+Boneless_Chicken_Wings $249
+Fries $169
+Iced_Coffee $180
+Mango_Shake $205
 $ 1
 
-Restaurant_Id: "104"
-
-Stock:
-14
-12
-13
-11
-12
-13
-14
