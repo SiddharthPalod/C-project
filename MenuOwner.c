@@ -108,7 +108,7 @@ void menu_file(char* name) {
 
 int mainfile() {
     
-    char name[100]; //replace it with the owner name variable
+    char name[100]; //replace it with the owner name variable given by shiven
     printf("Enter name of menu file: ");
     fgets(name, 100, stdin);
     name[strcspn(name, "\n")] = '\0'; // Remove trailing newline character
