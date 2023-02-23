@@ -9,6 +9,18 @@ struct current_user{
 };
 
 int main(int argc, char* argv[]){
+        //Basic intro design
+                printf("\n\t\t\t  _____________________________________________________________");
+                printf("\n\t\t\t  |      ------------------------------------------------      |");
+                printf("\n\t\t\t  |      |                                              |      |");
+                printf("\n\t\t\t  |      |                                              |      |");
+                printf("\n\t\t\t  |      |      WELCOME TO FOOD ORDERING SYSTEM 	|      |");
+                printf("\n\t\t\t  |      |                                              |      |");
+                printf("\n\t\t\t  |      |                                              |      |");
+                printf("\n\t\t\t  |      ------------------------------------------------      |");
+                printf("\n\t\t\t  |____________________________________________________________|\n");
+                printf("\n\n\n\n\n");
+        
         char command[20];
                 struct current_user cu1;
         if (strcmp(argv[1],"customer") == 0) {
