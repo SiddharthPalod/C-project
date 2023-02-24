@@ -230,16 +230,18 @@ void main()
 	{
 		// Read contents from file
     c = fgetc(fpt);
-    while (c != EOF)		//until end of file isn't encountered
+    while (c != EOF)		//printing until we encounter end of file
     {
         printf ("%c", c);
-        c = fgetc(fpt);		//PRINTING RESTAURANT LIST
+        c = fgetc(fpt);
     }
   
     fclose(fpt);
     label1:
-    printf("Enter the ID of the restaurant whose menu you wish to see and e if you want to go back : \n");
-    scanf("%s", id);		//taking input and checking cases
+    printf("Enter the NAME of the restaurant whose menu you wish to see and e if you want to go back : \n");
+	
+    scanf("%s", id);
+	
     if(strcmp(id,"e")==0)
     {
         goto labelstart;
@@ -248,7 +250,7 @@ void main()
     fpttr = fopen(id, "r");
     if (fpttr == NULL)
     {
-        printf("INVALID ID  !!!\nPlease enter correct ID\n");
+        printf("INVALID NAME  !!!\nPlease enter correct ID\n");
         goto label1;
     }
   
@@ -260,7 +262,6 @@ void main()
         a = fgetc(fpttr);
     }
     printf("\n");
-	fclose(fpttr);
     goto label1;
 	}
 	else if(choice == 3)
