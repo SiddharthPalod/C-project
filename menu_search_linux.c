@@ -228,7 +228,7 @@ void main()
 	}
 	else if (choice ==1)
 	{
-		system("usr/bin/clear"); 
+		system("/usr/bin/clear"); 
 		// this command will clear the screen in linux
 		// Read contents from file
     c = fgetc(fpt);
@@ -272,7 +272,7 @@ void main()
 	}
 	else if(choice == 3)
 	{
-		system("usr/bin/clear"); 
+		system("/usr/bin/clear"); 
 		// this command will clear the screen in linux
 		labelfilter:
 		printf("Filters :\n1.Veg Only\n2.Non-Veg\n3. Beverage\n4. Desert\n5.To go Back\n");
@@ -322,7 +322,7 @@ void main()
 	}
 	else if(choice == 4)
 	{
-		system("usr/bin/clear"); 
+		system("/usr/bin/clear"); 
 		//letting the program run out
 
 	}
