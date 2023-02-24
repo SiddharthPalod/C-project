@@ -77,4 +77,6 @@ int main()
 	fclose(r);
 	fclose(r1);
 	printf("CONGRATS! YOU HAVE SUCCESSFULLY REGISTERED.\n");
+	system("gcc MenuOwner.c");
+        system("./a.out username_input");
 }
