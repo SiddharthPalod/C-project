@@ -22,9 +22,9 @@ void main()
 	fpt = fopen("restroslist", "r");	// open file
 	
 	FILE* fp;
-	printf("Welcome !!!! \n");
+	printf("Welcome to the MENU!!!! \n");
 	labelstart:
-	printf("\n\n\nEnter 1 to see restaurant list, \n2 for key word search and \n3 for filter search \n4 to Continue: \n");
+	printf("\nEnter 1 to see restaurant list, \n2 for key word search and \n3 for filter search \n4 to Continue: \n");
 	scanf("%d", &choice);
 	if (choice == 2)
 	{
