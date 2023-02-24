@@ -135,8 +135,6 @@ void menu_file(char* name) {
 int main(int argc,char* argv[]) {
     char name[100];//replace it with the owner name variable given by shiven
     strcpy(name,argv[1]);
-    printf("Enter name of menu file: ");
-    fgets(name, 100, stdin);
     name[strcspn(name, "\n")] = '\0'; // Remove trailing newline character
     FILE* databaseowner = fopen("databaseowner", "r"); //Name for owner database
     if (databaseowner == NULL) {
@@ -177,5 +175,4 @@ int main(int argc,char* argv[]) {
     {printf("%s was found in the database\n", name); 
     return 1;}
 }
-
 
