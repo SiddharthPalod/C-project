@@ -7,7 +7,7 @@ void Menu_generator(char* Menu_Items[], int Prices[], FILE* menu, int no) {
         fprintf(menu, "%s ", Menu_Items[i]);
         fprintf(menu, "$%d\n", Prices[i]);
     }
-        fputs("$ 1",menu);    
+        fputs("~ 1",menu);    
 }
 
 void menu_file_maker(char* name) {
@@ -36,8 +36,8 @@ void menu_file_editor(char* name) {
     if (command == 1) {
         FILE* abc = fopen(name, "r");
         int n;
-        //code to delete $ 1
-        char word[]="$ 1";
+        //code to delete ~ 1
+        char word[]="~ 1";
         FILE *temp_file = fopen("temp.txt", "w");
         if (temp_file == NULL) {
             printf("Could not create temporary file\n");
@@ -131,9 +131,9 @@ void menu_file(char* name) {
     fclose(abc);
 }
 
-int main() {
-    
-    char name[100]; //replace it with the owner name variable given by shiven
+int main(int argc,char* argv[]) {
+    char name[100];//replace it with the owner name variable given by shiven
+    strcpy(name,argv[1]);
     printf("Enter name of menu file: ");
     fgets(name, 100, stdin);
     name[strcspn(name, "\n")] = '\0'; // Remove trailing newline character
