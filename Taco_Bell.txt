@@ -1,6 +1,0 @@
-1.burritto $40
-2.taco $40
-3.churro $40
-4.quesedilla $40
-5.mexican rice $40
-~ 1
