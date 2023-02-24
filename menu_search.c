@@ -242,8 +242,10 @@ void main()
   
     fclose(fpt);
     label1:
-    printf("Enter the ID of the restaurant whose menu you wish to see and e if you want to go back : \n");
+    printf("Enter the NAME of the restaurant whose menu you wish to see and e if you want to go back : \n");
+	
     scanf("%s", id);
+	
     if(strcmp(id,"e")==0)
     {
         goto labelstart;
@@ -252,7 +254,7 @@ void main()
     fpttr = fopen(id, "r");
     if (fpttr == NULL)
     {
-        printf("INVALID ID  !!!\nPlease enter correct ID\n");
+        printf("INVALID NAME  !!!\nPlease enter correct ID\n");
         goto label1;
     }
   
