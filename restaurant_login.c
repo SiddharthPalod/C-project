@@ -80,4 +80,6 @@ int main()
 		}  
         }
 	printf("YOU HAVE SUCCESSFULLY LOGGED IN!\n");
+	system("gcc MenuOwner.c");
+        system("./a.out username_input");
 }
