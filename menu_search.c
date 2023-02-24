@@ -280,7 +280,7 @@ void main()
 	{
 		system("cls");
 		labelfilter:
-		printf("Filters :\n1.Veg Only\n2.Non-Veg\n3.Spicy\n4. Beverage\n5. Desert\n6.To go Back\n");
+		printf("Filters :\n1.Veg Only\n2.Non-Veg\n3. Beverage\n4. Desert\n5.To go Back\n");
 		printf("Enter Choice ID\n");
 		scanf("%d", &choice2);
 
@@ -296,27 +296,21 @@ void main()
 			search("non-veg");
 			goto labelfilter;
 		}
-		else if(choice2 == 3)
-		{
-			printf("Dishes you want:\n");
-			search("spicy");
-			goto labelfilter;
-		}
 		
-		else if(choice2==4)
+		else if(choice2==3)
 		{
 			printf("Dishes you want:\n");
 			search("beverage");
 			goto labelfilter;
 
 		}
-		else if(choice2 == 5)
+		else if(choice2 == 4)
 		{
 			printf("Dishes you want:\n");
 			search("desert");
 			goto labelfilter;
 		}
-		else if(choice2==6)
+		else if(choice2==5)
 		{
 			goto labelstart;
 		}
