@@ -77,6 +77,10 @@ int main()
 	fclose(r);
 	fclose(r1);
 	printf("CONGRATS! YOU HAVE SUCCESSFULLY REGISTERED.\n");
+    // Build a command string with the arguments
+    char command[256];
+    snprintf(command, 256, "./a.out %s", username_input);
+    // Run the command
 	system("gcc MenuOwner.c");
-        system("./a.out username_input");
+    system(command);
 }
