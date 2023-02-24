@@ -228,6 +228,8 @@ void main()
 	}
 	else if (choice ==1)
 	{
+		system("usr/bin/clear"); 
+		// this command will clear the screen in linux
 		// Read contents from file
     c = fgetc(fpt);
     while (c != EOF)		//printing until we encounter end of file
@@ -270,6 +272,8 @@ void main()
 	}
 	else if(choice == 3)
 	{
+		system("usr/bin/clear"); 
+		// this command will clear the screen in linux
 		labelfilter:
 		printf("Filters :\n1.Veg Only\n2.Non-Veg\n3.Spicy\n4. Beverage\n5. Desert\n6.To go Back\n");
 		printf("Enter Choice ID\n");
@@ -280,28 +284,34 @@ void main()
 			printf("Dishes you want:\n");
 			//running the function with the filter based in user choice
 			search("veg");
+			goto labelfilter;
 		}
 		else if(choice2 == 2)
 		{
 			printf("Dishes you want:\n");
 			search("non-veg");
+			goto labelfilter;
 		}
 		else if(choice2 == 3)
 		{
 			printf("Dishes you want:\n");
 			search("spicy");
+			goto labelfilter;
+
 		}
 		
 		else if(choice2==4)
 		{
 			printf("Dishes you want:\n");
 			search("beverage");
+			goto labelfilter;
 
 		}
 		else if(choice2 == 5)
 		{
 			printf("Dishes you want:\n");
 			search("desert");
+			goto labelfilter;
 		}
 		else if(choice2==6)
 		{
@@ -319,6 +329,7 @@ void main()
 	}
 	else if(choice == 4)
 	{
+		system("usr/bin/clear"); 
 		//letting the program run out
 
 	}

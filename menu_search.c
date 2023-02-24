@@ -31,8 +31,8 @@ void main()
 	
 		
 		gets(wrd);
-		//system("usr/bin/clear"); 
-		// this command will clear the screen in linux
+		system("cls");
+		
 
 		printf("\nEnter What do you want to eat : ");
 		gets(wrd);
@@ -232,6 +232,8 @@ void main()
 	}
 	else if (choice ==1)
 	{
+		system("cls");
+		
 		// Read contents from file
     c = fgetc(fpt);
     while (c != EOF)		//printing until we encounter end of file
@@ -254,7 +256,7 @@ void main()
     fpttr = fopen(id, "r");
     if (fpttr == NULL)
     {
-        printf("INVALID NAME  !!!\nPlease enter correct NAME\n");
+        printf("INVALID NAME  !!!\nPlease enter correct ID\n");
         goto label1;
     }
   
@@ -276,6 +278,7 @@ void main()
 	}
 	else if(choice == 3)
 	{
+		system("cls");
 		labelfilter:
 		printf("Filters :\n1.Veg Only\n2.Non-Veg\n3.Spicy\n4. Beverage\n5. Desert\n6.To go Back\n");
 		printf("Enter Choice ID\n");
@@ -284,30 +287,34 @@ void main()
 		if(choice2 == 1)
 		{		//runnning functions based on filter chosen by user
 			printf("Dishes you want:\n");
-
 			search("veg");
+			goto labelfilter;
 		}
 		else if(choice2 == 2)
 		{
 			printf("Dishes you want:\n");
 			search("non-veg");
+			goto labelfilter;
 		}
 		else if(choice2 == 3)
 		{
 			printf("Dishes you want:\n");
 			search("spicy");
+			goto labelfilter;
 		}
 		
 		else if(choice2==4)
 		{
 			printf("Dishes you want:\n");
 			search("beverage");
+			goto labelfilter;
 
 		}
 		else if(choice2 == 5)
 		{
 			printf("Dishes you want:\n");
 			search("desert");
+			goto labelfilter;
 		}
 		else if(choice2==6)
 		{
@@ -327,8 +334,9 @@ void main()
 	}
 	else if(choice == 4)
 	{
-		exit(0);
-
+		system("cls"); 
+		//exit(0);
+		//letting the program run out
 	}
 	else
 	{
