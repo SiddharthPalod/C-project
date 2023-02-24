@@ -254,7 +254,7 @@ void main()
     fpttr = fopen(id, "r");
     if (fpttr == NULL)
     {
-        printf("INVALID NAME  !!!\nPlease enter correct ID\n");
+        printf("INVALID NAME  !!!\nPlease enter correct NAME\n");
         goto label1;
     }
   
@@ -262,6 +262,12 @@ void main()
     a = fgetc(fpttr);
     while (a != EOF)
     {
+		if(a=='~')
+		{
+			break;
+		}
+		
+		
         printf ("%c", a);
         a = fgetc(fpttr);
     }

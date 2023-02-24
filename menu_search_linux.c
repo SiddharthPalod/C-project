@@ -19,7 +19,7 @@ void main()
     FILE* fpt;
     FILE* fpttr;
     char id[16];
-	fpt = fopen("restroslist.txt", "r");	// open file
+	fpt = fopen("restroslist", "r");	// open file
 	
 	FILE* fp;
 	printf("Welcome !!!! \n");
@@ -31,7 +31,7 @@ void main()
 		char wrd[256], buffer[256], buffer2[256], temp[256],rev[256],rev2[256];
 		int bufflen, len, i, j, l,p,q, k, line,check;
 	
-		fp = fopen("restros.txt", "r");	// open file
+		fp = fopen("restros", "r");	// open file
 		fgets(wrd,100,stdin);
 		system("/usr/bin/clear"); 
 		// this command will clear the screen in linux
@@ -129,7 +129,7 @@ void main()
 
 		empty=0;
 
-		fp = fopen("menuitems.txt", "r");	// open file
+		fp = fopen("menuitems", "r");	// open file
 
 
 		len = strlen(wrd); // length of input word
@@ -246,11 +246,11 @@ void main()
     {
         goto labelstart;
     }
-    strcat(id,".txt");
+    //strcat(id,".txt");
     fpttr = fopen(id, "r");
     if (fpttr == NULL)
     {
-        printf("INVALID NAME  !!!\nPlease enter correct ID\n");
+        printf("INVALID NAME  !!!\nPlease enter correct NAME\n");
         goto label1;
     }
   
@@ -336,7 +336,7 @@ void search(char word[])
 	char  buffer[256],buffer2[256], temp[256],rev[256];
 	int bufflen, len, i, j, l,p,q, k, line,check,choice,choice2,empty=0;
 	char c,a;
-	fp = fopen("menuitems.txt", "r");	// open file
+	fp = fopen("menuitems", "r");	// open file
 	len = strlen(word); // length of input word
 
 
@@ -439,5 +439,3 @@ char *rever(char *str)
 
     return str;
 }
-
-		
