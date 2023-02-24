@@ -360,6 +360,9 @@ label2:
                 printf("Welcome , type help to see what u can do.\n, U can also type commands if u already know how to work!\n");
                 if (strcmp(command ,"help") == 0){
                         printf("Whatever stuff\n");
+			system(gcc what_to_run.c);
+			system(./a.out);
+			
                 }
         }
 
