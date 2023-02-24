@@ -1,6 +1,0 @@
-1. Chicken_Burger $90 
-2. Veg_Whopper $139
-3. Mango_Shake $60
-4. Boneless_Wings_Regular $49
-5. Veg_Burger $70
-6. Fries $100
