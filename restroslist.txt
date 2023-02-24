@@ -1,21 +1,21 @@
-1.taco bell 
-2.los pollos hermanos 
-3.rohit vadewale 
-4.kentucky fried chicken 
-5.shiv sagar 
-6.chaat bazaar 
-7.olive garden 
-8.red lobster 
-9.ganesh bhel 
-10.wendy's 
-11.burger king 
-12.chai point
-13.dominoes
-14.juicy
+1.Taco_Bell 
+2.Los_Pollos_Hermanos 
+3.Rohit_Vadewale 
+4.KFC 
+5.Shiv_Sagar 
+6.Chaat_bazaar 
+7.Olive_Garden 
+8.Red_lobster 
+9.Ganesh_Bhel 
+10.Wendys
+11.Burger_King 
+12.Chai_Point
+13.Dominoes
+14.Juicy
 15.McDonalds
-16.onesta
-17.pizza hut
-18.truffles
-19.wow momo
-20.subway
+16.Onesta
+17.Pizza_Hut
+18.Truffles
+19.Wow_Momo
+20.Subway
 enter 'e' to exit
