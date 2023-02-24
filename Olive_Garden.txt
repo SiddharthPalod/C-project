@@ -1,3 +1,0 @@
-1.breadsticks $40
-2.pasta $40
-~ 1
