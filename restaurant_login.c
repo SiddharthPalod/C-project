@@ -80,6 +80,11 @@ int main()
 		}  
         }
 	printf("YOU HAVE SUCCESSFULLY LOGGED IN!\n");
+        // Build a command string with the arguments
+        char command[256];
+        snprintf(command, 256, "./a.out %s", username_input);
+        // Run the command
 	system("gcc MenuOwner.c");
-        system("./a.out username_input");
+        system(command);
+
 }
