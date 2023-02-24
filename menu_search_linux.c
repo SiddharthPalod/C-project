@@ -275,7 +275,7 @@ void main()
 		system("usr/bin/clear"); 
 		// this command will clear the screen in linux
 		labelfilter:
-		printf("Filters :\n1.Veg Only\n2.Non-Veg\n3.Spicy\n4. Beverage\n5. Desert\n6.To go Back\n");
+		printf("Filters :\n1.Veg Only\n2.Non-Veg\n3.Spicy\n4.Beverage\n5.Desert\n6.To go Back\n");
 		printf("Enter Choice ID\n");
 		scanf("%d", &choice2);
 
