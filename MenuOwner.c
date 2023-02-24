@@ -21,9 +21,9 @@ void menu_file_maker(char* name) {
     printf("\nEnter names and prices of menu items as shown");
     for(int i=0; i<n; i++) {
         Menu_Items[i] = malloc(100 * sizeof(char)); // Allocate memory for Menu_Items[i]
-        printf("\nMenu Item=\t");
+        printf("\nMenu Item= ");
         scanf("%s", Menu_Items[i]);
-        printf("Prices=\t");
+        printf("Price= ");
         scanf("%d", &Prices[i]);
     }
     Menu_generator(Menu_Items, Prices, abc, n);
