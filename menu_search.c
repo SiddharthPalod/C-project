@@ -22,7 +22,7 @@ void main()
 	fp = fopen("restros.txt", "r");	// open file
 	printf("Welcome !!!! \n");
 	labelstart:
-	printf("\n\n\nEnter 1 to see restaurant list, \n2 for key word search and \n3 for filter search \n4 to exit: \n");
+	printf("\n\n\nEnter 1 to see restaurant list, \n2 for key word search and \n3 for filter search \n4 to Continue: \n");
 	scanf("%d", &choice);
 	if (choice == 2)
 	{
