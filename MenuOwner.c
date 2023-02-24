@@ -3,31 +3,61 @@
 #include <stdlib.h>
 #include <string.h>
 
-void Menu_generator(char* Menu_Items[], int Prices[], FILE* menu, int no) {
+void Menu_generator(char* Menu_Items[], int Prices[],FILE* menu, int no) {
     for (int i = 0; i < no; i++) {
         fprintf(menu, "%s ", Menu_Items[i]);
         fprintf(menu, "$%d\n", Prices[i]);
     }
-        fputs("~ 1",menu);    
+        fputs("~ 1",menu);
+        
+}
+
+void Menu_generator2(char* Menu_Items[],char* Category[],FILE* gole,char* name,int n){
+    for (int i = 0; i < n; i++) {
+        char* wrd=Menu_Items[i];
+        for(int i =0; i<strlen(wrd); i++){
+            if (wrd[i]=='_') wrd[i]=' ';
+        }
+        for(int i =0; i<strlen(wrd); i++){
+            if (wrd[i]=='_') wrd[i]=' ';
+        }
+        fprintf(gole,"%s (%s) - %s\n", wrd, Category[i],name);
+    }
 }
 
 void menu_file_maker(char* name) {
     FILE* abc = fopen(name, "w");
-    int n;
-    printf("\nEnter no of menu items: ");
-    scanf("%d", &n);
-    char* Menu_Items[n];
-    int Prices[n];
-    printf("\nEnter names and prices of menu items as shown");
-    for(int i=0; i<n; i++) {
-        Menu_Items[i] = malloc(100 * sizeof(char)); // Allocate memory for Menu_Items[i]
-        printf("\nMenu Item= ");
-        scanf("%s", Menu_Items[i]);
-        printf("Price= ");
-        scanf("%d", &Prices[i]);
-    }
-    Menu_generator(Menu_Items, Prices, abc, n);
-    fclose(abc);
+    FILE* gole= fopen("menuitems","w");
+        printf("\nEnter no of menu items to add: ");
+        int n;
+        scanf("%d",&n);
+        char* Menu_Items[n];
+        char* Category[n]; //stores user choosen category
+        int Prices[n];
+        char *category_array[] = {"veg", "non-veg", "spicy", "beverage", "desert"};
+        printf("\nEnter names and prices of menu items as shown");
+        for(int i=0; i<n; i++) {
+            Menu_Items[i] = malloc(100 * sizeof(char)); // Allocate memory for Menu_Items[i]
+            Category[i] = malloc(100 * sizeof(char)); // Allocate memory for Category[i]
+            printf("\nMenu Item= ");
+            scanf("%s", Menu_Items[i]);
+            printf("Prices= ");
+            scanf("%d", &Prices[i]);
+            printf("Choose Category from:\n");
+            for(int i=0;i<5;i++) //To add n more categories change value of 5 to then 5+n
+            {
+            printf("%d. %s\t",i+1,category_array[i]);}
+            printf("\nEnter choice: ");
+
+            int k;
+            scanf("%d", &k);
+            strcpy(Category[i],category_array[k-1]);            
+        }
+        Menu_generator(Menu_Items, Prices, abc, n);
+        Menu_generator2(Menu_Items, Category, gole,name, n);  
+        fclose(abc);
+        fclose(gole);
+
 }
 
 void menu_file_editor(char* name) {
@@ -52,6 +82,7 @@ void menu_file_editor(char* name) {
                 fputs(buffer, temp_file);
             }
         }
+
         // Close the input and output files
         fclose(abc);
         fclose(temp_file);
@@ -61,23 +92,40 @@ void menu_file_editor(char* name) {
         
         //Command code:
         FILE* abcd = fopen(name, "a");
+        FILE* gole= fopen("menuitems","a");
         printf("\nEnter no of menu items to add: ");
         scanf("%d",&n);
         char* Menu_Items[n];
+        char* Category[n]; //stores user choosen category
         int Prices[n];
+        char *category_array[] = {"veg", "non-veg", "spicy", "beverage", "desert"};
         printf("\nEnter names and prices of menu items as shown");
         for(int i=0; i<n; i++) {
             Menu_Items[i] = malloc(100 * sizeof(char)); // Allocate memory for Menu_Items[i]
-            printf("\nMenu Item=");
+            Category[i] = malloc(100 * sizeof(char)); // Allocate memory for Category[i]
+            printf("\nMenu Item= ");
             scanf("%s", Menu_Items[i]);
-            printf("Prices=");
+            printf("Prices= ");
             scanf("%d", &Prices[i]);
+
+            printf("Choose Category from:\n");
+            for(int i=0;i<5;i++) //To add n more categories change value of 5 to then 5+n
+            {
+            printf("%d. %s\t",i+1,category_array[i]);}
+            printf("\nEnter choice: ");
+
+            int k;
+            scanf("%d", &k);
+            strcpy(Category[i],category_array[k-1]);
         }
-        Menu_generator(Menu_Items, Prices, abcd, n);  
+        Menu_generator(Menu_Items, Prices, abcd, n);
+        Menu_generator2(Menu_Items, Category, gole,name, n);  
         fclose(abcd);
+        fclose(gole);
     }
     else if (command == 2) {
         FILE* abc = fopen(name, "r");
+        FILE* gole= fopen("menuitems","r");
         printf("\n\n Menu \n");
         char str1[20] = "cat ";
         strcat(str1, name);
@@ -88,6 +136,8 @@ void menu_file_editor(char* name) {
         scanf("%s",word);
         // Create a temporary output file
         FILE *temp_file = fopen("temp.txt", "w");
+        FILE *temp_file1 = fopen("temp1.txt", "w");
+
         if (temp_file == NULL) {
             printf("Could not create temporary file\n");
             return;
@@ -100,12 +150,24 @@ void menu_file_editor(char* name) {
                 fputs(buffer, temp_file);
             }
         }
+
+        while (fgets(buffer, sizeof(buffer), gole) != NULL) {
+            // If the line does not contain the word, write it to the output file
+            if (strstr(buffer, word) == NULL) {
+                fputs(buffer, temp_file1);
+            }
+        }
         // Close the input and output files
         fclose(abc);
         fclose(temp_file);
+        fclose(gole);
+        fclose(temp_file1);
         // Rename the temporary file to the original file
         remove(name);
+        remove("menuitems");
         rename("temp.txt", name);
+        rename("temp1.txt", "menuitems");
+
         printf("\nTo stop deleting press 1: ");
         int temp;
         scanf("%d",&temp);
@@ -131,6 +193,7 @@ void menu_file(char* name) {
     // TODO: Implement menu file editor
     fclose(abc);
 }
+
 
 int main(int argc,char* argv[]) {
     char name[100];//replace it with the owner name variable given by shiven
