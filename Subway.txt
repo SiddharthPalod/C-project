@@ -1,6 +1,0 @@
-1.Steak and cheese sandwich $60
-2.Meatball sandwich $80
-3.Chicken teriyaki sandwich $78
-4.tuna fish sandwich $145
-5.Club sandwich $20
-~ 1
