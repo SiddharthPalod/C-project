@@ -258,6 +258,10 @@ void main()
     a = fgetc(fpttr);
     while (a != EOF)
     {
+	    if(a=='~')
+		{
+			break;
+		}
         printf ("%c", a);
         a = fgetc(fpttr);
     }
