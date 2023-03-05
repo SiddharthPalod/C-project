@@ -1,31 +1,31 @@
 //Code contributor: Siddharth Palod
 #include <stdio.h>
-#include <time.h>
+#include <stdlib.h>
+#include <unistd.h>
 
-int main() {
-    int duration = 15; // in seconds
-    time_t start_time;
-    time_t end_time;
-    int order_placed = 0;
-    int order_delivered = 0;
+void main() {
+    int duration;
+    int minutes, seconds;
+    //remove it with time calculated using distance
+        printf("Enter the duration of the timer in seconds: ");
+        scanf("%d", &duration);
 
-    // Simulated event: order is placed
-    order_placed = 1;
+    minutes = duration / 60;
+    seconds = duration % 60;
 
-    if (order_placed) {
-        start_time = time(NULL);
-        end_time = start_time + duration;
+    while (duration >= 0) {
+        system("clear");
+        printf("%02d:%02d\n", minutes, seconds);
+        sleep(1); // wait for 1 second
 
-        while (!order_delivered && time(NULL) < end_time) {
-            // Check for event: order delivered
-            // If order delivered, set order_delivered = 1 to exit loop
+        seconds--;
+        if (seconds < 0) {
+            minutes--;
+            seconds = 59;
         }
+        duration--;
+        //any other thing which needs to be displayed at that time add in this loop
     }
-    while (time(NULL) < end_time) {
-        // wait for the timer to finish
-    }
-    printf("Timer has finished!\n");
-    //Prints 
-    return 0;
-}
 
+    printf("Time's up!\a\n"); // sound alarm
+}
