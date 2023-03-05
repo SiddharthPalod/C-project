@@ -48,7 +48,7 @@ void menu_file_maker(char* name) {
     char* Menu_Items[n];
     char* Category[n]; //stores user chosen category
     int Prices[n];
-    char* category_array[] = {"veg", "non-veg", "beverage", "desert"};
+    char* category_array[] = {"veg", "non-veg", "beverage", "dessert"};
     printf("\nEnter names and prices of menu items as shown");
     for (int i = 0; i < n; i++) {
         Menu_Items[i] = malloc(100 * sizeof(char)); // Allocate memory for Menu_Items[i]
@@ -130,7 +130,7 @@ void menu_file_editor(char* name) {
         char* Menu_Items[n];
         char* Category[n]; //stores user choosen category
         int Prices[n];
-        char *category_array[] = {"veg", "non-veg", "beverage", "desert"};
+        char *category_array[] = {"veg", "non-veg", "beverage", "dessert"};
         printf("\nEnter names and prices of menu items as shown");
         for (int i = 0; i < n; i++) {
             Menu_Items[i] = malloc(100 * sizeof(char)); // Allocate memory for Menu_Items[i]
@@ -229,7 +229,7 @@ void menu_file_editor(char* name) {
 
         while (fgets(buffer, sizeof(buffer), gole) != NULL) {
             // If the line does not contain the word, write it to the output file
-            if ( ( (strstr(buffer, wrd) != NULL) && (strstr(buffer,name) != NULL) )==0 ) {
+            if (strstr(buffer, wrd) == NULL) {
                 fputs(buffer, temp_file1);
             }
         }
@@ -350,17 +350,9 @@ int main(int argc,char* argv[]) {
             c = fgetc(abc);
             ungetc(c, abc);
             if(c==EOF) {
-                system("clear");
-                printf("------------------------Sasta SWIGGY Create MENU------------------------\n");    
+                printf("---------Create your menu---------\n");
                 menu_file_maker(name);
-                printf("\n\t\t\tDo you want to open menu editor?\nPress 1 for yes\t\t\t Press anything else to exit\n");
-                int command;
-                scanf("%d",&command);
-                if(command==1){
-                    menu_file_editor(name);
-                    return 1;}
-                else{
-                    return 1;}
+                return 1;
             }
             fseek(abc, -1, SEEK_SET);
             fscanf(abc,"%s",temp);
@@ -368,10 +360,9 @@ int main(int argc,char* argv[]) {
             printf("Do you want to edit the menu?\nPress 1 for Yes otherwise Press anything else to exit: ");
             scanf("%d", &command);
             if (command == 1) {
-                menu_file_editor(name);
-                break;}
-            else{
-                    break;}
+                menu_file_editor(name);}
+            else
+                    break;
         fclose(databaseowner);
         }
     }
