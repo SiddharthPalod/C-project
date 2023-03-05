@@ -62,7 +62,7 @@ void main()
     fclose(fpt);
     int cx = converter(rx);
     int cy = converter(ry);
-    float time = sqrt((cx-p1.xcor)*(cx-p1.xcor) + (cy-p1.ycor)*(cy-p1.ycor));
+    float time = (sqrt((cx-p1.xcor)*(cx-p1.xcor) + (cy-p1.ycor)*(cy-p1.ycor)))+5;
     printf("the estimated time of arrival of your food is %d mins",(int)time );
     }
 int converter(char * str)
