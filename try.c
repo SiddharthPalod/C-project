@@ -53,8 +53,8 @@ fclose(prat);
     cu cu1;
 	struct oitem * temp;
 	ro r1;
-	int k;
-	scanf("%d",&k);
+	int k=checkifint("enter the valid option");
+	//scanf("%d",&k);
 	if (k==1 && strcmp(argv[1], "customer") == 0)
 
 	{
@@ -108,12 +108,7 @@ fclose(prat);
 
 		}while(strcmp(command,"continue") != 0);
 		
-                       /* printf("Name: ");
-                        scanf("%s", cu1.name);
-                        printf("Phno: ");
-			scanf("%d", &cu1.phno);*/
-			//system("gcc menu_search_linux.c");
-			//system("./a.out");
+                      
 			strcpy(str, menusearch());
 			goto labelmenusearch;
 			
@@ -243,8 +238,12 @@ label2:
 						}
 					}
 					// to caluculate the distance by gole
-					printf("Please enter your address in terms of x and y coordinates\n");
-					scanf("%d, %d" , &cu1.x, &cu1.y);
+					printf("Please enter your x coordinate\n");
+					cu1.x=checkifint("enter valid x coordinate");
+					printf("Please enter your y coordinate\n");
+					cu1.y=checkifint("enter vald y coordinate");
+					//scanf("%d, %d" , &cu1.x, &cu1.y);
+					
 					FILE * gole;
 					gole = fopen("address", "r");			
 					char rx[10];
