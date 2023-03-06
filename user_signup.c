@@ -4,10 +4,10 @@
 
 struct user
 {
-	char username[100];
-	char password[100];
-	char number[20];
-	char email[100];
+	char username[100];		//struct variable to hold username
+	char password[100];		//struct variable to hold password
+	char number[20];		//struct variable to hold phone number of user
+	char email[100];		//struct variable to hold email of user
 };
 
 
@@ -76,6 +76,19 @@ int main()
 			printf("INVALID PHONE NUMBER ,REENTER PHONE NUMBER\n");
 			continue;
 		}
+		int c1=0;
+                for(int i=0;i<strlen(ph_no);i++)
+                {
+                        if (ph_no[i]>'9' || ph_no[i]<'0')
+                        {
+                                c1++;
+                        }
+                }
+                if (c1>0)
+                {
+                        printf("INVALID PHONE NUMBER ,REENTER PHONE NUMBER\n");
+                        continue;
+                }
 		int count=0;
                 for(int i=0;i<n;i++)
                 {
