@@ -40,7 +40,8 @@ void menu_file_maker(char* name) {
     FILE* gole = fopen("menuitems", "a");
     printf("\nEnter no of menu items to add: ");
     int n;
-    scanf("%d", &n);
+    //scanf("%d", &n);
+    n=checkifint("enter a valid number ");
     while (n < 0 || n > 100) {
         printf("Invalid no of menu items\nplease enter again: ");
         scanf("%d", &n);
@@ -57,11 +58,13 @@ void menu_file_maker(char* name) {
         scanf("%s", Menu_Items[i]);
         printf("Prices= ");
         int k;
-        scanf("%d", &k);
-        while (k < 0) {
+        //scanf("%d", &k);
+        k=checkifint("enter a valid price");
+        /*while (k < 0) {
             printf("Invalid price please enter again: ");
             scanf("%d", &k);
-        }
+            
+        }*/
         Prices[i] = k;
 
         printf("Choose Category from:\n");
@@ -70,10 +73,12 @@ void menu_file_maker(char* name) {
             printf("%d. %s\t", j + 1, category_array[j]);
         }
         printf("\nEnter choice using number: ");
-        scanf("%d", &k);
+        //scanf("%d", &k);
+        k=checkifint("Invalid choice please enter a number in list ");
         while (k > 4 || k <= 0) {
             printf("Invalid choice please enter a number in list ");
-            scanf("%d", &k);
+            //scanf("%d", &k);
+            k=checkifint("Invalid choice please enter a number in list ");
         }
         strcpy(Category[i], category_array[k - 1]);
     }
@@ -89,7 +94,8 @@ void menu_file_editor(char* name) {
     printf("------------------------Sasta SWIGGY MENU EDITOR------------------------\n");    
     printf("Restaurant Name: %s\n",name);
     printf("\t\t\tPress 1 to add items\n\t\t\tPress 2 to delete items\n\t\t\tPress 3 to create new\n\t\t\tPress 4 to see menu\n\t\t\tPress anything else to quit\n");
-    scanf("%d",&command);
+    //scanf("%d",&command);
+    command=checkifint("Invalid choice please enter a number in list ");
 
 //To add items
     if (command == 1) {
@@ -122,10 +128,12 @@ void menu_file_editor(char* name) {
         FILE* abcd = fopen(name, "a");
         FILE* gole = fopen("menuitems", "a");
         printf("\nEnter no of menu items to add: ");
-        scanf("%d", &n);
+        //scanf("%d", &n);
+        n=checkifint("Invalid no of menu items\nplease enter again: ");
         while (n < 0 || n > 100) {
             printf("Invalid no of menu items\nplease enter again: ");
-            scanf("%d", &n);
+            //scanf("%d", &n);
+            n=checkifint("Invalid no of menu items\nplease enter again: ");
         }
         char* Menu_Items[n];
         char* Category[n]; //stores user choosen category
@@ -139,10 +147,12 @@ void menu_file_editor(char* name) {
             scanf("%s", Menu_Items[i]);
             printf("Prices= ");
             int k;
-            scanf("%d", &k);
+            //scanf("%d", &k);
+            k=checkifint("Invalid price please enter again: ");
             while (k < 0) {
                 printf("Invalid price please enter again: ");
-                scanf("%d", &k);
+                //scanf("%d", &k);
+                k=checkifint("Invalid price please enter again: ");
             }
             Prices[i] = k;
             printf("Choose Category from:\n");
@@ -151,10 +161,12 @@ void menu_file_editor(char* name) {
                 printf("%d. %s\t", i+1, category_array[i]);
             }
             printf("\nEnter choice using number: ");
-            scanf("%d", &k);
+            //scanf("%d", &k);
+            k=checkifint("Invalid choice please select a number in list ");
             while (k > 4 || k <= 0) {
                 printf("Invalid choice please select a number in list ");
-                scanf("%d", &k);
+                //scanf("%d", &k);
+                k=checkifint("Invalid choice please select a number in list ");
             }
             strcpy(Category[i], category_array[k-1]);
         }
