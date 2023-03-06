@@ -5,6 +5,8 @@
 #include<math.h>
 #include"all.h"
 #include"datatypes.c"
+#include <unistd.h>
+
 
 char id[23];
 
@@ -323,7 +325,39 @@ labelend:
 					fprintf(fptr, "The total amount is: Rs. %d\n", amount);
 					//fprintf(fptr,"Your order no is %d\n\n", order_no++);
 					printf("%s, Your order's estimated time of arrival is %d mins\n", cu1.name, (int)time);
-		
+
+
+    int minutes, seconds;
+    minutes = time / 60;
+    seconds = (int)time % 60;
+
+    while (time >= 0) {
+        system("clear");
+        printf("%02d:%02d\n", minutes, seconds);
+        //if time more than 50        
+        printf("       __            \t\t\t\t\n");     
+        printf("      /__|__         \t\t\t\t");     printf("        .______.                    \n");
+        printf("      \\\\  /          \t\t\t\t");   printf("  ._____| _]>  |_______________.    \n");
+        printf("        /|__         \t\t\t\t");     printf("  |-----|______|---------------|    \n");
+        printf(" .___.  |,` T__,./   \t\t\t\t");     printf("  |  __          __________    |    \n");
+        printf("/    |_-.\\\\ _    --. \t\t\t\t");   printf("  | |__|   __   |RESTAURANT|   |    \n");
+        printf("\\ ____,'  `))`___,-' \t\t\t\t");    printf("  |=======|  |=================|    \n");  
+        printf(" `\\_./ '--'  \\_./ _ _ _   _ _ _   _ _ _  _ _  _ _ |_______[  ]_________________|    \n");
+
+        sleep(1); // wait for 1 second
+
+        seconds--;
+        if (seconds < 0) {
+            minutes--;
+            seconds = 59;
+        }
+        time--;
+        //any other thing which needs to be displayed at that time add in this loop
+    }
+
+    printf("Time's up!\a\n"); // sound alarm
+
+
 	
 	printf("Would you like to give feedback?(enter Y for yes, N for no) \n");
 	char check[4];
