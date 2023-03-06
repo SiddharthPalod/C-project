@@ -333,17 +333,37 @@ labelend:
 
     while (time >= 0) {
         system("clear");
-        printf("%02d:%02d\n", minutes, seconds);
-        //if time more than 50        
-        printf("       __            \t\t\t\t\n");     
-        printf("      /__|__         \t\t\t\t");     printf("        .______.                    \n");
-        printf("      \\\\  /          \t\t\t\t");   printf("  ._____| _]>  |_______________.    \n");
-        printf("        /|__         \t\t\t\t");     printf("  |-----|______|---------------|    \n");
-        printf(" .___.  |,` T__,./   \t\t\t\t");     printf("  |  __          __________    |    \n");
-        printf("/    |_-.\\\\ _    --. \t\t\t\t");   printf("  | |__|   __   |RESTAURANT|   |    \n");
-        printf("\\ ____,'  `))`___,-' \t\t\t\t");    printf("  |=======|  |=================|    \n");  
-        printf(" `\\_./ '--'  \\_./ _ _ _   _ _ _   _ _ _  _ _  _ _ |_______[  ]_________________|    \n");
-
+        printf("\t\t\t%02d  :   %02d\n", minutes, seconds);
+        if(minutes>=1){
+            printf("       __            \t\t\t\t\n");     
+            printf("      /__|__         \t\t\t\t");     printf("        .______.                    \n");
+            printf("      \\\\  /          \t\t\t\t");   printf("  ._____| _]>  |_______________.    \n");
+            printf("        /|__         \t\t\t\t");     printf("  |-----|______|---------------|    \n");
+            printf(" .___.  |,` T__,./   \t\t\t\t");     printf("  |  __          __________    |    \n");
+            printf("/    |_-.\\\\ _    --. \t\t\t\t");   printf("  | |__|   __   |RESTAURANT|   |    \n");
+            printf("\\ ____,'  `))`___,-' \t\t\t\t");    printf("  |=======|  |=================|    \n");  
+            printf(" `\\_./ '--'  \\_./ _ _ _   _ _ _   _ _ _  _ _  _ _ |_______[  ]_________________|    \n");
+            if(minutes>1)
+                printf("\n\t\t Order is being prepared !\n");
+            else
+                printf("\n\t\t Driver is picking up your order\n");
+        }
+        else{
+            printf("       __            \t\t\t       \n");
+            printf("      /__|__         \t\t\t");         printf("      ___                      \n");
+            printf("      \\\\  /          \t\t\t");       printf("     /   \\                    \n");
+            printf("        /|__         \t\t\t");         printf("    /VVVVV\\______________     \n");
+            printf(" .___.  |,` T__,./   \t\t\t");         printf("   /   _   \\nnnnnnnnnnnnn\\   \n");
+            printf("/    |_-.\\\\ _    --. \t\t\t");       printf("   |  /_\\  |\\_____________\\ \n");
+            printf("\\ ____,'  `))`___,-' \t\t\t");        printf("   |  __   |  Arriving   |     \n");
+            printf(" `\\_./ '--'  \\_./_-_  _-_  _-_  _-_  _ _   ");    printf("|_|o |__|_____Soon____|     \n");
+            if(seconds>30)
+                printf("\n\t\t Driver is on the way\n");
+            else if(seconds>5)
+                printf("\n\t    Driver has arrived to your location\n");
+            else    
+                printf("\n\t\t\t ORDER  RECIEVED \n");
+        }
         sleep(1); // wait for 1 second
 
         seconds--;
@@ -355,7 +375,7 @@ labelend:
         //any other thing which needs to be displayed at that time add in this loop
     }
 
-    printf("Time's up!\a\n"); // sound alarm
+    printf("\n\t T H A N K S for Ordering from SASTA SWIGGY\n");
 
 
 	
