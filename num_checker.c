@@ -33,6 +33,7 @@ int f()
 	}while(c>9 || c<0 );
 	
 return n;
+}
 
 }
 
