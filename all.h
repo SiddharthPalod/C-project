@@ -16,14 +16,11 @@ int converter(char * str);
 
 struct user;
 char * f1();
-void search(char word[]);
+void search(char word[], char file2open[]);
 char *rever(char *str);
 char * menusearch();
 
 struct restaurant1;
 char * f2();
 
-
-
-
-
+int checkifint(char str[]);
