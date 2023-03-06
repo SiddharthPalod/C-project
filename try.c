@@ -282,7 +282,8 @@ labelend:
 					fclose(gole);
 					int cx = converter(rx);
 					int cy = converter(ry);
-					float time = (sqrt( (pow((cx - cu1.x), 2)) + (pow((cy - cu1.y), 2)) ) / 20.0) + 5;
+					float time =(sqrt( (pow((cx - cu1.x), 2)) + (pow((cy - cu1.y), 2)) )/5)  +5;
+					
 					
 
 					
@@ -324,12 +325,17 @@ labelend:
 					//printf("Your order no is %d\n", order_no++);       		
 					fprintf(fptr, "The total amount is: Rs. %d\n", amount);
 					//fprintf(fptr,"Your order no is %d\n\n", order_no++);
+
 					printf("%s, Your order's estimated time of arrival is %d mins\n", cu1.name, (int)time);
 
 	//Code for timer display after confirmation of order
 	int minutes, seconds;
 	minutes = time / 60;
 	seconds = (int)time % 60;
+	char final[50];
+	printf("Press any key to Continue\n");
+	scanf("%s", final);
+	scanf("%s", final);
 
 	while (time >= 0) {
 	system("clear");
