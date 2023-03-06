@@ -15,22 +15,22 @@ if (argc == 1 || argc > 2 ){
 	printf("Run as ./a.out owner or ./a.out customer\n");
 	exit(1);
 }
-if (strcmp(argv[1], "customer") != 0 && strcmp(argv[1], "owner") != 0){
+if (strcmp(argv[1], "customer") != 0 && strcmp(argv[1], "owner") != 0){// if user doesn't run code properly just tell them how to
 	printf("Run as ./a.out owner or ./a.out customer\n");
 	exit(1);
 }  
-printf("IF YOU ALREADY HAVE AN ACCOUNT PRESS 1\n");
+printf("IF YOU ALREADY HAVE AN ACCOUNT PRESS 1\n");//provide options to user
 printf("IF YOU WISH TO DELETE AN ACCOUNT PRESS 2\n");
 printf("IF YOU WISH TO SIGN UP PRESS ANY OTHER NUMBER\n");
 char c;
-struct oitem * point = NULL;
-FILE * sid = fopen("databaseowner", "r");
-FILE * prat = fopen("address", "r");
+struct oitem * point = NULL;// later points to different ordered items
+FILE * sid = fopen("databaseowner", "r");//opens the file containing all the owner's names
+FILE * prat = fopen("address", "r");// opens the file containing all restaurants addresses
 char word[20] = "hello";
 int iter=0;
 int xcor, ycor;
 struct restaurant restaurants[100];
-while((c = fgetc(sid)) != EOF){
+while((c = fgetc(sid)) != EOF){// fill required data into the array of structures
 	ungetc(c, sid);
 	fscanf(sid,"%s", word);
 	strcpy(restaurants[iter].name, word);
@@ -40,23 +40,23 @@ while((c = fgetc(sid)) != EOF){
 	iter++;
 	fgetc(sid);
 }
-strcpy(restaurants[iter].name, "\0");
+strcpy(restaurants[iter].name, "\0");// end with a "\0"
 fclose(sid);
 fclose(prat);
 
 
-	int amount = 0;	
-	int order_no = 100;
-	char command[20];
-	char str[20]; char str2[20];
+	int amount = 0;	// total amount to be paid
+	int order_no = 100;//discard
+	char command[20];// stores commands entered by the user
+	char str[20]; char str2[20];// store commands as well at different stages
 	int n;// number of items in a restaurant
 	int q;// represents quantity
-	FILE *rest, * fptr = fopen("1", "w");
+	FILE *rest, * fptr = fopen("1", "w");// open a random file
     cu cu1;
-	struct oitem * temp;
-	ro r1;
-	int k;
-	scanf("%d",&k);
+	struct oitem * temp;// later points to different ordered items
+	ro r1;// r1 is the restaurant r1.name is the current restaurant u are ordering from
+	int k;// helps to select the option 
+	scanf("%d",&k);//Done by shashwat (putting shiven's code into prateek's code)
 	if (k==1 && strcmp(argv[1], "customer") == 0)
 
 	{
@@ -88,8 +88,8 @@ fclose(prat);
 		strcpy(r1.name ,f2());
 	}
 	//printf("%s", cu1.name);
-	struct item * first = (struct item*) malloc(1 * sizeof(struct item));
-	struct oitem * order = (struct oitem*) malloc(1 * sizeof(struct oitem));
+	struct item * first = NULL;// contains a ptr to linked list of all the menu items
+	struct oitem * order = NULL;// contains a ptr to a linked list of all ordered items
         if (strcmp(argv[1],"customer") == 0) {
                 printf("Type continue to proceed Type order history to see your history\n");
                 printf(">");
@@ -102,55 +102,36 @@ fclose(prat);
                         system("/usr/bin/clear");
 		}
 		else if(strcmp(command, "history") == 0){
-			strcpy(word, "vim ");
+			strcpy(word, "cat ");
 			strcat(word, cu1.name);
+			system("/usr/bin/clear");
 			system(word);		
 		}
 		else{;}
 
 		}while(strcmp(command,"continue") != 0);
 		
-                       /* printf("Name: ");
-                        scanf("%s", cu1.name);
-                        printf("Phno: ");
-			scanf("%d", &cu1.phno);*/
-			//system("gcc menu_search_linux.c");
-			//system("./a.out");
 			strcpy(str, menusearch());
 			goto labelmenusearch;
-			
-		//	scanf("%s", str2);
-		//	if (strcmp(str2, "history") == 0){
-		//		strcpy(str ,cu1.name);
-		//		char vim[20] = "vim";
-		//		strcat(vim, " ");
-		//		strcat(vim, str);
-		//		system(vim);
-		//	}
-		//	else{
-		//		printf("error");
-		//	}
+		
 			printf("Please tell us where u want to order from(Type 'list' to see all restaurants)\n>");
 label1:
 			scanf("%s", str);
 labelmenusearch:	
-			if(strcmp(str, "list") == 0) {
+			if(strcmp(str, "list") == 0) {// just print the list of restaurants 
 				for(int i=0; strcmp(restaurants[i].name, "\0") != 0; i++){
 					printf("%s ", restaurants[i].name);
 				}
 				printf("\n");
-				goto label1;
+				goto label1;// if restaurant is present allow him to type where he wants to order
 			}
-					
-					strcpy(str2, str);
-					//strcat(str, ".f");
-					//fptr = fopen(str, "r");
-					int i= 0;
+					strcpy(str2, str);// now str2 holds the restaurant's name
+					int i= 0;// helps store the index of array that has the desired restaurant
 					while( (strcmp(restaurants[i].name, "\0") != 0)   && strcmp(restaurants[i].name, str) != 0){//till u find the restaurant or find that the restaurant doesn't exist keep going through the array of structs
 						i++;	
 					}
 					restaurants[i].head = NULL;
-					// now get all the items of the restaurant into a linked list called first
+				// if the restaurant name (entered by user) doesn't exist
 					if(strcmp(str, "\0") == 0){
 						printf("Invalid command\n");
 						printf("Press and key to continue\n");
@@ -158,8 +139,9 @@ labelmenusearch:
 						scanf("%c", &dummy);
 						system("/usr/bin/clear");
 						printf("Please tell us where u want to order from(Type 'list' to see all restaurants)\n>");
-						goto label1;
+						goto label1;// ask user to re-enter restaurant name
 					}
+		// now get all the items of the restaurant into a linked list called first
 					else if(strcmp(str, restaurants[i].name) == 0){
 						fptr = fopen(str, "r");
 						first = NULL;
@@ -167,7 +149,7 @@ labelmenusearch:
 						system("/usr/bin/clear");
 						printf("Welcome to %s, type 'start' to start ordering\n>", str2);				
 					}
-					
+					//just incase some unknown error turns up(can be treated same as else if)
 					else{
 						printf("No match found, try again\n>");
 						system("/usr/bin/clear");
@@ -176,7 +158,7 @@ labelmenusearch:
 					}
 labelx:
 					scanf("%s", str);
-					if(strcmp(str, "start") == 0){
+					if(strcmp(str, "start") == 0){// if he enters start show him the menu 
 						printf("Here is the menu\n");
 						printf("-------------------------------\n");
 						printf("item                   | price \n");
@@ -185,13 +167,13 @@ labelx:
 						printf("-------------------------------\n");	
 						printf("Now u can order!\n\n");
 					}
-					else{
+					else{// if user doesn't input start
 						printf("Please type start\n>");
 						goto labelx;
 					}
-					printf("At any point wheen asked for item entry type 'back' to restart order\ntype 'end' to finish order\n");
+					printf("At any point when asked for item entry type 'back' to restart order\ntype 'end' to finish order\n");
 						
-					strcpy(str, "hello");
+					strcpy(str, "hello");// put a random string in str
 					order = NULL;
 					while(strcmp(str, "end") != 0){
 label2:
@@ -204,22 +186,16 @@ label2:
 						        	
 						}
 						struct item * temp1 = first;// temp1 is used to check if user has entered a valid item or not
-						int flag = 0;// if item exists flag becomes 1
+						int flag = 0;// if item exists(is valid) flag becomes 1
 						while(temp1 != NULL){
 							if (strcmp(temp1->name, str) == 0) { flag = 1; break; }
 							else temp1 = temp1->next;
 						}
 						if (flag == 0){
 							printf("Invalid item, please continue your order from where u left\n");
-							/*point = order;
-							while(point->next != NULL){
-								point = point->next;
-							}
-							point = NULL;
-							//order = NULL;*/
 							goto label2;
 						}
-
+						//if the item is valid, add it to cart
 						printf("enter the req quantity: ");
 						scanf("%d", &q);
 						//if (strcmp(str, "end") == 0){ break; }
@@ -228,23 +204,13 @@ label2:
 						if (strcmp(str, "end") != 0){	
 							temp = createoitem(str, q, first);
 							temp = add_oitem(order ,temp);
+							printf("%d %s added to cart!\n", temp->qty, temp->name);
 						}				
-						if (temp == NULL){
-							free(temp);
-							//printf("Invalid item, please continue your order from where u left\n");
-							/*point = order;
-							while(point->next != NULL){
-								point = point->next;
-							}
-							point = NULL;
-							//order = NULL;
-							goto label2;*/
-						}
-						else {
+						{// after adding the item make order point to the start of the list of ordered items
 							order = temp;
 						}
 					}
-					// to caluculate the distance by gole
+					// to calculate the distance (by Aaditya Gole)
 					printf("Please enter your address in terms of x and y coordinates\n");
 					scanf("%d, %d" , &cu1.x, &cu1.y);
 					FILE * gole;
@@ -281,52 +247,45 @@ labelend:
 
 					fclose(gole);
 					int cx = converter(rx);
-					int cy = converter(ry);
+					int cy = converter(ry);//use formula of distance between two points
 					float time = (sqrt( (pow((cx - cu1.x), 2)) + (pow((cy - cu1.y), 2)) ) / 20.0) + 5;
 					
-
 					
-					
-					
-					if (strcmp(str,"end") != 0){
+					if (strcmp(str,"end") != 0){// just to ensure nothing went wrong
 						printf("order error\n"); exit(0);
 					}
 					else {
 						system("/usr/bin/clear");		
 						printf("Your order is:\n");
-						fptr = fopen(cu1.name, "a");
-
-						fprintf(fptr, "%s\n", str2);
+						fptr = fopen(cu1.name, "a");// points to the order history file of that particular customer
+					// str2 contains the name of the restaurant
+						fprintf(fptr, "%s\n", str2);// just some decoration
 						fprintf(fptr, "--------------------------------------------\n");
 						printf("--------------------------------------------\n");
 
-						printf("%-23s |%-6s |%-3s |%-5s\n", "item", "price", "qty", "Total");
-						fprintf(fptr, "%-23s |%-6s |%-3s |%-5s\n", "item", "price", "qty", "Total");
+						printf("%-23s |%-6s |%-3s |%-5s\n", "ITEM", "PRICE", "QTY", "TOTAL");
+						fprintf(fptr, "%-23s |%-6s |%-3s |%-5s\n", "ITEM", "PRICE", "QTY", "TOTAL");
 						fprintf(fptr, "--------------------------------------------\n");
 						printf("--------------------------------------------\n");
 						temp = order;
 						for(int i=0; temp != NULL; temp=temp->next){
-							printf("%-23s |$%-5d |%-3d |%-5d\n", temp->name, temp->price, temp->qty, temp->qty * temp->price);
-														
-
+							printf("%-23s |$%-5d |%-3d |%-5d\n", temp->name, temp->price, temp->qty, temp->qty * temp->price);// calculate subprices
 							fprintf(fptr, "%-23s |$%-5d |%-3d |%-5d\n", temp->name, temp->price, temp->qty, temp->qty * temp->price);
-
 						}
 						fprintf(fptr, "--------------------------------------------\n");
 						printf("--------------------------------------------\n");
 
 
 					}
+		// calculate total price
 					for(temp = order; temp!= NULL; temp = temp->next){
 						amount += temp->qty * temp->price;
 					}	
 					printf("The total amount is: Rs. %d\n", amount);
-					//printf("Your order no is %d\n", order_no++);       		
-					fprintf(fptr, "The total amount is: Rs. %d\n", amount);
-					//fprintf(fptr,"Your order no is %d\n\n", order_no++);
+					fprintf(fptr, "The total amount is: Rs. %d\n\n", amount);
 					printf("%s, Your order's estimated time of arrival is %d mins\n", cu1.name, (int)time);
 
-	//Code for timer display after confirmation of order
+	//Code for timer display after confirmation of order done by siddharth palod and soham
 	int minutes, seconds;
 	minutes = time / 60;
 	seconds = (int)time % 60;
@@ -432,31 +391,10 @@ labelend:
 		
 	}
 		
-        else if (strcmp(argv[1], "owner") == 0){
-               // printf("Welcome owner, type help to see what u can do.\n, U can also type commands if u already know how to work!\n");
-                if (strcmp(command ,"help") == 0){
-                        printf("Whatever stuff\n");
-                }
-		else if(strcmp(command, "continue") == 0){
-		strcpy(r1.name, f2());
-		printf("%s", r1.name);	
-		}		
-        }
-
-        else {
-                printf("Please run code with command './a.out customer' or './a.out owner'");
-                exit(0);
-        }
+       
 	fclose(fptr);	
 	
 	
 	return 0;
 
-//	printf("Confirm order?(enter Y for yes, N for no) \n");
-//	char check;
-//	scanf("%c", &check);
-//	if (check == 'N')
-//		return 0;
-//	else if (check == 'Y')
-		
-	}
+}
