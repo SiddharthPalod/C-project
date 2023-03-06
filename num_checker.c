@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
-int f()
+#include"all.h"
+int checkifint()
 {int c,n;
 	n = 0;
 	do{
