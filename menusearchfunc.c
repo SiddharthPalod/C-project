@@ -9,7 +9,9 @@ void search(char word[]);
 char *rever(char *str);
 extern char id[23];
 char * menusearch() {
-	int check,choice,choice2;
+	int check;
+	char choice[20];
+	char choice2[20];
 	char c,a, reply;
     FILE* fpt;
     FILE* fpttr;
@@ -18,8 +20,8 @@ char * menusearch() {
 	labelstart:
 	fpt = fopen("restroslist", "r");	// open file
 	printf("\nEnter 1 to see restaurant list, \n2 for key word search and \n3 for filter search \n4 to start ordering: \n");
-	scanf("%d", &choice);
-	if (choice == 2){
+	scanf("%s", choice);
+	if (strcmp(choice,"2")==0){
 		char wrd[256], buffer[256], buffer2[256], temp[256],rev[256],rev2[256];
 		int bufflen, len, i, j, l,p,q, k, line,check,empty=0;
 		fp = fopen("restros", "r");	// open file
@@ -79,7 +81,7 @@ char * menusearch() {
 		search(wrd);
 		goto labelstart;
 	}
-	else if (choice ==1){
+	else if (strcmp(choice,"1")==0){
 		system("/usr/bin/clear"); //clearing screen for clarity
     label1:
 	c = fgetc(fpt);
@@ -120,34 +122,35 @@ char * menusearch() {
 	goto label1;
 	}
     }
-	else if(choice == 3){
+	else if(strcmp(choice,"3")==0){
 		system("/usr/bin/clear"); 
 		labelfilter:
 		printf("Filters :\n1.Veg Only\n2.Non-Veg\n3. Beverage\n4. Desert\n5.To go Back\n");
 		printf("Enter Choice ID\n");
-		scanf("%d", &choice2);
-		if(choice2 == 1){
+		scanf("%s", choice2);
+		printf("%s", choice2);
+		if(strcmp(choice2,"1")==0){
 			printf("Dishes you want:\n");
 			search("veg"); //running the function with the filter based in user choice
 			goto labelfilter;
 		}
-		else if(choice2 == 2){
+		else if(strcmp(choice2,"2")==0){
 			printf("Dishes you want:\n");
 			search("non-veg"); //running the function with the filter based in user choice
 			goto labelfilter;
 		}
 		
-		else if(choice2==3){
+		else if(strcmp(choice2,"3")==0){
 			printf("Dishes you want:\n");
 			search("beverage"); //running the function with the filter based in user choice
 			goto labelfilter;
 		}
-		else if(choice2 == 4){
+		else if(strcmp(choice2,"4")==0){
 			printf("Dishes you want:\n");
 			search("desert"); //running the function with the filter based in user choice
 			goto labelfilter;
 		}
-		else if(choice2==5){
+		else if(strcmp(choice2,"5")==0){
 			goto labelstart;
 		}
 		else{
@@ -156,7 +159,7 @@ char * menusearch() {
 		}
 		goto labelstart;
 	}
-	else if(choice == 4){
+	else if(strcmp(choice,"4")==0){
 		system("/usr/bin/clear"); 
 		return "done";		//letting the program run out
 	}
