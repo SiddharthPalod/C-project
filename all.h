@@ -1,7 +1,7 @@
 // delarations of all functions are present in this file
 
 
-#include<stdio.h>
+#include<stdio.h>                                       //this is a file that contains all the function declarations and struct declarations
 int find_rest_index(char * str);
 struct item * obtain_item(FILE * fptr);
 struct item * insert_item(struct item * head, struct item * new);
