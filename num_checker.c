@@ -2,7 +2,7 @@
 #include <string.h>
 #include <math.h>
 #include"all.h"
-int checkifint()
+int checkifint(char str[])
 {int c,n;
 	n = 0;
 	do{
@@ -12,7 +12,7 @@ int checkifint()
 	
 	if(x[0] == '-')
 	{
-	printf("Please enter a positive number\n");	
+	printf("%s\n",str);	
 	}
 	else
 	{
@@ -25,7 +25,7 @@ int checkifint()
 		}
 		else
 		{
-			printf("Please enter a positive number\n");
+			printf("%s\n",str);
 			break;
 			
 		}
