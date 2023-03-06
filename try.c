@@ -379,21 +379,7 @@ labelend:
 		
 	}
 		
-        else if (strcmp(argv[1], "owner") == 0){
-               // printf("Welcome owner, type help to see what u can do.\n, U can also type commands if u already know how to work!\n");
-                if (strcmp(command ,"help") == 0){
-                        printf("Whatever stuff\n");
-                }
-		else if(strcmp(command, "continue") == 0){
-		strcpy(r1.name, f2());
-		printf("%s", r1.name);	
-		}		
-        }
-
-        else {
-                printf("Please run code with command './a.out customer' or './a.out owner'");
-                exit(0);
-        }
+        
 	fclose(fptr);	
 	
 	
