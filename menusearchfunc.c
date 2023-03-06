@@ -9,19 +9,19 @@ void search(char word[]);
 char *rever(char *str);
 extern char id[23];
 char * menusearch() {
-	int check,choice,choice2,empty=0;
+	int check,choice,choice2;
 	char c,a, reply;
     FILE* fpt;
     FILE* fpttr;
 	FILE* fp;
-		printf("Welcome to the MENU!!!! \n");
+	printf("\tWelcome to the MENU!!!! \n");
 	labelstart:
 	fpt = fopen("restroslist", "r");	// open file
 	printf("\nEnter 1 to see restaurant list, \n2 for key word search and \n3 for filter search \n4 to start ordering: \n");
 	scanf("%d", &choice);
 	if (choice == 2){
 		char wrd[256], buffer[256], buffer2[256], temp[256],rev[256],rev2[256];
-		int bufflen, len, i, j, l,p,q, k, line,check;
+		int bufflen, len, i, j, l,p,q, k, line,check,empty=0;
 		fp = fopen("restros", "r");	// open file
 		fgets(wrd,100,stdin);
 		system("/usr/bin/clear"); 
@@ -29,7 +29,7 @@ char * menusearch() {
 		printf("\nEnter What do you want to eat : ");
 		scanf("%s", wrd);
 		len = strlen(wrd); // length of input word
-		printf("\nRestros you might be interested in:\n");		//first we search a restaurantlist to find if the user entered a restaurant name
+		printf("\nRestaurants you might be interested in:\n");		//first we search a restaurantlist to find if the user entered a restaurant name
 		line = 0;
 		// the following loop the file fp line by line
 		// each line is stored in buffer
@@ -52,14 +52,9 @@ char * menusearch() {
 					empty =1;l=i,k=0,p=i,q=0;
 					while (buffer2[l] != '\n'){					// going back and storing the line until we encounter a new line
 					rev[k]=buffer2[l];
-					k++;
-					l--;
+					k++,l--;
 					}
-
-					while (buffer[p] != '\n')
-					{
-						//going forward until we encounter a new line
-					
+					while (buffer[p] != '\n'){ 						//going forward until we encounter a new line
 						temp[q]=buffer[p];
 						q++, p++;
 					}
@@ -68,8 +63,9 @@ char * menusearch() {
 					printf("%s\n", temp); 	//printing the combined line
 				}
 				// moving to next word
-				while (i < bufflen && buffer[i] != ' ')
+				while (i < bufflen && buffer[i] != ' '){
 					++i;
+				}
 				++i;
 			}
 			++line;
