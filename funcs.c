@@ -198,11 +198,14 @@ int read_strings(char *a[], int n)		//function to read n strings into an array o
 		x = (char*)malloc(20*sizeof(char));	//initializing an array of 20 characters cuz max char size is 20
 		scanf("%s", x);
 		a[count] = (char*)malloc(strlen(x)*sizeof(char));	//allocating element of just the exact size in the character pointer array 
-		if (strcmp(x,f) != 0)
+		//if (strcmp(x,f) != 0)
+		if(strstr(x,f)== NULL)
 		{
 			strcpy(a[count], x);
 			count++;
 		}
+		else
+			return count;
 		
 	}
 	while((strcmp(x,f) != 0) && (count < n));
