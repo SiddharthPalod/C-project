@@ -13,37 +13,37 @@ struct user
 
 int main()
 {
-	struct user* a[100];
+	struct user* a[100];		//an array to read the values from the file
 	int n;
-	char* new_username;
+	char* new_username;		//variables to take inputs for the credentials of new login
 	char* password;
 	char* ph_no;
 	char* email;
-	FILE * r;
+	FILE * r;			//file pointers to databaseuser and user_list
 	FILE * r1;
-	r=fopen("user_list","r");
-	fscanf(r,"%d",&n);
+	r=fopen("user_list","r");		//opening file
+	fscanf(r,"%d",&n);			//reading input 
 	for(int i=0;i<n;i++)
 	{
 		a[i]=(struct user *)malloc(sizeof(struct user));
-		fscanf(r,"%s %s %s %s",(*a[i]).username,(*a[i]).password,(*a[i]).number,(*a[i]).email);
+		fscanf(r,"%s %s %s %s",(*a[i]).username,(*a[i]).password,(*a[i]).number,(*a[i]).email);			//reading from file
 	}
-	fclose(r);
+	fclose(r);				//closing file
 	printf("ENTER YOUR USERNAME\n");
 	while(1)
 	{
-		int count=0;
+		int count=0;			//variable to keep track of how many times the username occurs
 		new_username=(char*)malloc(100*sizeof(char));
 		scanf("%s",new_username); 
 		for(int i=0;i<n;i++)
 		{
-			if (strcmp(a[i]->username,new_username)==0)
+			if (strcmp(a[i]->username,new_username)==0)		//check statement to see if username is repeating or not
 			{
 				printf("ENTER ANOTHER USERNAME THIS USERNAME IS ALREADY TAKEN\n");
 				count++;
 			}
 		}
-		if (count==0)
+		if (count==0)		//if it repeats more than 0 times then break
 		{
 			break;
 		}
@@ -52,7 +52,7 @@ int main()
 	while(1)
 	{
 		password=(char*)malloc(100*sizeof(char));
-		scanf("%s",password);
+		scanf("%s",password);				//taking input of new password
 		if (strlen(password)<6)
 		{
 			printf("PASSWORD TOO SHORT,ENTER A LONGER PASSWORD\n");
