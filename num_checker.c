@@ -12,7 +12,7 @@ int checkifint()
 	
 	if(x[0] == '-')
 	{
-	printf("Invalid input\n");	
+	printf("Please enter a positive number\n");	
 	}
 	else
 	{
@@ -25,7 +25,7 @@ int checkifint()
 		}
 		else
 		{
-			printf("Invalid input\n");
+			printf("Please enter a positive number\n");
 			break;
 			
 		}
@@ -36,5 +36,5 @@ int checkifint()
 return n;
 }
 
-}
+
 
