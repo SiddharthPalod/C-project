@@ -10,11 +10,11 @@ char id[23];
 
 int main(int argc, char * argv[]){
 if (argc == 1 || argc > 2 ){
-	printf("Run as ./a.exe owner or ./a.exe customer\n");
+	printf("Run as ./a.out owner or ./a.out customer\n");
 	exit(1);
 }
 if (strcmp(argv[1], "customer") != 0 && strcmp(argv[1], "owner") != 0){
-	printf("Run as ./a.exe owner or ./a.exe customer\n");
+	printf("Run as ./a.out owner or ./a.out customer\n");
 	exit(1);
 }  
 printf("IF YOU ALREADY HAVE AN ACCOUNT PRESS 1\n");
@@ -65,13 +65,13 @@ fclose(prat);
 
 	{
 		system("gcc user_signup.c");
-		system("./a.exe");
+		system("./a.out");
 		strcpy(cu1.name , f1());
 	}
 	
 	else if ( k == 2 && strcmp(argv[1], "customer") == 0){
 		system("gcc user_delete.c");
-		system("./a.exe");
+		system("./a.out");
 		exit(0);
 	}
 	
@@ -82,7 +82,7 @@ fclose(prat);
 	else if(k != 1 && strcmp(argv[1],"owner")==0)
 	{
 		system("gcc restaurant_signup.c");
-		system("./a.exe");
+		system("./a.out");
 		strcpy(r1.name ,f2());
 	}
 	//printf("%s", cu1.name);
@@ -113,7 +113,7 @@ fclose(prat);
                         printf("Phno: ");
 			scanf("%d", &cu1.phno);*/
 			//system("gcc menu_search_linux.c");
-			//system("./a.exe");
+			//system("./a.out");
 			strcpy(str, menusearch());
 			goto labelmenusearch;
 			
@@ -391,7 +391,7 @@ labelend:
         }
 
         else {
-                printf("Please run code with command './a.exe customer' or './a.exe owner'");
+                printf("Please run code with command './a.out customer' or './a.out owner'");
                 exit(0);
         }
 	fclose(fptr);	

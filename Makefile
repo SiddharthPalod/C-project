@@ -3,7 +3,7 @@ OBJS= funcs.o datatypes.o menusearchfunc.o restaurant_login.o user_login.o try.o
 EXECS= sastaswiggy
 
 sastaswiggy: funcs.o datatypes.o menusearchfunc.o restaurant_login.o user_login.o try.o
-	gcc funcs.o datatypes.o menusearchfunc.o restaurant_login.o user_login.o try.o -o sastaswiggy
+	gcc funcs.o datatypes.o menusearchfunc.o restaurant_login.o user_login.o try.o -lm -o sastaswiggy
 
 funcs.o: funcs.c all.h datatypes.c
 	gcc -c funcs.c all.h datatypes.c
@@ -21,7 +21,7 @@ user_login.o: user_login.c all.h datatypes.c
 	gcc -c user_login.c all.h datatypes.c
 
 user_try.o: try.c all.h datatypes.c
-	gcc -c try.c all.h datatypes.c
+	gcc -c try.c -lm all.h datatypes.c 
 
 clean: 
 	rm -f $(OBJS) $(EXECS)
