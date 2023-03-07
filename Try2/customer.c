@@ -380,6 +380,7 @@ int main(int argc, char * argv[]){
                 
                 
                 fprintf(fptr, "%-23s |$%-5d |%-3d |%-5d\n", temp->name, temp->price, temp->qty, temp->qty * temp->price);
+                count++;
                 
             }
             fprintf(fptr, "--------------------------------------------\n");
@@ -387,9 +388,25 @@ int main(int argc, char * argv[]){
             
             
         }
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        FILE* common;
+        common = fopen("common.txt", "w");
+
+        struct oitem * temp;
+
+        fprintf(common, "%d\n", count);
+        temp = order;
+        for(int i=0; temp != NULL; temp=temp->next){
+            fprintf(common, "%15s %5d %3d %5d\n", temp->name, temp->price, temp->qty, temp->qty * temp->price);
+
+        }
+        printf("Done writing to file.");
+        fclose(common);
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         for(temp = order; temp!= NULL; temp = temp->next){
             amount += temp->qty * temp->price;
         }
+        
         printf("The total amount is: Rs. %d\n", amount);
         //printf("Your order no is %d\n", order_no++);
         fprintf(fptr, "The total amount is: Rs. %d\n", amount);
@@ -573,20 +590,6 @@ int main(int argc, char * argv[]){
         //
         //        // close the socket
         //        close(sockfd);
-        
-        FILE* common;
-        common = fopen("common.txt", "w");
-        
-        struct oitem * temp;
-        
-        fprintf(common, "%d\n", count);
-        temp = order;
-        for(int i=0; temp != NULL; temp=temp->next){
-            fprintf(common, "%15s %5d %3d %5d\n", temp->name, temp->price, temp->qty, temp->qty * temp->price);
-            
-        }
-        printf("Done writing to file.");
-        fclose(common);
         
         system("gcc client.c -o c.out");
         system("./c.out");
