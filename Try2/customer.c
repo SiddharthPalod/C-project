@@ -17,6 +17,7 @@
 #define SA struct sockaddr
 char id[23];
 
+// MOST OF THIS CODE WAS DONE BY PRATEEK RATH IMT2022017
 int main(int argc, char * argv[]){// arguments by which main is called
     int count = 0;
     struct oitem * order = (struct oitem*) malloc(1 * sizeof(struct oitem));
