@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "all.h"
+#include "num_checker.c"
 
 void Menu_generator(char* Menu_Items[], int Prices[],FILE* menu, int no) {
     for (int i = 0; i < no; i++) {
