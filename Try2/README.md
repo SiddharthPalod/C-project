@@ -1,5 +1,5 @@
 <h1><b>Welcome To Sasta Swiggy<b></h1><br>
-Contents:<br>
+<h3>Contents:</h3><br>
 Overview<br>
 Features<br>
 How to use the Restaurant side<br>
