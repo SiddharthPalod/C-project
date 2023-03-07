@@ -91,41 +91,86 @@ int main()
     char buff[MAX];
     int n;
     // infinite loop for chat
-//    for (;;) {
-        bzero(buff, MAX);
-        
-        // read the message from client and copy it in buffer
-        read(connfd, buff, sizeof(buff));
-        // print buffer which contains the client contents
-        printf("From client: %s\t", buff);
+    //    for (;;) {
+    bzero(buff, MAX);
     
-        bzero(buff, MAX);
-        
-        // read the message from client and copy it in buffer
-        read(connfd, buff, sizeof(buff));
-        // print buffer which contains the client contents
-        printf("From client 222: %s\t", buff);
+    // read the message from client and copy it in buffer
+    read(connfd, buff, sizeof(buff));
+    // print buffer which contains the client contents
+    printf("From client: %s\t", buff);
     
-        if (strncmp(buff, "KFC", 3) == 0) {
-            printf("\nFile will be opened here...\n");
-            printf("%s\n", buff);
+    bzero(buff, MAX);
+    
+    // read the message from client and copy it in buffer
+    read(connfd, buff, sizeof(buff));
+    // print buffer which contains the client contents
+    printf("From client 222: %s\t", buff);
+    
+    if (strncmp(buff, "KFC", 3) == 0) {
+        //        printf("\nFile will be opened here...\n");
+        //        printf("%s\n", buff);
+        
+        FILE* common;
+        common = fopen("common.txt", "r");
+        
+        int count = 0;
+        fscanf(common, "%d", &count);
+        
+        printf("count: %d\n", count);
+        
+        printf("%15s %5s %3s %5s\n", "item", "price", "qty", "Total");
+        
+        for (int i = 0; i < count; i++) {
+            char name[20];
+            char price[1000];
+            char qty[1000];
+            char total[5000];
+            
+            fscanf(common, "%15s %5s %3s %5s\n", name, price, qty, total);
+            printf("%15s %5s %3s %5s\n", name, price, qty, total);
         }
-
-        bzero(buff, MAX);
-        //        n = 0;
-        //        // copy server message in the buffer
-        //        while ((buff[n++] = getchar()) != '\n')
-        //            ;
+        fclose(common);
+    }
+    
+    bzero(buff, MAX);
+    //        n = 0;
+    //        // copy server message in the buffer
+    //        while ((buff[n++] = getchar()) != '\n')
+    //            ;
+    
+    // and send that buffer to client
+    
+    char response;
+    
+    printf("\nDo you confirm the order? Enter 'Y' for yes and 'N' for no: ");
+    scanf("%s", &response);
+    
+    if (response == 'Y') {
+        printf("Yes chosen.");
         
-        // and send that buffer to client
-        strcpy(buff, "confirmed");
-        write(connfd, buff, sizeof(buff));
+        //                resend.flag = '2';
+        //                resend.mesg_type = 1;
         
-        // if msg contains "Exit" then server exit and chat ended.
-        //        if (strncmp("exit", buff, 4) == 0) {
-        //            printf("Server Exit...\n");
-//        }
-//    }
+        strcpy(buff, "Y");
+        
+    } else if (response == 'N') {
+        printf("No chosen.");
+        
+        //                resend.flag = '3';
+        //                resend.mesg_type = 1;
+        
+        strcpy(buff, "N");
+        
+    } else {
+        printf("Invalid input!!");
+    }
+    write(connfd, buff, sizeof(buff));
+    
+    // if msg contains "Exit" then server exit and chat ended.
+    //        if (strncmp("exit", buff, 4) == 0) {
+    //            printf("Server Exit...\n");
+    //        }
+    //    }
     
     // After chatting close the socket
     close(sockfd);
