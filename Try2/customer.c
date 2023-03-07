@@ -337,8 +337,8 @@ int main(int argc, char * argv[]){
         //fprintf(fptr,"Your order no is %d\n\n", order_no++);
         
         printf("%s, Your order's estimated time of arrival is %d mins\n", cu1.name, (int)time);
-
-
+        
+        
         // Client's code
         int sockfd, connfd;
         struct sockaddr_in servaddr, cli;
@@ -371,9 +371,9 @@ int main(int argc, char * argv[]){
         char buff[MAX];
         int n;
         bzero(buff, sizeof(buff));
-        strcpy(buff, "eest");
+        strcpy(buff, "start");
         write(sockfd, buff, sizeof(buff));
-        printf("Enter the string : ");
+        printf("Enter the restaurant's name : ");
         n = 0;
         while ((buff[n++] = getchar()) != '\n')
             ;
@@ -388,6 +388,9 @@ int main(int argc, char * argv[]){
             
             if ((strncmp(buff, "confirmed", 4)) == 0) {
                 printf("Client Exit...\n");
+                
+                strcpy(buff, "end");
+                write(sockfd, buff, sizeof(buff));
                 break;
             }
         }
