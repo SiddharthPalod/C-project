@@ -140,19 +140,19 @@ int main()
     //            ;
     write(sockfd, buff, sizeof(buff));
     
-    FILE* common;
-    common = fopen("common.txt", "w");
-    
-    struct oitem * temp;
-    
-    fprintf(common, "%d\n", count);
-    temp = order;
-    for(int i=0; temp != NULL; temp=temp->next){
-        fprintf(common, "%15s %5d %3d %5d\n", temp->name, temp->price, temp->qty, temp->qty * temp->price);
-        
-    }
-    printf("Done writing to file.");
-    fclose(common);
+//    FILE* common;
+//    common = fopen("common.txt", "w");
+//
+//    struct oitem * temp;
+//
+//    fprintf(common, "%d\n", count);
+//    temp = order;
+//    for(int i=0; temp != NULL; temp=temp->next){
+//        fprintf(common, "%15s %5d %3d %5d\n", temp->name, temp->price, temp->qty, temp->qty * temp->price);
+//
+//    }
+//    printf("Done writing to file.");
+//    fclose(common);
     
     for (;;){
         bzero(buff, sizeof(buff));
