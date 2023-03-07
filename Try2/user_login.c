@@ -13,7 +13,7 @@
 };*/
 
 
-char * f1()					//function to login to user 
+char * f1()					//function to login to user -shiven contribution
 {
         struct user* a[100];
         int n,num;				//n is a variable to hold values ,num is a  variable to hold index of  input username 
