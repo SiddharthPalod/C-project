@@ -81,7 +81,6 @@ char * menusearch() {
 		printf("Filters :\n1.Veg Only\n2.Non-Veg\n3. Beverage\n4. Desert\n5.To go Back\n");
 		printf("Enter Choice ID\n");
 		scanf("%s", choice2);
-		printf("%s", choice2);
 		if(strcmp(choice2,"1")==0){
 			printf("Dishes you want:\n");
 			search("veg", "menuitems"); //running the function with the filter based in user choice
