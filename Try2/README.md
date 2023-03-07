@@ -68,18 +68,11 @@ Next, if the user enters "list", the program prints a list of all the restaurant
 The bill is also sotred in a temporary file, 'common.txt'. A signal is then sent to the restaurant owner's terminal which then opens the temporary file and prints the bill in the owner's bill. This is to display the order to the restaurant owner to prepare the order. The owner then gets two options, either to confirm the order or to deny the order. The response is using a 'Y' or a 'N' character. If the character 'Y' is entered, a signal is sent again from owner's terminal to the customer's terminal.
 If the order is confirmed, it asks you for your feedback and if you say yes, it shows you a feedback form and that feedback form goes to the restaurant from which you are ordering.
 
-
-
-
-Developers:
-Siddharth Palod: IMT2022002
-
-Prateek Rath: IMT2022017
-
-Shiven Phogat: IMT2022050
-
-Aaditya Gole: IMT2022087
-
-Shashwat Chaturvedi: IMT2022118
-
-Soham Pawar: IMT2022127
+ <h2><u>Developers:</u></h2>
+<ul>
+ <li>Siddharth Palod: IMT2022002</li>
+ <li>Prateek Rath: IMT2022017</li>
+ <li>Shiven Phogat: IMT2022050</li>
+<li>Aaditya Gole: IMT2022087</li>
+ <li>Shashwat Chaturvedi: IMT2022118</li>
+ <li>Soham Pawar: IMT2022127</li></ul>
