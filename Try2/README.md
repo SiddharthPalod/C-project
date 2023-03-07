@@ -1,25 +1,28 @@
 <h1><b>Welcome To Sasta Swiggy<b></h1><br>
  <h2><u>Contents:</u></h2><br>
-Overview<br>
-Features<br>
-How to use the Restaurant side<br>
-Create an account or log in<br>
-If no menu auto opens menu creator<br>
-If the menu is there opens the menu editor, which allows you to do the following stuff:<br>
-i) Create a completely new menu <br>
-ii) Add menu items<br>
-iii) Delete menu items<br>
-iv) View the current menu<br>
-When ordered gives the option to accept or reject orders<br>
-Exit the directory<br>
-How to use customer side<br>
-Creating an account or logging in or Deleting an existing account<br>
-Searching through menu<br>
-Searching  through food<br>
-Ordering from restaurant <br>
-Order confirmation and timer indicating time to arrive<br>
-Feedback form after delivery <br>
-Developers<br>
+<ul>
+ <li>Overview</li>
+ <li>Features</li>
+ <li>How to use the Restaurant side</li>
+ <li>Create an account or log in</li>
+ <li>If no menu auto opens menu creator</li>
+<li>If the menu is there opens the menu editor, which allows you to do the following stuff:
+ <ol type="i)">
+  <li>Create a completely new menu </li>
+  <li>ii) Add menu items</li>
+  <li>iii) Delete menu items</li>
+  iv) View the current menu</ol></li>
+ <li>When ordered gives the option to accept or reject orders</li>
+<li>Exit the directory</li>
+<li>How to use customer side</li>
+<li>Creating an account or logging in or Deleting an existing account</li>
+<li>Searching through menu</li>
+<li>Searching  through food</li>
+<li>Ordering from restaurant </li>
+<li>Order confirmation and timer indicating time to arrive</li>
+<li>Feedback form after delivery </li>
+<li>Developers</li>
+ </ul>
 Overview
 The C project is a Food Delivery Management system called SastaSwiggy. This Management System is easy to use and it can be accessed by only certain customers and restaurants who are aware of the username and password. However, new account creation is allowed. This app had a wide functionality, from simple order creation to server-related order confirmation. 
 Features
