@@ -69,6 +69,7 @@ int main(int argc, char * argv[]){
         
     {
         strcpy(cu1.name, f1());
+        
     }
     
     else if(k != 1 && k != 2 && strcmp(argv[1], "customer") == 0)
@@ -77,6 +78,7 @@ int main(int argc, char * argv[]){
         system("gcc user_signup.c");
         system("./a.out");
         strcpy(cu1.name , f1());
+        
     }
     
     else if ( k == 2 && strcmp(argv[1], "customer") == 0){
@@ -334,6 +336,9 @@ int main(int argc, char * argv[]){
         fprintf(fptr, "The total amount is: Rs. %d\n", amount);
         //fprintf(fptr,"Your order no is %d\n\n", order_no++);
         
+        printf("%s, Your order's estimated time of arrival is %d mins\n", cu1.name, (int)time);
+
+
         // Client's code
         int sockfd, connfd;
         struct sockaddr_in servaddr, cli;
@@ -366,6 +371,8 @@ int main(int argc, char * argv[]){
         char buff[MAX];
         int n;
         bzero(buff, sizeof(buff));
+        strcpy(buff, "eest");
+        write(sockfd, buff, sizeof(buff));
         printf("Enter the string : ");
         n = 0;
         while ((buff[n++] = getchar()) != '\n')
@@ -388,7 +395,6 @@ int main(int argc, char * argv[]){
         // close the socket
         close(sockfd);
         
-        printf("%s, Your order's estimated time of arrival is %d mins\n", cu1.name, (int)time);
         
         //Code for timer display after confirmation of order
         int minutes, seconds;
