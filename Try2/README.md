@@ -60,7 +60,7 @@ For the "customer" section, the program prompts the user to enter a number that 
 If the user enters "continue", the program calls the menu search () function to help the customer search for his desired dish/restaurant. Here, the customer is provided with the option to search by dish or restaurant, keyword search and filter search. Once the customer finds his desired restaurant, he can order from there.
 Here, the user also has the option to say ‘history’ instead of continue to view his order history.
 Next, if the user enters "list", the program prints a list of all the restaurants in the system. Now the user is allowed to choose the restaurant of his choice. Then, you can type “start” to start ordering from the restaurant of your choice. It shows you the menu and you can enter the dish names and their respective quantities. It then asks you for your coordinates using which the estimated time of arrival is calculated. Finally, it shows you the bill and stores the order data in a separate file which is your order history which can be viewed by you. 
-//hgfherfhbeuef
+The bill is also sotred in a temporary file, 'common.txt'. A signal is then sent to the restaurant owner's terminal which then opens the temporary file and prints the bill in the owner's bill. This is to display the order to the restaurant owner to prepare the order. The owner then gets two options, either to confirm the order or to deny the order. The response is using a 'Y' or a 'N' character. If the character 'Y' is entered, a signal is sent again from owner's terminal to the customer's terminal.
 If the order is confirmed, it asks you for your feedback and if you say yes, it shows you a feedback form and that feedback form goes to the restaurant from which you are ordering.
 
 
