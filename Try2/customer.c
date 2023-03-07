@@ -17,61 +17,6 @@
 #define SA struct sockaddr
 char id[23];
 
-                                                    //struct oitem{
-                                                    //    char name[20];
-                                                    //    int qty;
-                                                    //    int price;
-                                                    //    struct oitem * next;
-                                                    //};
-                                                    //
-                                                    //struct item{
-                                                    //    char name[20];
-                                                    //    int no;
-                                                    //    int price;
-                                                    //    struct item * next;
-                                                    //};
-                                                    //
-                                                    //struct oitem * createoitem(char str[], int qty, struct item * first){
-                                                    //    int found = 0;
-                                                    //    for(int i=0; first != NULL; first= first->next){
-                                                    //        if (strcmp(first->name, str) == 0){
-                                                    //            found = 1;
-                                                    //            break;
-                                                    //        }
-                                                    //    }
-                                                    //    if (found==1){
-                                                    //        struct oitem * it = (struct oitem*)malloc(1 * sizeof(struct oitem));
-                                                    //        strcpy(it->name, str);
-                                                    //        it->price = first->price;
-                                                    //        it->qty = qty;
-                                                    //        it->next = NULL;
-                                                    //        //printf("%s %d %d", it->name,it->price, it->qty);
-                                                    //        return it;
-                                                    //    }
-                                                    //    else {
-                                                    //        return NULL;// item doesn't exist
-                                                    //    }
-                                                    //
-                                                    //}
-                                                    //
-                                                    //struct oitem * add_oitem(struct oitem * order, struct oitem * new){
-                                                    //    if(new == NULL) return NULL;
-                                                    //    struct oitem* present = order;
-                                                    //    struct oitem* prev  = NULL;
-                                                    //    if (present == NULL){
-                                                    //        return new;
-                                                    //    }
-                                                    //    else{
-                                                    //        while(present != NULL){
-                                                    //            prev = present;
-                                                    //            present =  present->next;
-                                                    //        }
-                                                    //        prev->next = new;
-                                                    //        new->next = present;
-                                                    //    }
-                                                    //    return order;
-                                                    //}// TO BE DELETED
-
 int main(int argc, char * argv[]){// arguments by which main is called
     int count = 0;
     struct oitem * order = (struct oitem*) malloc(1 * sizeof(struct oitem));
@@ -353,7 +298,7 @@ int main(int argc, char * argv[]){// arguments by which main is called
         common = fopen("common.txt", "w");
 
         struct oitem * temp;// THIRD TIME THIS HAS BEEN DECLARED
-        // DONE BY SOHAM PAWAR IMT2022127
+        // useful to show owner what user has ordered during confirmation
         fprintf(common, "%d\n", count);
         temp = order;
         for(int i=0; temp != NULL; temp=temp->next){
@@ -363,7 +308,7 @@ int main(int argc, char * argv[]){// arguments by which main is called
         printf("Done writing to file.");
         fclose(common);
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        for(temp = order; temp!= NULL; temp = temp->next){
+        for(temp = order; temp!= NULL; temp = temp->next){// calculate the total amount
             amount += temp->qty * temp->price;
         }
         
@@ -551,14 +496,14 @@ int main(int argc, char * argv[]){// arguments by which main is called
         //        // close the socket
         //        close(sockfd);
         
-        system("gcc client.c -o c.out");
+        system("gcc client.c -o c.out");// DONE BY SOHAM PAWAR IMT2022127
         system("./c.out");
         
         
         
+        // DONE BY SIDDHARTH PALOD IMT2022002
         
-        
-        
+        //Happens only if order is confirmed , if order is not confirmed, code exits!!
         //Code for timer display after confirmation of order
         int minutes, seconds;
         minutes = time / 60;
@@ -612,89 +557,13 @@ int main(int argc, char * argv[]){// arguments by which main is called
         }
         
         printf("\n\t T H A N K S for Ordering from SASTA SWIGGY\n"); //After timer is 0 prints end message
-        
-        
-        // printf("Would you like to give feedback?(enter Y for yes, N for no) \n");
-        // char check[4];
-        // scanf("%s", check);
-        // scanf("%s", check);
-        
-//         if (strcmp(check, "Y")==0)
-//         {
-            
-//             int n[4];
-//             char *x;
-//             char *feedback[31];
-//             FILE *fptr;
-//             char str3[] = "_feedback";
-//             strcat(str2,str3);
-//             system("/usr/bin/clear");
-            
-        //     printf("Please fill this feedback form to help us improve :)\n");
-        //     printf("(Please rate us in all questions on a scale of 1 to 5 with 1 being the worst and 5 being the best) \n");
-        //     fptr = fopen(str2, "a");
-        //     printf("Quality of food ");
-        //     scanf("%d", &n[0]);
-        //     printf("\n");
-        //     printf("Delivery time ");
-        //     scanf("%d", &n[1]);
-        //     printf("\n");
-        //     printf("Condition of delivered package ");
-        //     scanf("%d", &n[2]);
-        //     printf("\n");
-        //     printf("Ease of interaction ");
-        //     scanf("%d", &n[3]);
-        //     printf("\n");
-        //     printf("Anything else you would like to let us know?(in less than 30 words)(just put a full stop to end your message) \n");
-        //     int count = read_strings(feedback, 30);
-        //     printf("\n");
-            
-        //     fprintf(fptr, "Quality of food %d\nDelivery time %d\nCondition of delivered package %d\nEase of interaction %d \n  Anything else you would like to let us know?(in less than 30 words)\n", n[0], n[1], n[2], n[3]);
-        //     for(int i = 0; i<count; i++)
-        //     {
-        //         fprintf(fptr, "%s", feedback[i]);
-        //     }
-        //     fprintf(fptr, "\n");
-        // }
-        
-        // else if (strcmp(check, "N")==0){
-        //     exit(0);
-        // }
-        
-        
-        // else{
-        //     printf("Invalid command\n");
-        // }
-        
     
     	feedback();
 
     }
-    else if (strcmp(argv[1], "owner") == 0){
-        // printf("Welcome owner, type help to see what u can do.\n, U can also type commands if u already know how to work!\n");
-        if (strcmp(command ,"help") == 0){
-            printf("Whatever stuff\n");
-        }
-        else if(strcmp(command, "continue") == 0){
-            strcpy(r1.name, f2());
-            printf("%s", r1.name);
-        }
-    }
-    
-    else {
-        printf("Please run code with command './a.out customer' or './a.out owner'");
-        exit(0);
-    }
-    fclose(fptr);
+        fclose(fptr);
     
     
     return 0;
     
-    //    printf("Confirm order?(enter Y for yes, N for no) \n");
-    //    char check;
-    //    scanf("%c", &check);
-    //    if (check == 'N')
-    //        return 0;
-    //    else if (check == 'Y')
-    
-}
+    }
