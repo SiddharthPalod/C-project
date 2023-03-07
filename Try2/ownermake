@@ -1,0 +1,3 @@
+sastaswiggy: 
+	gcc all.h restaurant_login.c user_login.c funcs.c datatypes.c owner.c -lm -o owner.o 
+

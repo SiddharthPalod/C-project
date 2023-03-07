@@ -15,7 +15,6 @@
 #define MAX 80
 #define PORT 8080
 #define SA struct sockaddr
-
 char id[23];
 
 //struct oitem{
@@ -653,10 +652,10 @@ int main(int argc, char * argv[]){
         printf("\n\t T H A N K S for Ordering from SASTA SWIGGY\n"); //After timer is 0 prints end message
         
         
-        printf("Would you like to give feedback?(enter Y for yes, N for no) \n");
-        char check[4];
-        scanf("%s", check);
-        scanf("%s", check);
+        // printf("Would you like to give feedback?(enter Y for yes, N for no) \n");
+        // char check[4];
+        // scanf("%s", check);
+        // scanf("%s", check);
         
         if (strcmp(check, "Y")==0)
         {
