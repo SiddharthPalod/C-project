@@ -13,10 +13,10 @@
 };*/
 
 
-char * f1()
+char * f1()					//function to login to user 
 {
         struct user* a[100];
-        int n,num;
+        int n,num;				//n is a variable to hold values ,num is a  variable to hold index of  input username 
         char* username_input;
         char* password;
         FILE * r;
@@ -25,14 +25,14 @@ char * f1()
         fscanf(r,"%d",&n);
         for(int i=0;i<n;i++)
         {
-                a[i]=(struct user *)malloc(sizeof(struct user));
+                a[i]=(struct user *)malloc(sizeof(struct user));		//copying values from file to array
                 fscanf(r,"%s %s %s %s",(*a[i]).username,(*a[i]).password,(*a[i]).number,(*a[i]).email);
         }
         fclose(r);
 	usernamelabel:
         while(1)
         {
-                int count=0;
+                int count=0;				//variable to count number of occurences of user 
                 username_input=(char*)malloc(100*sizeof(char));
         	printf("ENTER YOUR USERNAME\n");
                 scanf("%s",username_input);
@@ -43,7 +43,7 @@ char * f1()
                                 count++;
                         }
                 }
-                if (count>0)
+                if (count>0)			//if user exists then continue
                 {
                         break;
                 }
@@ -52,7 +52,7 @@ char * f1()
 			printf("USERNAME NOT FOUND!\n \nWOULD YOU LIKE TO RETRY GIVING USERNAME INPUT?\n\n(PRESS 1 FOR GOING TO SIGNUP PAGE)\n\nPRESS ANY OTHER NUMBER FOR RETRYING INPUT USERNAME\n\n");
 			int x;
 			scanf("%d",&x);
-			if(x==1)
+			if(x==1)		//giving user the option to make a new account 
 			{
 				system("gcc user_signup.c");
 				system("./a.out");
@@ -70,7 +70,7 @@ char * f1()
         printf("ENTER YOUR PASSWORD\n");
         while(1)
         {
-		num=0;
+		num=0;					//variable to hold index of first occurence of username input in username
 		password=(char*)malloc(100*sizeof(char));
                 scanf("%s",password);
 		for(int i=0;i<n;i++)
@@ -81,7 +81,7 @@ char * f1()
 				break;
                         }
                 }
-		if (strcmp(a[num]->password,password)!=0)
+		if (strcmp(a[num]->password,password)!=0)		//checking if password and username match
 		{
 			printf("INCORRECT PASSWORD OR USERNAME KINDLY TRY AGAIN\n");
 			goto usernamelabel;
@@ -91,6 +91,6 @@ char * f1()
 			break;
 		}  
         }
-	printf("YOU HAVE SUCCESSFULLY LOGGED IN!\n");
+	printf("YOU HAVE SUCCESSFULLY LOGGED IN!\n");			//login message
 	return username_input;
 }
