@@ -66,16 +66,15 @@ If the order is confirmed, it asks you for your feedback and if you say yes, it 
 
 
 
-Developers
+Developers:
 Siddharth Palod: IMT2022002
+
+Prateek Rath: IMT2022017
 
 Shiven Phogat: IMT2022050
 
-Prateek Rath: IMT2022017 
+Aaditya Gole: IMT2022087
 
-Aaditya Gole: IMT2022087 
+Shashwat Chaturvedi: IMT2022118
 
-Soham Pawar: IMT2022127 
-
-Shashwat Chaturvedi: IMT2022118 
- 
+Soham Pawar: IMT2022127
