@@ -30,9 +30,65 @@
 //    }
 //}
 
+struct oitem{
+    char name[20];
+    int qty;
+    int price;
+    struct oitem * next;
+};
+
+struct item{
+    char name[20];
+    int no;
+    int price;
+    struct item * next;
+};
+
+struct oitem * createoitem(char str[], int qty, struct item * first){
+    int found = 0;
+    for(int i=0; first != NULL; first= first->next){
+        if (strcmp(first->name, str) == 0){
+            found = 1;
+            break;
+        }
+    }
+    if (found==1){
+        struct oitem * it = (struct oitem*)malloc(1 * sizeof(struct oitem));
+        strcpy(it->name, str);
+        it->price = first->price;
+        it->qty = qty;
+        it->next = NULL;
+        //printf("%s %d %d", it->name,it->price, it->qty);
+        return it;
+    }
+    else {
+        return NULL;// item doesn't exist
+    }
+    
+}
+
+struct oitem * add_oitem(struct oitem * order, struct oitem * new){
+    if(new == NULL) return NULL;
+    struct oitem* present = order;
+    struct oitem* prev  = NULL;
+    if (present == NULL){
+        return new;
+    }
+    else{
+        while(present != NULL){
+            prev = present;
+            present =  present->next;
+        }
+        prev->next = new;
+        new->next = present;
+    }
+    return order;
+}
+
 int main()
 {
     int sockfd, connfd;
+    int count = 0;
     struct sockaddr_in servaddr, cli;
     
     // socket create and verification
@@ -49,6 +105,8 @@ int main()
     servaddr.sin_family = AF_INET;
     servaddr.sin_addr.s_addr = inet_addr("127.0.0.1");
     servaddr.sin_port = htons(PORT);
+    
+    struct oitem * order = (struct oitem*) malloc(1 * sizeof(struct oitem));
     
     // connect the client socket to server socket
     if (connect(sockfd, (SA*)&servaddr, sizeof(servaddr))
