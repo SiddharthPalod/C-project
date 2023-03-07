@@ -36,7 +36,7 @@ int checkifint(char str[])	//function to handle user error test cases, displays 
 	}
 	
 	int check_str(char str2[])	//function to return the integer if the user has entered a decimal, str2 is the user input string
-	{		//returns 0 if str2 is any string and returns the number if str2 is any number
+	{		//returns 0 if str2 is any string and returns the number if str2 is any positive number
 		do
 		{
 		n = 0;
@@ -47,7 +47,7 @@ int checkifint(char str[])	//function to handle user error test cases, displays 
 			{
 				n = (int)(x[i] - '0')*pow(10,(strlen(x) - 1 - i)) + n;
 			}
-			else		//prints error message if it is any other string
+			else		//prints error message if it is any other string or 0
 			{
 				printf("%s\n",str);
 				return 0;
