@@ -256,7 +256,7 @@ int main(int argc, char * argv[]){
         }
         // to caluculate the distance by gole
         printf("Please enter your address in terms of x and y coordinates\n");
-        scanf("%d, %d" , &cu1.x, &cu1.y);
+        scanf("%d %d" , &cu1.x, &cu1.y);
         FILE * gole;
         gole = fopen("address", "r");
         char rx[10];
@@ -336,10 +336,120 @@ int main(int argc, char * argv[]){
         fprintf(fptr, "The total amount is: Rs. %d\n", amount);
         //fprintf(fptr,"Your order no is %d\n\n", order_no++);
         
-        printf("%s, Your order's estimated time of arrival is %d mins\n", cu1.name, (int)time);
+        printf("%s, hi Your order's estimated time of arrival is %d mins\n", cu1.name, (int)time);
         
         
-        // Client's code
+        //        // Client's code
+        //        int sockfd, connfd;
+        //        struct sockaddr_in servaddr, cli;
+        //
+        //        // socket create and verification
+        //        sockfd = socket(AF_INET, SOCK_STREAM, 0);
+        //        if (sockfd == -1) {
+        //            printf("socket creation failed...\n");
+        //            exit(0);
+        //        }
+        //        else
+        //            printf("Socket successfully created..\n");
+        //        bzero(&servaddr, sizeof(servaddr));
+        //
+        //        // assign IP, PORT
+        //        servaddr.sin_family = AF_INET;
+        //        servaddr.sin_addr.s_addr = inet_addr("127.0.0.1");
+        //        servaddr.sin_port = htons(PORT);
+        //
+        //        // connect the client socket to server socket
+        //        if (connect(sockfd, (SA*)&servaddr, sizeof(servaddr))
+        //            != 0) {
+        //            printf("connection with the server failed...\n");
+        //            exit(0);
+        //        }
+        //        else
+        //            printf("h8i connected to the server..\n");
+        //
+        //        // function for chat
+        //        char buff[MAX];
+        //        int n;
+        //        strcpy(buff, "start");
+        //
+        //        bzero(buff, sizeof(buff));
+        //        write(sockfd, buff, sizeof(buff));
+        //        write(sockfd, buff, sizeof(buff));
+        //        printf("Enter the restaurant's name : ");
+        //        n = 0;
+        //        while ((buff[n++] = getchar()) != '\n')
+        //            ;
+        //        write(sockfd, buff, sizeof(buff));
+        //        strcpy(buff, "order");
+        //        write(sockfd, buff, sizeof(buff));
+        //
+        //        for (;;) {
+        //            bzero(buff, sizeof(buff));
+        //            read(sockfd, buff, sizeof(buff));
+        //            printf("From Server : %s", buff);
+        //
+        //            if ((strncmp(buff, "confirmed", 4)) == 0) {
+        //                printf("Client Exit...\n");
+        //
+        //                strcpy(buff, "end");
+        //                write(sockfd, buff, sizeof(buff));
+        //                break;
+        //            }
+        //        }
+        //
+        //        // close the socket
+        //        close(sockfd);
+        
+        //         int sockfd, connfd;
+        //     struct sockaddr_in servaddr, cli;
+        //
+        //     // socket create and verification
+        //     sockfd = socket(AF_INET, SOCK_STREAM, 0);
+        //     if (sockfd == -1) {
+        //         printf("socket creation failed...\n");
+        //         exit(0);
+        //     }
+        //     else
+        //         printf("Socket successfully created..\n");
+        //     bzero(&servaddr, sizeof(servaddr));
+        //
+        //     // assign IP, PORT
+        //     servaddr.sin_family = AF_INET;
+        //     servaddr.sin_addr.s_addr = inet_addr("127.0.0.1");
+        //     servaddr.sin_port = htons(PORT);
+        //
+        //     // connect the client socket to server socket
+        //     if (connect(sockfd, (SA*)&servaddr, sizeof(servaddr))
+        //         != 0) {
+        //         printf("connection with the server failed...\n");
+        //         exit(0);
+        //     }
+        //     else
+        //         printf("connected to the server..\n");
+        //
+        //     // function for chat
+        //     //func(sockfd);
+        //     char buff[MAX];
+        //     int n;
+        //     for (;;) {
+        //         bzero(buff, sizeof(buff));
+        //         printf("Enter the string : ");
+        //         n = 0;
+        //         while ((buff[n++] = getchar()) != '\n')
+        //             ;
+        //         write(sockfd, buff, sizeof(buff));
+        //         bzero(buff, sizeof(buff));
+        //         read(sockfd, buff, sizeof(buff));
+        //         printf("From Server : %s", buff);
+        //         if ((strncmp(buff, "exit", 4)) == 0) {
+        //             printf("Client Exit...\n");
+        //             break;
+        //         }
+        //     }
+        //
+        //     // close the socket
+        //     close(sockfd);
+        
         int sockfd, connfd;
         struct sockaddr_in servaddr, cli;
         
@@ -370,33 +480,42 @@ int main(int argc, char * argv[]){
         // function for chat
         char buff[MAX];
         int n;
+        //    for (;;) {
         bzero(buff, sizeof(buff));
+        printf("start");
+        //        printf("Enter the string : ");
+        //        n = 0;
+        //        while ((buff[n++] = getchar()) != '\n')
+        //            ;
         strcpy(buff, "start");
         write(sockfd, buff, sizeof(buff));
-        printf("Enter the restaurant's name : ");
+        
+        bzero(buff, sizeof(buff));
+        printf("enter restaurant name: ");
         n = 0;
-        while ((buff[n++] = getchar()) != '\n')
-            ;
-        write(sockfd, buff, sizeof(buff));
-        strcpy(buff, "order");
+        while ((buff[n++] = getchar()) != '\n');
+        //        printf("Enter the string : ");
+        //        n = 0;
+        //        while ((buff[n++] = getchar()) != '\n')
+        //            ;
         write(sockfd, buff, sizeof(buff));
         
-        for (;;) {
+        for (;;){
             bzero(buff, sizeof(buff));
             read(sockfd, buff, sizeof(buff));
             printf("From Server : %s", buff);
             
-            if ((strncmp(buff, "confirmed", 4)) == 0) {
+            if ((strncmp("confirmed", buff, 4)) == 0) {
                 printf("Client Exit...\n");
-                
-                strcpy(buff, "end");
-                write(sockfd, buff, sizeof(buff));
                 break;
             }
         }
+        //    }
         
         // close the socket
         close(sockfd);
+        
+        
         
         
         //Code for timer display after confirmation of order
