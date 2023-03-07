@@ -97,14 +97,14 @@ int main()
     // read the message from client and copy it in buffer
     read(connfd, buff, sizeof(buff));
     // print buffer which contains the client contents
-    printf("From client: %s\t", buff);
+    // printf("From client: %s\t", buff);
     
     bzero(buff, MAX);
     
     // read the message from client and copy it in buffer
     read(connfd, buff, sizeof(buff));
     // print buffer which contains the client contents
-    printf("From client 222: %s\t", buff);
+    // printf("From client 222: %s\t", buff);
     
     if (strncmp(buff, "KFC", 3) == 0) {
         //        printf("\nFile will be opened here...\n");
