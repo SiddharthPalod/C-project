@@ -166,6 +166,7 @@ int main()
         
         if ((strncmp("N", buff, 4)) == 0) {
             printf("Order confirmation denied!!");
+            exit(0);
             break;
         }
         
