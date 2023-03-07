@@ -29,8 +29,9 @@
  <br>
  <h2><u>Features:</u></h2>
 <p>This Food Delivery Management System has many features which make it user-friendly, even a layman would not have any problem using it. Apart from some default data, there are many inbuilt functions to help you manage your directory as per your needs, giving it a personalized feel. You also have a password for your directory so, no one else can get your personalized information.</p><br>
-SastaSwiggy enables the following features:
-FOR CUSTOMER
+ <h2><u>SastaSwiggy enables the following features:</u></h2>
+<ol type="A)">
+ <li>FOR Customer
 Login and Signup and Delete an existing account 
 Allows you to see your order history which is stored in a file for every customer
 Search 
@@ -40,15 +41,17 @@ Search by category of food item(veg, non-veg etc)(Filter search)
 Order food from the desired restaurant 
 Once the food is ordered there is an option for the restaurant owner to accept or reject the order 
 After confirmation of the order shows a Timer indicating the time to arrive with messages about where the current driver is
-After the order is delivered a feedback form is prompted
-B) FOR Restaurant
-1. Options for login and signup 
-2. Edit Menu 
-a. Create a new Menu
-b. Delete items from menu
-c. Add items to menu
-d. View current menu
-3. Confirm pending orders
+  After the order is delivered a feedback form is prompted</li>
+<li>FOR Restaurant
+ <ol type="1.">
+  <li> Options for login and signup </li>
+<li> Edit Menu 
+ <ol type="a.">
+  <li> Create a new Menu</li>
+  <li> Delete items from menu</li>
+  <li> Add items to menu</li>
+  <li> View current menu</li></ol></li>
+  <li> Confirm pending orders</li></ol></li></ol>
 
 Using the interface
 Setup
