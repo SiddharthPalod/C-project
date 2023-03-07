@@ -657,16 +657,16 @@ int main(int argc, char * argv[]){
         // scanf("%s", check);
         // scanf("%s", check);
         
-        if (strcmp(check, "Y")==0)
-        {
+//         if (strcmp(check, "Y")==0)
+//         {
             
-            int n[4];
-            char *x;
-            char *feedback[31];
-            FILE *fptr;
-            char str3[] = "_feedback";
-            strcat(str2,str3);
-            system("/usr/bin/clear");
+//             int n[4];
+//             char *x;
+//             char *feedback[31];
+//             FILE *fptr;
+//             char str3[] = "_feedback";
+//             strcat(str2,str3);
+//             system("/usr/bin/clear");
             
         //     printf("Please fill this feedback form to help us improve :)\n");
         //     printf("(Please rate us in all questions on a scale of 1 to 5 with 1 being the worst and 5 being the best) \n");
