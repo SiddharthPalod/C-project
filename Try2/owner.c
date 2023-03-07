@@ -106,29 +106,8 @@ int main(int argc, char * argv[]){
     if(k==1)
     {
         strcpy(r1.name,f2());
-    }
-    else if(k != 1)
-    {
-        system("gcc restaurant_signup.c");
-        system("./a.out");
-        strcpy(r1.name ,f2());
-    }
-    //printf("%s", cu1.name);
-    struct item * first = (struct item*) malloc(1 * sizeof(struct item));
-    struct oitem * order = (struct oitem*) malloc(1 * sizeof(struct oitem));
-    
-    if (strcmp(argv[1], "owner") == 0){
-        // printf("Welcome owner, type help to see what u can do.\n, U can also type commands if u already know how to work!\n");
-        if (strcmp(command ,"help") == 0){
-            printf("Whatever stuff\n");
-        }
-        else if(strcmp(command, "continue") == 0){
-            strcpy(r1.name, f2());
-            printf("%s", r1.name);
-            
-            // Server's code:
-            
-            int sockfd, connfd, len;
+        //server code
+         int sockfd, connfd, len;
             struct sockaddr_in servaddr, cli;
             
             // socket create and verification
@@ -213,9 +192,9 @@ int main(int argc, char * argv[]){
                             printf("%15s %5s %3s %5s\n", name, price, qty, total);
                         }
                         fclose(common);
-                        
+                        char response;
                         printf("\nDo you confirm the order? Enter 'Y' for yes and 'N' for no: ");
-                        scanf("%s", &response);
+                        scanf("%c", &response);
                         
                         if (response == 'Y') {
                             printf("Yes chosen.");
@@ -242,6 +221,258 @@ int main(int argc, char * argv[]){
             
             // After chatting close the socket
             close(sockfd);
+ 
+    }
+    else if(k != 1)
+    {
+        system("gcc restaurant_signup.c");
+        system("./a.out");
+        strcpy(r1.name ,f2());
+         int sockfd, connfd, len;
+            struct sockaddr_in servaddr, cli;
+            
+            // socket create and verification
+            sockfd = socket(AF_INET, SOCK_STREAM, 0);
+            if (sockfd == -1) {
+                printf("socket creation failed...\n");
+                exit(0);
+            }
+            else
+                printf("Socket successfully created..\n");
+            bzero(&servaddr, sizeof(servaddr));
+            
+            // assign IP, PORT
+            servaddr.sin_family = AF_INET;
+            servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
+            servaddr.sin_port = htons(PORT);
+            
+            // Binding newly created socket to given IP and verification
+            if ((bind(sockfd, (SA*)&servaddr, sizeof(servaddr))) != 0) {
+                printf("socket bind failed...\n");
+                exit(0);
+            }
+            else
+                printf("Socket successfully binded..\n");
+            
+            // Now server is ready to listen and verification
+            if ((listen(sockfd, 5)) != 0) {
+                printf("Listen failed...\n");
+                exit(0);
+            }
+            else
+                printf("Server listening..\n");
+            len = sizeof(cli);
+            
+            // Accept the data packet from client and verification
+            connfd = accept(sockfd, (SA*)&cli, &len);
+            if (connfd < 0) {
+                printf("server accept failed...\n");
+                exit(0);
+            }
+            else
+                printf("server accept the client...\n");
+            
+            // Function for chatting between client and server
+            for (;;) {
+                
+                char buff[MAX];
+                int n;
+                // infinite loop for chat
+                
+                bzero(buff, MAX);
+                
+                // read the message from client and copy it in buffer
+                read(connfd, buff, sizeof(buff));
+                // print buffer which contains the client contents
+                printf("From client: %s\t To client : ", buff);
+                bzero(buff, MAX);
+                n = 0;
+                // copy server message in the buffer
+                //        while ((buff[n++] = getchar()) != '\n')
+                //            ;
+                
+                if (strncmp(word, buff, 4) == 0) {
+                    if (strcmp(buff, "order")) {
+                        FILE* common;
+                        common = fopen("common.txt", "r");
+                        
+                        int count = 0;
+                        fscanf(common, "%d", &count);
+                        
+                        printf("count: %d\n", count);
+                        
+                        printf("%15s %5s %3s %5s\n", "item", "price", "qty", "Total");
+                        
+                        for (int i = 0; i < count; i++) {
+                            char name[20];
+                            char price[1000];
+                            char qty[1000];
+                            char total[5000];
+                            
+                            fscanf(common, "%15s %5s %3s %5s\n", name, price, qty, total);
+                            printf("%15s %5s %3s %5s\n", name, price, qty, total);
+                        }
+                        fclose(common);
+                        char response;
+                        printf("\nDo you confirm the order? Enter 'Y' for yes and 'N' for no: ");
+                        scanf("%c", &response);
+                        
+                        if (response == 'Y') {
+                            printf("Yes chosen.");
+                            strcpy(buff, "confirmed");
+
+                        } else if (response == 'N') {
+                            printf("No chosen.");
+                            strcpy(buff, "not confirmed");
+
+                        } else {
+                            printf("Invalid input!!");
+                        }
+                        
+                        write(connfd, buff, sizeof(buff));
+                        
+                        // if msg contains "Exit" then server exit and chat ended.
+                        if (strncmp("confirmed", buff, 4) == 0) {
+                            printf("Server Exit...\n");
+                            break;
+                        }
+                    }
+                }
+            }
+            
+            // After chatting close the socket
+            close(sockfd);
+ 
+    }
+    //printf("%s", cu1.name);
+    struct item * first = (struct item*) malloc(1 * sizeof(struct item));
+    struct oitem * order = (struct oitem*) malloc(1 * sizeof(struct oitem));
+    
+    if (strcmp(argv[1], "owner") == 0){
+        // printf("Welcome owner, type help to see what u can do.\n, U can also type commands if u already know how to work!\n");
+        if (strcmp(command ,"help") == 0){
+            printf("Whatever stuff\n");
+        }
+        else if(strcmp(command, "continue") == 0){
+            strcpy(r1.name, f2());
+            printf("%s", r1.name);
+            
+            // Server's code:
+            
+            // int sockfd, connfd, len;
+            // struct sockaddr_in servaddr, cli;
+            
+            // // socket create and verification
+            // sockfd = socket(AF_INET, SOCK_STREAM, 0);
+            // if (sockfd == -1) {
+            //     printf("socket creation failed...\n");
+            //     exit(0);
+            // }
+            // else
+            //     printf("Socket successfully created..\n");
+            // bzero(&servaddr, sizeof(servaddr));
+            
+            // // assign IP, PORT
+            // servaddr.sin_family = AF_INET;
+            // servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
+            // servaddr.sin_port = htons(PORT);
+            
+            // // Binding newly created socket to given IP and verification
+            // if ((bind(sockfd, (SA*)&servaddr, sizeof(servaddr))) != 0) {
+            //     printf("socket bind failed...\n");
+            //     exit(0);
+            // }
+            // else
+            //     printf("Socket successfully binded..\n");
+            
+            // // Now server is ready to listen and verification
+            // if ((listen(sockfd, 5)) != 0) {
+            //     printf("Listen failed...\n");
+            //     exit(0);
+            // }
+            // else
+            //     printf("Server listening..\n");
+            // len = sizeof(cli);
+            
+            // // Accept the data packet from client and verification
+            // connfd = accept(sockfd, (SA*)&cli, &len);
+            // if (connfd < 0) {
+            //     printf("server accept failed...\n");
+            //     exit(0);
+            // }
+            // else
+            //     printf("server accept the client...\n");
+            
+            // // Function for chatting between client and server
+            // for (;;) {
+                
+            //     char buff[MAX];
+            //     int n;
+            //     // infinite loop for chat
+                
+            //     bzero(buff, MAX);
+                
+            //     // read the message from client and copy it in buffer
+            //     read(connfd, buff, sizeof(buff));
+            //     // print buffer which contains the client contents
+            //     printf("From client: %s\t To client : ", buff);
+            //     bzero(buff, MAX);
+            //     n = 0;
+            //     // copy server message in the buffer
+            //     //        while ((buff[n++] = getchar()) != '\n')
+            //     //            ;
+                
+            //     if (strncmp(word, buff, 4) == 0) {
+            //         if (strcmp(buff, "order")) {
+            //             FILE* common;
+            //             common = fopen("common.txt", "r");
+                        
+            //             int count = 0;
+            //             fscanf(common, "%d", &count);
+                        
+            //             printf("count: %d\n", count);
+                        
+            //             printf("%15s %5s %3s %5s\n", "item", "price", "qty", "Total");
+                        
+            //             for (int i = 0; i < count; i++) {
+            //                 char name[20];
+            //                 char price[1000];
+            //                 char qty[1000];
+            //                 char total[5000];
+                            
+            //                 fscanf(common, "%15s %5s %3s %5s\n", name, price, qty, total);
+            //                 printf("%15s %5s %3s %5s\n", name, price, qty, total);
+            //             }
+            //             fclose(common);
+            //             char response;
+            //             printf("\nDo you confirm the order? Enter 'Y' for yes and 'N' for no: ");
+            //             scanf("%c", &response);
+                        
+            //             if (response == 'Y') {
+            //                 printf("Yes chosen.");
+            //                 strcpy(buff, "confirmed");
+
+            //             } else if (response == 'N') {
+            //                 printf("No chosen.");
+            //                 strcpy(buff, "not confirmed");
+
+            //             } else {
+            //                 printf("Invalid input!!");
+            //             }
+                        
+            //             write(connfd, buff, sizeof(buff));
+                        
+            //             // if msg contains "Exit" then server exit and chat ended.
+            //             if (strncmp("confirmed", buff, 4) == 0) {
+            //                 printf("Server Exit...\n");
+            //                 break;
+            //             }
+            //         }
+            //     }
+            // }
+            
+            // // After chatting close the socket
+            // close(sockfd);
             
             //
         }
