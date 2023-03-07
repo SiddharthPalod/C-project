@@ -56,9 +56,9 @@ After confirmation of the order shows a Timer indicating the time to arrive with
 Using the interface
 Setup
 Type: make (on the terminal) 
-(u will see a list of commands executed displaying that the program has been compiled)
-Type: ./sastaswiggy customer(if you are logging in as a customer) 
-Type: ./sastaswiggy owner (if ur logging in as a restaurant)
+(u will see a list of commands executed displaying that the program has been compiled)<br>
+ <code>Type: ./sastaswiggy customer</code>(if you are logging in as a customer) <br>
+ <code>Type: ./sastaswiggy owner</code> (if ur logging in as a restaurant)<br>
 Install conio.h using https://github.com/zoelabbb/conio.h in some computers it is inbuilt
 The program reads from files, prompts the user for input, and interacts with other programs through the command line. The program takes one command-line argument, either "owner" or "customer". Depending on the argument, the program branches into two sections of code.
 Restaurant
