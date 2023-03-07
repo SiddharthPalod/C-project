@@ -2,6 +2,7 @@
 #include <string.h>
 #include "all.h"
 #include "datatypes.c"
+#include <stdlib.h>
 void feedback()		//a function which asks the user for feedback 
 {
 printf("Would you like to give feedback?(enter Y for yes, N for no) \n");	//asks the user f he wants to give feedback or no with Y for yes and N for no
@@ -17,6 +18,7 @@ do
 	char *x;
 	char *feedback[31];
 	FILE *fptr;
+	char str2[50];
 	char str3[] = "_feedback";
 	strcat(str2,str3);
 	system("/usr/bin/clear");
@@ -28,7 +30,7 @@ do
   	{
   	printf("Quality of food ");
 	//scanf("%d", &n[0]);
-  	checkifint("Please enter a number between 1 to 5");
+  	n[0]=checkifint("Please enter a number between 1 to 5");
 	printf("\n");
   }while(n[0] <1 || n[0]>5);
   
@@ -36,22 +38,22 @@ do
   {
 	printf("Delivery time ");
 	//scanf("%d", &n[1]);
-	checkifint("Please enter a number between 1 to 5");
+	n[1]=checkifint("Please enter a number between 1 to 5");
 		printf("\n");
   }while(n[1] <1 || n[1]>5);
 	do
   {
   printf("Condition of delivered package ");
 	//scanf("%d", &n[2]);
-	checkifint("Please enter a number between 1 to 5");
+	n[2]=checkifint("Please enter a number between 1 to 5");
 		printf("\n");
   }while(n[2] <1 || n[2]>5);
   do
   {
   printf("Ease of interaction ");
   //scanf("%d", &n[3]);
-	feedback("Please enter a number between 1 to 5");
-	printf("\n");
+	//feedback("Please enter a number between 1 to 5");
+	n[3]=checkifint("Please enter a number between 1 to 5\n");
 	}while(n[3] <1 || n[3]>5);
   printf("Anything else you would like to let us know?(in less than 30 words)(just put a full stop to end your message) \n");
 	int count = read_strings(feedback, 30);	//reads a feeback array of strings and stops when the character entered is full stop
