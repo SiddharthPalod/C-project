@@ -43,7 +43,7 @@ int checkifint(char str[])	//function to handle user error test cases, displays 
     		for(int i = 0; i<strlen(x); i++)
 		{
 			c = (int)(x[i] - '0');
-			if ((int)(x[i]-'0')<10 && (int)(x[i])>=0)
+			if ((int)(x[i]-'0')<10 && (int)(x[i])>0)
 			{
 				n = (int)(x[i] - '0')*pow(10,(strlen(x) - 1 - i)) + n;
 			}
