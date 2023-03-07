@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "all.h"
 
 void Menu_generator(char* Menu_Items[], int Prices[],FILE* menu, int no) {
     for (int i = 0; i < no; i++) {
@@ -60,10 +61,10 @@ void menu_file_maker(char* name) {
         printf("Prices= ");
         int k;
         //scanf("%d", &k);
-        k = checkifint("Invalid price please enter again:");
+        k = checkifint("Invalid price please enter again: ");
         //while (k < 0) {
           //  printf("Invalid price please enter again: ");
-            //k = checkifint("Invalid price please enter again:");
+            //k = checkifint("Invalid price please enter again: ");
             //scanf("%d", &k);
         //}
         Prices[i] = k;
@@ -95,7 +96,7 @@ void menu_file_editor(char* name) {
     printf("------------------------Sasta SWIGGY MENU EDITOR------------------------\n");    
     printf("Restaurant Name: %s\n",name);
     printf("\t\t\tPress 1 to add items\n\t\t\tPress 2 to delete items\n\t\t\tPress 3 to create new\n\t\t\tPress 4 to see menu\n\t\t\tPress anything else to quit\n");
-    command = checkifint("Please enter a valid command ")
+    command = checkifint("Please enter a valid command ");
     //scanf("%d",&command);
 
 //To add items
@@ -129,7 +130,7 @@ void menu_file_editor(char* name) {
         FILE* abcd = fopen(name, "a");
         FILE* gole = fopen("menuitems", "a");
         printf("\nEnter no of menu items to add: ");
-        a = checkifint("Please enter a valid number ");
+        n = checkifint("Please enter a valid number ");
         //scanf("%d", &n);
         while (n > 100) {
             printf("Invalid no of menu items\nplease enter again: ");
