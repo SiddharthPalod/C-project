@@ -1,25 +1,25 @@
-Welcome To Sasta Swiggy
-Contents:
-Overview
-Features
-How to use the Restaurant side
-Create an account or log in
-If no menu auto opens menu creator
-If the menu is there opens the menu editor, which allows you to do the following stuff:
-i) Create a completely new menu 
-ii) Add menu items
-iii) Delete menu items
-iv) View the current menu
-When ordered gives the option to accept or reject orders
-Exit the directory
-How to use customer side
-Creating an account or logging in or Deleting an existing account
-Searching through menu
-Searching  through food
-Ordering from restaurant 
-Order confirmation and timer indicating time to arrive
-Feedback form after delivery 
-Developers
+Welcome To Sasta Swiggy<br>
+Contents:<br>
+Overview<br>
+Features<br>
+How to use the Restaurant side<br>
+Create an account or log in<br>
+If no menu auto opens menu creator<br>
+If the menu is there opens the menu editor, which allows you to do the following stuff:<br>
+i) Create a completely new menu <br>
+ii) Add menu items<br>
+iii) Delete menu items<br>
+iv) View the current menu<br>
+When ordered gives the option to accept or reject orders<br>
+Exit the directory<br>
+How to use customer side<br>
+Creating an account or logging in or Deleting an existing account<br>
+Searching through menu<br>
+Searching  through food<br>
+Ordering from restaurant <br>
+Order confirmation and timer indicating time to arrive<br>
+Feedback form after delivery <br>
+Developers<br>
 Overview
 The C project is a Food Delivery Management system called SastaSwiggy. This Management System is easy to use and it can be accessed by only certain customers and restaurants who are aware of the username and password. However, new account creation is allowed. This app had a wide functionality, from simple order creation to server-related order confirmation. 
 Features
