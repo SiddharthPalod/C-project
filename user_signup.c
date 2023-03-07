@@ -53,7 +53,7 @@ int main()
 	{
 		password=(char*)malloc(100*sizeof(char));
 		scanf("%s",password);				//taking input of new password
-		if (strlen(password)<6)
+		if (strlen(password)<6)				//checkinng if length of password is appropriate
 		{
 			printf("PASSWORD TOO SHORT,ENTER A LONGER PASSWORD\n");
 		}
@@ -71,28 +71,28 @@ int main()
 	{
 		ph_no=(char*)malloc(20*sizeof(char));
 		scanf("%s",ph_no);
-		if(strlen(ph_no) != 10)
+		if(strlen(ph_no) != 10)					//checking if phone number is of appropritate length
 		{
 			printf("INVALID PHONE NUMBER ,REENTER PHONE NUMBER\n");
 			continue;
 		}
 		int c1=0;
-                for(int i=0;i<strlen(ph_no);i++)
+                for(int i=0;i<strlen(ph_no);i++)		//checking for number of characters that are not digits
                 {
                         if (ph_no[i]>'9' || ph_no[i]<'0')
                         {
                                 c1++;
                         }
                 }
-                if (c1>0)
+                if (c1>0)				//if there is any character that is not a digit
                 {
                         printf("INVALID PHONE NUMBER ,REENTER PHONE NUMBER\n");
                         continue;
                 }
-		int count=0;
+		int count=0;			//variable to hold number of times the phone number is repeating
                 for(int i=0;i<n;i++)
                 {
-                        if (strcmp(a[i]->number,ph_no)==0)
+                        if (strcmp(a[i]->number,ph_no)==0)			//checking for uniqueness of phone number
                         {
                                 printf("ENTER ANOTHER PHONE NUMBER THIS PHONE NUMBER IS ALREADY TAKEN\n");
                                 count++;
@@ -103,12 +103,12 @@ int main()
 			break;
 		}
 	}
-	printf("ENTER YOUR EMAIL ID\n");
+	printf("ENTER YOUR EMAIL ID\n");			
 	while(1)
 	{
 		email=(char *)malloc(100*sizeof(char));
 		scanf("%s",email);
-		int count=0;
+		int count=0;				//variable to count number of occurences of email in array
                 for(int i=0;i<n;i++)
                 {
                         if (strcmp(a[i]->email,email)==0)
@@ -122,7 +122,7 @@ int main()
 			break;
 		}
 	}
-	a[n]=(struct user*)malloc(sizeof(struct user));
+	a[n]=(struct user*)malloc(sizeof(struct user));		//putting new user credentials into array
 	strcpy(a[n]->username,new_username);
 	strcpy(a[n]->password,password);
 	strcpy(a[n]->number,ph_no);
@@ -133,10 +133,10 @@ int main()
 	fprintf(r,"%d\n",n);
 	for(int i=0;i<n;i++)
 	{
-		fprintf(r1,"%s\n",a[i]->username);
+		fprintf(r1,"%s\n",a[i]->username);			//putting array elements in array
 		fprintf(r,"%s %s %s %s\n",a[i]->username,a[i]->password,a[i]->number,a[i]->email);
 	}
 	fclose(r);
 	fclose(r1);
-	printf("CONGRATS! YOU HAVE SUCCESSFULLY REGISTERED.\n");
+	printf("CONGRATS! YOU HAVE SUCCESSFULLY REGISTERED.\n");		
 }
