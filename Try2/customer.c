@@ -17,62 +17,62 @@
 #define SA struct sockaddr
 char id[23];
 
-//struct oitem{
-//    char name[20];
-//    int qty;
-//    int price;
-//    struct oitem * next;
-//};
-//
-//struct item{
-//    char name[20];
-//    int no;
-//    int price;
-//    struct item * next;
-//};
-//
-//struct oitem * createoitem(char str[], int qty, struct item * first){
-//    int found = 0;
-//    for(int i=0; first != NULL; first= first->next){
-//        if (strcmp(first->name, str) == 0){
-//            found = 1;
-//            break;
-//        }
-//    }
-//    if (found==1){
-//        struct oitem * it = (struct oitem*)malloc(1 * sizeof(struct oitem));
-//        strcpy(it->name, str);
-//        it->price = first->price;
-//        it->qty = qty;
-//        it->next = NULL;
-//        //printf("%s %d %d", it->name,it->price, it->qty);
-//        return it;
-//    }
-//    else {
-//        return NULL;// item doesn't exist
-//    }
-//
-//}
-//
-//struct oitem * add_oitem(struct oitem * order, struct oitem * new){
-//    if(new == NULL) return NULL;
-//    struct oitem* present = order;
-//    struct oitem* prev  = NULL;
-//    if (present == NULL){
-//        return new;
-//    }
-//    else{
-//        while(present != NULL){
-//            prev = present;
-//            present =  present->next;
-//        }
-//        prev->next = new;
-//        new->next = present;
-//    }
-//    return order;
-//}
+                                                    //struct oitem{
+                                                    //    char name[20];
+                                                    //    int qty;
+                                                    //    int price;
+                                                    //    struct oitem * next;
+                                                    //};
+                                                    //
+                                                    //struct item{
+                                                    //    char name[20];
+                                                    //    int no;
+                                                    //    int price;
+                                                    //    struct item * next;
+                                                    //};
+                                                    //
+                                                    //struct oitem * createoitem(char str[], int qty, struct item * first){
+                                                    //    int found = 0;
+                                                    //    for(int i=0; first != NULL; first= first->next){
+                                                    //        if (strcmp(first->name, str) == 0){
+                                                    //            found = 1;
+                                                    //            break;
+                                                    //        }
+                                                    //    }
+                                                    //    if (found==1){
+                                                    //        struct oitem * it = (struct oitem*)malloc(1 * sizeof(struct oitem));
+                                                    //        strcpy(it->name, str);
+                                                    //        it->price = first->price;
+                                                    //        it->qty = qty;
+                                                    //        it->next = NULL;
+                                                    //        //printf("%s %d %d", it->name,it->price, it->qty);
+                                                    //        return it;
+                                                    //    }
+                                                    //    else {
+                                                    //        return NULL;// item doesn't exist
+                                                    //    }
+                                                    //
+                                                    //}
+                                                    //
+                                                    //struct oitem * add_oitem(struct oitem * order, struct oitem * new){
+                                                    //    if(new == NULL) return NULL;
+                                                    //    struct oitem* present = order;
+                                                    //    struct oitem* prev  = NULL;
+                                                    //    if (present == NULL){
+                                                    //        return new;
+                                                    //    }
+                                                    //    else{
+                                                    //        while(present != NULL){
+                                                    //            prev = present;
+                                                    //            present =  present->next;
+                                                    //        }
+                                                    //        prev->next = new;
+                                                    //        new->next = present;
+                                                    //    }
+                                                    //    return order;
+                                                    //}// TO BE DELETED
 
-int main(int argc, char * argv[]){
+int main(int argc, char * argv[]){// arguments by which main is called
     int count = 0;
     struct oitem * order = (struct oitem*) malloc(1 * sizeof(struct oitem));
     order = NULL;
@@ -81,7 +81,7 @@ int main(int argc, char * argv[]){
         printf("Run as ./a.out owner or ./a.out customer\n");
         exit(1);
     }
-    if (strcmp(argv[1], "customer") != 0 && strcmp(argv[1], "owner") != 0){
+    if (strcmp(argv[1], "customer") != 0 && strcmp(argv[1], "owner") != 0){//  is user is not running the code correctly correct the user
         printf("Run as ./a.out owner or ./a.out customer\n");
         exit(1);
     }
@@ -89,14 +89,14 @@ int main(int argc, char * argv[]){
     printf("IF YOU WISH TO DELETE AN ACCOUNT PRESS 2\n");
     printf("IF YOU WISH TO SIGN UP PRESS ANY OTHER NUMBER\n");
     char c;
-    struct oitem * point = NULL;
-    FILE * sid = fopen("databaseowner", "r");
-    FILE * prat = fopen("address", "r");
+    struct oitem * point = NULL;// TO BE DELETED(maybe)
+    FILE * sid = fopen("databaseowner", "r");// file pointer to list of restaurant names
+    FILE * prat = fopen("address", "r");// file pointer to list of addresses of restaurants
     char word[20] = "hello";
     int iter=0;
     int xcor, ycor;
     struct restaurant restaurants[100];
-    while((c = fgetc(sid)) != EOF){
+    while((c = fgetc(sid)) != EOF){// fill the array with the restaurants and their details
         ungetc(c, sid);
         fscanf(sid,"%s", word);
         strcpy(restaurants[iter].name, word);
@@ -106,24 +106,24 @@ int main(int argc, char * argv[]){
         iter++;
         fgetc(sid);
     }
-    strcpy(restaurants[iter].name, "\0");
+    strcpy(restaurants[iter].name, "\0");// mark the end of the array with a \n
     fclose(sid);
     fclose(prat);
     
     
-    int amount = 0;
-    int order_no = 100;
+    int amount = 0;// total amount
+                                    int order_no = 100;// TO BE DELETED
     char command[20];
     char str[20]; char str2[20];
     int n;// number of items in a restaurant
     int q;// represents quantity
     FILE *rest, * fptr = fopen("1", "w");
-    cu cu1;
-    struct oitem * temp;
-    ro r1;
-    int k;
+    cu cu1;// the current user
+    struct oitem * temp;// useful to traverse the linked list of ordered items
+    ro r1;// the current restaurant owner
+    int k;// checks if u want to login, signup or delete account
     scanf("%d",&k);
-    if (k==1 && strcmp(argv[1], "customer") == 0)
+    if (k==1 && strcmp(argv[1], "customer") == 0)//(BY SHASHWAT CHATURVEDI IMT2022118)
         
     {
         strcpy(cu1.name, f1());
@@ -155,8 +155,7 @@ int main(int argc, char * argv[]){
         system("./a.out");
         strcpy(r1.name ,f2());
     }
-    //printf("%s", cu1.name);
-    struct item * first = (struct item*) malloc(1 * sizeof(struct item));
+    struct item * first = (struct item*) malloc(1 * sizeof(struct item));// can be changed to NULL
     if (strcmp(argv[1],"customer") == 0) {
         printf("Type continue to proceed Type order history to see your history\n");
         printf(">");
@@ -169,39 +168,23 @@ int main(int argc, char * argv[]){
                 system("/usr/bin/clear");
             }
             else if(strcmp(command, "history") == 0){
-                strcpy(word, "vim ");
+                strcpy(word, "cat ");
                 strcat(word, cu1.name);
                 system(word);
+                printf("\n");
             }
             else{;}
             
         }while(strcmp(command,"continue") != 0);
         
-        /* printf("Name: ");
-         scanf("%s", cu1.name);
-         printf("Phno: ");
-         scanf("%d", &cu1.phno);*/
-        //system("gcc menu_search_linux.c");
-        //system("./a.out");
         strcpy(str, menusearch());
         goto labelmenusearch;
         
-        //    scanf("%s", str2);
-        //    if (strcmp(str2, "history") == 0){
-        //        strcpy(str ,cu1.name);
-        //        char vim[20] = "vim";
-        //        strcat(vim, " ");
-        //        strcat(vim, str);
-        //        system(vim);
-        //    }
-        //    else{
-        //        printf("error");
-        //    }
         printf("Please tell us where u want to order from(Type 'list' to see all restaurants)\n>");
     label1:
         scanf("%s", str);
     labelmenusearch:
-        if(strcmp(str, "list") == 0) {
+        if(strcmp(str, "list") == 0) {// look for the restaurant in the list of restaurants
             for(int i=0; strcmp(restaurants[i].name, "\0") != 0; i++){
                 printf("%s ", restaurants[i].name);
             }
@@ -209,14 +192,12 @@ int main(int argc, char * argv[]){
             goto label1;
         }
         
-        strcpy(str2, str);
-        //strcat(str, ".f");
-        //fptr = fopen(str, "r");
-        int i= 0;
+        strcpy(str2, str); // now str2 has the restaurant's name
+        int i= 0;// iteration variable
         while( (strcmp(restaurants[i].name, "\0") != 0)   && strcmp(restaurants[i].name, str) != 0){//till u find the restaurant or find that the restaurant doesn't exist keep going through the array of structs
             i++;
         }
-        restaurants[i].head = NULL;
+                        restaurants[i].head = NULL;// can be deleted, but make sure u also remove it from funcs.c
         // now get all the items of the restaurant into a linked list called first
         if(strcmp(str, "\0") == 0){
             printf("Invalid command\n");
@@ -225,12 +206,12 @@ int main(int argc, char * argv[]){
             scanf("%c", &dummy);
             system("/usr/bin/clear");
             printf("Please tell us where u want to order from(Type 'list' to see all restaurants)\n>");
-            goto label1;
+            goto label1;// if an invalid command is entered allow user to re-enter
         }
         else if(strcmp(str, restaurants[i].name) == 0){
             fptr = fopen(str, "r");
             first = NULL;
-            first = create_ll(first, fptr);
+            first = create_ll(first, fptr);// creates a linked list containing the menu of the restaurant
             system("/usr/bin/clear");
             printf("Welcome to %s, type 'start' to start ordering\n>", str2);
         }
@@ -246,9 +227,9 @@ int main(int argc, char * argv[]){
         if(strcmp(str, "start") == 0){
             printf("Here is the menu\n");
             printf("-------------------------------\n");
-            printf("item                   | price \n");
+            printf("ITEM                   | PRICE \n");
             printf("-------------------------------\n");
-            printll(first, fptr);
+            printll(first, fptr);// prints the menu
             printf("-------------------------------\n");
             printf("Now u can order!\n\n");
         }
@@ -256,7 +237,7 @@ int main(int argc, char * argv[]){
             printf("Please type start\n>");
             goto labelx;
         }
-        printf("At any point wheen asked for item entry type 'back' to restart order\ntype 'end' to finish order\n");
+        printf("At any point when asked for item entry,\ntype 'back' to restart order\ntype 'end' to finish order\n\n");
         
         strcpy(str, "hello");
         order = NULL;
@@ -278,12 +259,6 @@ int main(int argc, char * argv[]){
             }
             if (flag == 0){
                 printf("Invalid item, please continue your order from where u left\n");
-                /*point = order;
-                 while(point->next != NULL){
-                 point = point->next;
-                 }
-                 point = NULL;
-                 //order = NULL;*/
                 goto label2;
             }
             
@@ -291,27 +266,16 @@ int main(int argc, char * argv[]){
             scanf("%d", &q);
             //if (strcmp(str, "end") == 0){ break; }
             //if (strcmp(str, "back") == 0) { order = NULL ; goto label2; }
-            struct oitem * temp;
-            if (strcmp(str, "end") != 0){
+            struct oitem * temp;// SHOULD BE REMOVED < HAS BEEN DECARED TWICE
+            if (strcmp(str, "end") != 0){// creates the linked list for valid ordered items
                 temp = createoitem(str, q, first);
                 temp = add_oitem(order ,temp);
             }
-            if (temp == NULL){
-                free(temp);
-                //printf("Invalid item, please continue your order from where u left\n");
-                /*point = order;
-                 while(point->next != NULL){
-                 point = point->next;
-                 }
-                 point = NULL;
-                 //order = NULL;
-                 goto label2;*/
-            }
-            else {
+            
                 order = temp;
-            }
+            
         }
-        // to caluculate the distance by gole
+        // to calculate the distance (by Aaditya Gole)
         printf("Please enter your address in terms of x and y coordinates\n");
         scanf("%d %d" , &cu1.x, &cu1.y);
         FILE * gole;
@@ -354,9 +318,7 @@ int main(int argc, char * argv[]){
         
         
         
-        
-        
-        if (strcmp(str,"end") != 0){
+        if (strcmp(str,"end") != 0){// just to avoid any bad situation(although this case will never happend)
             printf("order error\n"); exit(0);
         }
         else {
@@ -390,8 +352,8 @@ int main(int argc, char * argv[]){
         FILE* common;
         common = fopen("common.txt", "w");
 
-        struct oitem * temp;
-
+        struct oitem * temp;// THIRD TIME THIS HAS BEEN DECLARED
+        // DONE BY SOHAM PAWAR IMT2022127
         fprintf(common, "%d\n", count);
         temp = order;
         for(int i=0; temp != NULL; temp=temp->next){
