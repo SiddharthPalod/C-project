@@ -1,0 +1,33 @@
+
+$(CC)=gcc
+OBJS= funcs.o datatypes.o menusearchfunc.o restaurant_login.o user_login.o customer.o
+EXECS= sastaswiggy
+
+sastaswiggy: funcs.o datatypes.o menusearchfunc.o restaurant_login.o user_login.o num_checker.o customer.o feedback.o
+	gcc funcs.o datatypes.o menusearchfunc.o restaurant_login.o user_login.o num_checker.o customer.o feedback.o -lm -o sastaswiggy
+	
+funcs.o: funcs.c all.h datatypes.c num_checker.c
+	gcc -c funcs.c all.h datatypes.c num_checker.c -lm
+
+datatypes.o: datatypes.c all.h datatypes.c num_checker.c
+	gcc -c datatypes.c all.h datatypes.c num_checker.c -lm
+
+menusearchfunc.o: menusearchfunc.c all.h datatypes.c num_checker.c
+	gcc -c menusearchfunc.c all.h datatypes.c num_checker.c -lm 
+
+restaurant_login.o: restaurant_login.c all.h datatypes.c num_checker.c
+	gcc -c restaurant_login.c all.h datatypes.c num_checker.c -lm
+
+user_login.o: user_login.c all.h datatypes.c num_checker.c
+	gcc -c user_login.c all.h datatypes.c  num_checker.c -lm
+
+customer.o: customer.c all.h datatypes.c num_checker.c
+	gcc -c customer.c -lm all.h datatypes.c num_checker.c -lm
+
+num_checker.o: num_checker.c all.h datatypes.c
+	gcc -c num_checker.c -lm all.h datatypes.c
+
+feedback.o: all.h feedback.c datatypes.c
+	gcc -c feedback.c datatypes.c all.h
+clean: 
+	rm -f $(OBJS) $(EXECS)

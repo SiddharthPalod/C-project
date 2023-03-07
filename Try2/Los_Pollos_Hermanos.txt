@@ -1,0 +1,6 @@
+1.walter white $40
+2.jesse pinkman $40
+3.saul goodman $40
+4.gus fring $40
+5.mike erhmantraut $40
+~ 1
