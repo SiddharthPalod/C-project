@@ -1,3 +1,4 @@
+
 #include <arpa/inet.h> // inet_addr()
 #include <netdb.h>
 #include <stdio.h>
@@ -122,7 +123,7 @@ int main()
     int n;
     //    for (;;) {
     bzero(buff, sizeof(buff));
-    printf("start");
+//    printf("start");
     //        printf("Enter the string : ");
     //        n = 0;
     //        while ((buff[n++] = getchar()) != '\n')
@@ -131,7 +132,7 @@ int main()
     write(sockfd, buff, sizeof(buff));
     
     bzero(buff, sizeof(buff));
-    printf("enter restaurant name: ");
+    printf("Enter restaurant name: ");
     n = 0;
     while ((buff[n++] = getchar()) != '\n');
     //        printf("Enter the string : ");
@@ -140,32 +141,32 @@ int main()
     //            ;
     write(sockfd, buff, sizeof(buff));
     
-//    FILE* common;
-//    common = fopen("common.txt", "w");
-//
-//    struct oitem * temp;
-//
-//    fprintf(common, "%d\n", count);
-//    temp = order;
-//    for(int i=0; temp != NULL; temp=temp->next){
-//        fprintf(common, "%15s %5d %3d %5d\n", temp->name, temp->price, temp->qty, temp->qty * temp->price);
-//
-//    }
-//    printf("Done writing to file.");
-//    fclose(common);
+    //    FILE* common;
+    //    common = fopen("common.txt", "w");
+    //
+    //    struct oitem * temp;
+    //
+    //    fprintf(common, "%d\n", count);
+    //    temp = order;
+    //    for(int i=0; temp != NULL; temp=temp->next){
+    //        fprintf(common, "%15s %5d %3d %5d\n", temp->name, temp->price, temp->qty, temp->qty * temp->price);
+    //
+    //    }
+    //    printf("Done writing to file.");
+    //    fclose(common);
     
     for (;;){
         bzero(buff, sizeof(buff));
         read(sockfd, buff, sizeof(buff));
-        printf("From Server : %s", buff);
+//        printf("From Server : %s", buff);
         
         if ((strncmp("Y", buff, 4)) == 0) {
-            printf("Confirmed from owner.");
+            printf("\nConfirmed from owner.");
             break;
         }
         
         if ((strncmp("N", buff, 4)) == 0) {
-            printf("Order confirmation denied!!");
+            printf("\nOrder confirmation denied!!");
             break;
         }
         
