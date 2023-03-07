@@ -72,8 +72,7 @@ fclose(prat);
 	}
 	
 	else if ( k == 2 && strcmp(argv[1], "customer") == 0){
-		system("gcc user_delete.c");
-		system("./a.out");
+		usrdelete();
 		exit(0);
 	}
 	
@@ -384,10 +383,10 @@ labelend:
 	printf("\n\t T H A N K S for Ordering from SASTA SWIGGY\n"); //After timer is 0 prints end message
 
 	
-	printf("Would you like to give feedback?(enter Y for yes, N for no) \n");
+	//printf("Would you like to give feedback?(enter Y for yes, N for no) \n");
 	char check[4];
-	scanf("%s", check);
-	scanf("%s", check);
+	//scanf("%s", check);
+	//scanf("%s", check);
 
 	if (strcmp(check, "Y")==0)
 	{
@@ -400,44 +399,46 @@ labelend:
 	strcat(str2,str3);
 	system("/usr/bin/clear");
 
-	printf("Please fill this feedback form to help us improve :)\n");
-	printf("(Please rate us in all questions on a scale of 1 to 5 with 1 being the worst and 5 being the best) \n");
-	fptr = fopen(str2, "a");
-	printf("Quality of food ");
-	scanf("%d", &n[0]);
-	printf("\n");
-	printf("Delivery time ");
-	scanf("%d", &n[1]);
-	printf("\n");
-	printf("Condition of delivered package ");
-	scanf("%d", &n[2]);
-	printf("\n");
-	printf("Ease of interaction ");
-	scanf("%d", &n[3]);
-	printf("\n");
-	printf("Anything else you would like to let us know?(in less than 30 words)(just put a full stop to end your message) \n");
-	int count = read_strings(feedback, 30);
-	printf("\n");
+	// printf("Please fill this feedback form to help us improve :)\n");
+	// printf("(Please rate us in all questions on a scale of 1 to 5 with 1 being the worst and 5 being the best) \n");
+	// fptr = fopen(str2, "a");
+	// printf("Quality of food ");
+	// scanf("%d", &n[0]);
+	// printf("\n");
+	// printf("Delivery time ");
+	// scanf("%d", &n[1]);
+	// printf("\n");
+	// printf("Condition of delivered package ");
+	// scanf("%d", &n[2]);
+	// printf("\n");
+	// printf("Ease of interaction ");
+	// scanf("%d", &n[3]);
+	// printf("\n");
+	// printf("Anything else you would like to let us know?(in less than 30 words)(just put a full stop to end your message) \n");
+	// int count = read_strings(feedback, 30);
+	// printf("\n");
 
-	fprintf(fptr, "Quality of food %d\nDelivery time %d\nCondition of delivered package %d\nEase of interaction %d \n  Anything else you would like to let us know?(in less than 30 words)\n", n[0], n[1], n[2], n[3]);
-	for(int i = 0; i<count; i++)
-	{
-		fprintf(fptr, "%s", feedback[i]);
+	// fprintf(fptr, "Quality of food %d\nDelivery time %d\nCondition of delivered package %d\nEase of interaction %d \n  Anything else you would like to let us know?(in less than 30 words)\n", n[0], n[1], n[2], n[3]);
+	// for(int i = 0; i<count; i++)
+	// {
+	// 	fprintf(fptr, "%s", feedback[i]);
+	// }
+	// fprintf(fptr, "\n");
+	// }	
+		
+	// else if (strcmp(check, "N")==0){
+	// 		exit(0);
+	// 	}	
+		
+		
+	// 	else{
+	// 		printf("Invalid command\n");
+	// 	}
+		
 	}
-	fprintf(fptr, "\n");
-	}	
 		
-	else if (strcmp(check, "N")==0){
-			exit(0);
-		}	
-		
-		
-		else{
-			printf("Invalid command\n");
+		feedback();
 		}
-		
-	}
-		
         else if (strcmp(argv[1], "owner") == 0){
                // printf("Welcome owner, type help to see what u can do.\n, U can also type commands if u already know how to work!\n");
                 if (strcmp(command ,"help") == 0){

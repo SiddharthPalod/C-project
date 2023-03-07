@@ -2,6 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include<math.h>
+#include"num_checker.c"
+//#include"all.h"
 
 void Menu_generator(char* Menu_Items[], int Prices[],FILE* menu, int no) {
     for (int i = 0; i < no; i++) {
@@ -40,15 +43,17 @@ void menu_file_maker(char* name) {
     FILE* gole = fopen("menuitems", "a");
     printf("\nEnter no of menu items to add: ");
     int n;
-    scanf("%d", &n);
-    while (n < 0 || n > 100) {
+    //scanf("%d", &n);
+    n = checkifint("Enter a number");
+    while (n > 100) {
         printf("Invalid no of menu items\nplease enter again: ");
-        scanf("%d", &n);
+        //scanf("%d", &n);
+        n = checkifint("Enter a number between 0 to 100");
     }
     char* Menu_Items[n];
     char* Category[n]; //stores user chosen category
     int Prices[n];
-    char* category_array[] = {"veg", "non-veg", "beverage", "dessert"};
+    char* category_array[] = {"veg", "non-veg", "beverage", "desert"};
     printf("\nEnter names and prices of menu items as shown");
     for (int i = 0; i < n; i++) {
         Menu_Items[i] = malloc(100 * sizeof(char)); // Allocate memory for Menu_Items[i]
@@ -57,11 +62,13 @@ void menu_file_maker(char* name) {
         scanf("%s", Menu_Items[i]);
         printf("Prices= ");
         int k;
-        scanf("%d", &k);
-        while (k < 0) {
-            printf("Invalid price please enter again: ");
-            scanf("%d", &k);
-        }
+        //scanf("%d", &k);
+        k = checkifint("Invalid price please enter again:");
+        //while (k < 0) {
+          //  printf("Invalid price please enter again: ");
+            //k = checkifint("Invalid price please enter again:");
+            //scanf("%d", &k);
+        //}
         Prices[i] = k;
 
         printf("Choose Category from:\n");
@@ -70,10 +77,12 @@ void menu_file_maker(char* name) {
             printf("%d. %s\t", j + 1, category_array[j]);
         }
         printf("\nEnter choice using number: ");
-        scanf("%d", &k);
-        while (k > 4 || k <= 0) {
+        k = checkifint("Invalid choice please enter a number in list ");
+        //scanf("%d", &k);
+        while (k > 4) {
             printf("Invalid choice please enter a number in list ");
-            scanf("%d", &k);
+            k = checkifint("Invalid choice please enter a number in list ");
+            //scanf("%d", &k);
         }
         strcpy(Category[i], category_array[k - 1]);
     }
@@ -89,6 +98,7 @@ void menu_file_editor(char* name) {
     printf("------------------------Sasta SWIGGY MENU EDITOR------------------------\n");    
     printf("Restaurant Name: %s\n",name);
     printf("\t\t\tPress 1 to add items\n\t\t\tPress 2 to delete items\n\t\t\tPress 3 to create new\n\t\t\tPress 4 to see menu\n\t\t\tPress anything else to quit\n");
+    //command = checkifint("Please enter a valid command ");
     scanf("%d",&command);
 
 //To add items
@@ -122,15 +132,17 @@ void menu_file_editor(char* name) {
         FILE* abcd = fopen(name, "a");
         FILE* gole = fopen("menuitems", "a");
         printf("\nEnter no of menu items to add: ");
-        scanf("%d", &n);
-        while (n < 0 || n > 100) {
+        n = checkifint("Please enter a valid number ");
+        //scanf("%d", &n);
+        while (n > 100) {
             printf("Invalid no of menu items\nplease enter again: ");
-            scanf("%d", &n);
+            n = checkifint("Invalid no of menu items\nplease enter again: ");
+            //scanf("%d", &n);
         }
         char* Menu_Items[n];
         char* Category[n]; //stores user choosen category
         int Prices[n];
-        char *category_array[] = {"veg", "non-veg", "beverage", "dessert"};
+        char *category_array[] = {"veg", "non-veg", "beverage", "desert"};
         printf("\nEnter names and prices of menu items as shown");
         for (int i = 0; i < n; i++) {
             Menu_Items[i] = malloc(100 * sizeof(char)); // Allocate memory for Menu_Items[i]
@@ -139,11 +151,13 @@ void menu_file_editor(char* name) {
             scanf("%s", Menu_Items[i]);
             printf("Prices= ");
             int k;
-            scanf("%d", &k);
-            while (k < 0) {
-                printf("Invalid price please enter again: ");
-                scanf("%d", &k);
-            }
+            k = checkifint("Please enter a valid price:");
+            //scanf("%d", &k);
+            //while (k < 0) {
+              //  printf("Invalid price please enter again: ");
+                
+                //scanf("%d", &k);
+            //}
             Prices[i] = k;
             printf("Choose Category from:\n");
             for (int i = 0; i < 4; i++) //no of categories change value of 4 to the desired no of category 
@@ -151,10 +165,12 @@ void menu_file_editor(char* name) {
                 printf("%d. %s\t", i+1, category_array[i]);
             }
             printf("\nEnter choice using number: ");
-            scanf("%d", &k);
-            while (k > 4 || k <= 0) {
+            k = checkifint("Please enter a valid number");
+            //scanf("%d", &k);
+            while (k > 4) {
                 printf("Invalid choice please select a number in list ");
-                scanf("%d", &k);
+                k = checkifint("Invalid choice please select a number in list ");
+                //scanf("%d", &k);
             }
             strcpy(Category[i], category_array[k-1]);
         }
@@ -229,7 +245,7 @@ void menu_file_editor(char* name) {
 
         while (fgets(buffer, sizeof(buffer), gole) != NULL) {
             // If the line does not contain the word, write it to the output file
-            if (strstr(buffer, wrd) == NULL) {
+            if ( ( (strstr(buffer, wrd) != NULL) && (strstr(buffer,name) != NULL) )==0 ) {
                 fputs(buffer, temp_file1);
             }
         }
@@ -247,7 +263,8 @@ void menu_file_editor(char* name) {
 
         printf("\n\t\tDeleted\nTo stop further deleting press 1: ");
         int temp;
-        scanf("%d",&temp);
+        temp = checkifint("Enter a valid number: ");
+            //scanf("%d",&temp);
         if(temp==1){
             menu_file_editor(name);
             break;  }          
@@ -303,7 +320,8 @@ void menu_file_editor(char* name) {
         }
         fclose(abc);
         printf("\n\tPress 1 to return\n\tPress anything else to exit\n");
-        scanf("%d",&command);
+        command = checkifint("Enter a valid command: ");
+        //scanf("%d",&command);
         if(command==1)
             menu_file_editor(name);
         else
@@ -313,7 +331,8 @@ void menu_file_editor(char* name) {
 //Any other case
     else {
         printf("\n\n\tAre you sure you want to quit?\n\tIf yes press 1: ");
-        scanf("%d",&command);
+        command = checkifint("Enter a valid command: ");
+        //scanf("%d",&command);
         if(command ==1){
             return;}
         else{
@@ -350,19 +369,30 @@ int main(int argc,char* argv[]) {
             c = fgetc(abc);
             ungetc(c, abc);
             if(c==EOF) {
-                printf("---------Create your menu---------\n");
+                system("clear");
+                printf("------------------------Sasta SWIGGY Create MENU------------------------\n");    
                 menu_file_maker(name);
-                return 1;
+                printf("\n\t\t\tDo you want to open menu editor?\nPress 1 for yes\t\t\t Press anything else to exit\n");
+                int command;
+                command = checkifint("Enter a valid command: ");
+                //scanf("%d",&command);
+                if(command==1){
+                    menu_file_editor(name);
+                    return 1;}
+                else{
+                    return 1;}
             }
             fseek(abc, -1, SEEK_SET);
             fscanf(abc,"%s",temp);
             int command;
             printf("Do you want to edit the menu?\nPress 1 for Yes otherwise Press anything else to exit: ");
-            scanf("%d", &command);
+            command = checkifint("Enter a valid command: ");
+            //scanf("%d", &command);
             if (command == 1) {
-                menu_file_editor(name);}
-            else
-                    break;
+                menu_file_editor(name);
+                break;}
+            else{
+                    break;}
         fclose(databaseowner);
         }
     }

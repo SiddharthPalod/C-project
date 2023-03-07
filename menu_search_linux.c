@@ -9,6 +9,7 @@ void search(char word[]);
 char *rever(char *str);
 
 
+
 //strstr()
 void main() 
 {
@@ -18,12 +19,15 @@ void main()
 	char c,a;
     FILE* fpt;
     FILE* fpttr;
-    char id[16];
+	FILE* fp;
+
+    static char id[16];
+	printf("Welcome to the MENU!!!! \n");
+
+	labelstart:
+
 	fpt = fopen("restroslist", "r");	// open file
 	
-	FILE* fp;
-	printf("Welcome to the MENU!!!! \n");
-	labelstart:
 	printf("\nEnter 1 to see restaurant list, \n2 for key word search and \n3 for filter search \n4 to Start ordering : \n");
 	scanf("%d", &choice);
 	if (choice == 2)
@@ -231,6 +235,8 @@ void main()
 		system("/usr/bin/clear"); 
 		// this command will clear the screen in linux
 		// Read contents from file
+	label1:
+
     c = fgetc(fpt);
     while (c != EOF)		//printing until we encounter end of file
     {
@@ -238,9 +244,7 @@ void main()
         c = fgetc(fpt);
     }
   
-    fclose(fpt);
-    label1:
-    printf("Enter the NAME of the restaurant whose menu you wish to see and e if you want to go back : \n");
+    printf("\nEnter the NAME of the restaurant whose menu you wish to see and e if you want to go back : \n");
 	
     scanf("%s", id);
 	
@@ -269,6 +273,7 @@ void main()
         a = fgetc(fpttr);
     }
     printf("\n");
+	fclose(fpt);
     goto label1;
 	}
 	else if(choice == 3)

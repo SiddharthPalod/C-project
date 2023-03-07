@@ -1,0 +1,6 @@
+KFC
+           item price qty Total
+             bb    40   4   160
+The total amount is: Rs. 160
+Your order no is 101
+

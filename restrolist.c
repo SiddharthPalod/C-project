@@ -7,20 +7,20 @@
 void main() 
 {
     char c,a;
-    FILE* fp;
-    FILE* fptr;
+    FILE* fpt;
+    FILE* fpttr;
     char id[16];
-	fp = fopen("restroslist.txt", "r");	// open file+
+	fpt = fopen("restroslist.txt", "r");	// open file+
   
     // Read contents from file
-    c = fgetc(fp);
+    c = fgetc(fpt);
     while (c != EOF)
     {
         printf ("%c", c);
-        c = fgetc(fp);
+        c = fgetc(fpt);
     }
   
-    fclose(fp);
+    fclose(fpt);
     label1:
     printf("Enter the ID of the restaurant whose menu you wish to see : \n");
     scanf("%s", id);
@@ -29,22 +29,22 @@ void main()
         exit(0);
     }
     strcat(id,".txt");
-    fptr = fopen(id, "r");
-    if (fptr == NULL)
+    fpttr = fopen(id, "r");
+    if (fpttr == NULL)
     {
         printf("INVALID ID  !!!\nPlease enter correct ID\n");
         goto label1;
     }
   
     // Read contents from file
-    a = fgetc(fptr);
+    a = fgetc(fpttr);
     while (a != EOF)
     {
         printf ("%c", a);
-        a = fgetc(fptr);
+        a = fgetc(fpttr);
     }
     printf("\n");
     goto label1;
-    fclose(fptr);
+    fclose(fpttr);
 
 }
