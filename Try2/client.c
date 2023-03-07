@@ -62,37 +62,57 @@ int main()
     // function for chat
     char buff[MAX];
     int n;
-//    for (;;) {
-        bzero(buff, sizeof(buff));
-        printf("start");
-//        printf("Enter the string : ");
-//        n = 0;
-//        while ((buff[n++] = getchar()) != '\n')
-//            ;
-        strcpy(buff, "start");
-        write(sockfd, buff, sizeof(buff));
-    
-        bzero(buff, sizeof(buff));
-        printf("enter restaurant name: ");
-        n = 0;
-        while ((buff[n++] = getchar()) != '\n');
+    //    for (;;) {
+    bzero(buff, sizeof(buff));
+    printf("start");
     //        printf("Enter the string : ");
     //        n = 0;
     //        while ((buff[n++] = getchar()) != '\n')
     //            ;
-        write(sockfd, buff, sizeof(buff));
+    strcpy(buff, "start");
+    write(sockfd, buff, sizeof(buff));
+    
+    bzero(buff, sizeof(buff));
+    printf("enter restaurant name: ");
+    n = 0;
+    while ((buff[n++] = getchar()) != '\n');
+    //        printf("Enter the string : ");
+    //        n = 0;
+    //        while ((buff[n++] = getchar()) != '\n')
+    //            ;
+    write(sockfd, buff, sizeof(buff));
+    
+    FILE* common;
+    common = fopen("common.txt", "w");
+    
+    struct oitem * temp;
+    
+    fprintf(common, "%d\n", count);
+    temp = order;
+    for(int i=0; temp != NULL; temp=temp->next){
+        fprintf(common, "%15s %5d %3d %5d\n", temp->name, temp->price, temp->qty, temp->qty * temp->price);
         
+    }
+    printf("Done writing to file.");
+    fclose(common);
+    
     for (;;){
         bzero(buff, sizeof(buff));
         read(sockfd, buff, sizeof(buff));
         printf("From Server : %s", buff);
         
-        if ((strncmp("confirmed", buff, 4)) == 0) {
-            printf("Client Exit...\n");
+        if ((strncmp("Y", buff, 4)) == 0) {
+            printf("Confirmed from owner.");
             break;
         }
+        
+        if ((strncmp("N", buff, 4)) == 0) {
+            printf("Order confirmation denied!!");
+            break;
+        }
+        
     }
-//    }
+    //    }
     
     // close the socket
     close(sockfd);
