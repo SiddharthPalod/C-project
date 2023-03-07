@@ -54,16 +54,16 @@ After confirmation of the order shows a Timer indicating the time to arrive with
   <li> Confirm pending orders</li></ol></li></ol>
 
 Using the interface
-Setup
-Type: make (on the terminal) 
+ <h2><u>Setup:</u></h2>
+ Type: <code>make</code> (on the terminal) <br>
 (u will see a list of commands executed displaying that the program has been compiled)<br>
- <code>Type: ./sastaswiggy customer</code>(if you are logging in as a customer) <br>
- <code>Type: ./sastaswiggy owner</code> (if ur logging in as a restaurant)<br>
-Install conio.h using https://github.com/zoelabbb/conio.h in some computers it is inbuilt
+ Type: <code>./sastaswiggy customer</code>(if you are logging in as a customer) <br>
+ Type: <code>./sastaswiggy owner</code> (if ur logging in as a restaurant)<br>
+ Install <code>conio.h</code> using https://github.com/zoelabbb/conio.h in some computers it is inbuilt<br>
 The program reads from files, prompts the user for input, and interacts with other programs through the command line. The program takes one command-line argument, either "owner" or "customer". Depending on the argument, the program branches into two sections of code.
-Restaurant
-For the "owner" section, the program prompts the user to enter a number that will determine the action the user wants to take. If the user enters 1, the program calls the f2() function to get the name of an existing restaurant owner from a file. If the user enters anything other than 1, the program compiles and executes another C program called restaurant_signup.c. After getting the name of the restaurant owner, the program sets the "head" pointer of the restaurant to NULL
-Customer
+ <h2><u>Restaurant</u></h2>
+For the "owner" section, the program prompts the user to enter a number that will determine the action the user wants to take. If the user enters 1, the program calls the f2() function to get the name of an existing restaurant owner from a file. If the user enters anything other than 1, the program compiles and executes another C program called restaurant_signup.c. After getting the name of the restaurant owner, the program sets the "head" pointer of the restaurant to NULL<br>
+ <h2><u>Customer</u></h2>
 <p>For the "customer" section, the program prompts the user to enter a number that will determine the action the user wants to take. If the user enters 1, the program calls the f1() function to get the name of an existing customer from a file. If the user enters anything other than 1 or 2, the program compiles and executes another C program called user_signup.c. If the user enters 2, the program compiles and executes user_delete.c. After getting the name of the customer, the program prompts the user to enter "continue" to proceed, "history" to view previous orders, or anything else to print an error message.</p>
  <br>
 <p>If the user enters "continue", the program calls the menu search () function to help the customer search for his desired dish/restaurant. Here, the customer is provided with the option to search by dish or restaurant, keyword search and filter search. Once the customer finds his desired restaurant, he can order from there.</p>
