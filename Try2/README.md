@@ -9,9 +9,9 @@
 <li>If the menu is there opens the menu editor, which allows you to do the following stuff:
  <ol type="i)">
   <li>Create a completely new menu </li>
-  <li>ii) Add menu items</li>
-  <li>iii) Delete menu items</li>
-  iv) View the current menu</ol></li>
+  <li> Add menu items</li>
+  <li> Delete menu items</li>
+  <li> View the current menu</li></ol></li>
  <li>When ordered gives the option to accept or reject orders</li>
 <li>Exit the directory</li>
 <li>How to use customer side</li>
