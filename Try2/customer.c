@@ -68,7 +68,8 @@ int main(int argc, char * argv[]){// arguments by which main is called
     struct oitem * temp;// useful to traverse the linked list of ordered items
     ro r1;// the current restaurant owner
     int k;// checks if u want to login, signup or delete account
-    scanf("%d",&k);
+    k = checkifint("enter valid option\n");
+    //scanf("%d",&k);
     if (k==1 && strcmp(argv[1], "customer") == 0)//(BY SHASHWAT CHATURVEDI IMT2022118)
         
     {
@@ -209,7 +210,8 @@ int main(int argc, char * argv[]){// arguments by which main is called
             }
             
             printf("enter the req quantity: ");
-            scanf("%d", &q);
+            q = checkifint("Please enter a number\n");
+            //scanf("%d", &q);
             //if (strcmp(str, "end") == 0){ break; }
             //if (strcmp(str, "back") == 0) { order = NULL ; goto label2; }
             struct oitem * temp;// SHOULD BE REMOVED < HAS BEEN DECARED TWICE
@@ -223,7 +225,10 @@ int main(int argc, char * argv[]){// arguments by which main is called
         }
         // to calculate the distance (by Aaditya Gole)
         printf("Please enter your address in terms of x and y coordinates\n");
-        scanf("%d %d" , &cu1.x, &cu1.y);
+        cu1.x = checkifint("Enter valid x-coordinate\n");
+        cu1.y = checkifint("Enter valid y-coordinate\n");
+        
+        //scanf("%d %d" , &cu1.x, &cu1.y);
         FILE * gole;
         gole = fopen("address", "r");
         char rx[10];
