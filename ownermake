@@ -1,0 +1,3 @@
+sastaswiggy: 
+	gcc all.h funcs.c num_checker.c -lm datatypes.c owner.c -lm -o owner.o 
+
