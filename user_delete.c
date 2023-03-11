@@ -11,7 +11,7 @@ struct user				//a struct to hold the information about user
 };
 
 
-int usrdelete()			//function to delete a user 
+int main()			//function to delete a user 
 {
         struct user* a[100];		//an array of struct user
         int n,num;			//n is a variable to hold number of records ,num is a variable to hold the index of input username
