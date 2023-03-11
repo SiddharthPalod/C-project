@@ -3,7 +3,7 @@
 #include "all.h"
 #include "datatypes.c"
 #include <stdlib.h>
-void feedback()		//a function which asks the user for feedback 
+void feedback(char str2[])		//a function which asks the user for feedback 
 {
 printf("Would you like to give feedback?(enter Y for yes, N for no) \n");	//asks the user f he wants to give feedback or no with Y for yes and N for no
 	char check[4];
@@ -18,7 +18,7 @@ do
 	char *x;
 	char *feedback[31];
 	FILE *fptr;
-	char str2[50];
+	//	char str2[50];
 	char str3[] = "_feedback";
 	strcat(str2,str3);
 	system("/usr/bin/clear");
@@ -63,7 +63,7 @@ do
 	//this sends the feedback to the restaurant and store the feedback for every restaurant in a different file
 	for(int i = 0; i<count; i++)
 	{
-		fprintf(fptr, "%s", feedback[i]);
+		fprintf(fptr, "%s ", feedback[i]);
 	}
 	fprintf(fptr, "\n");
 	break;

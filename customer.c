@@ -33,7 +33,7 @@ int main(int argc, char * argv[]){// arguments by which main is called
     }
     printf("IF YOU ALREADY HAVE AN ACCOUNT PRESS 1\n");
     printf("IF YOU WISH TO DELETE AN ACCOUNT PRESS 2\n");
-    printf("IF YOU WISH TO SIGN UP PRESS ANY OTHER NUMBER\n");
+    printf("IF YOU WISH TO SIGN UP PRESS ANY OTHER +VE NUMBER\n");
     char c;
     struct oitem * point = NULL;// TO BE DELETED(maybe)
     FILE * sid = fopen("databaseowner", "r");// file pointer to list of restaurant names
@@ -68,7 +68,8 @@ int main(int argc, char * argv[]){// arguments by which main is called
     struct oitem * temp;// useful to traverse the linked list of ordered items
     ro r1;// the current restaurant owner
     int k;// checks if u want to login, signup or delete account
-    scanf("%d",&k);
+    // scanf("%d",&k);
+    k = checkifint("enter valid option");
     if (k==1 && strcmp(argv[1], "customer") == 0)//(BY SHASHWAT CHATURVEDI IMT2022118)
         
     {
@@ -559,7 +560,7 @@ int main(int argc, char * argv[]){// arguments by which main is called
         
         printf("\n\t T H A N K S for Ordering from SASTA SWIGGY\n"); //After timer is 0 prints end message
     
-    	feedback();
+    	feedback(restaurants[i].name);
 
     }
         fclose(fptr);

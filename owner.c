@@ -65,8 +65,8 @@ int main(int argc, char * argv[]){
         exit(1);
     }
     printf("IF YOU ALREADY HAVE AN ACCOUNT PRESS 1\n");
-    printf("IF YOU WISH TO DELETE AN ACCOUNT PRESS 2\n");
-    printf("IF YOU WISH TO SIGN UP PRESS ANY OTHER NUMBER\n");
+    // printf("IF YOU WISH TO DELETE AN ACCOUNT PRESS 2\n");
+    printf("IF YOU WISH TO SIGN UP PRESS ANY OTHER +VE NUMBER\n");
     char c;
     struct oitem * point = NULL;
     FILE * sid = fopen("databaseowner", "r");
@@ -101,7 +101,7 @@ int main(int argc, char * argv[]){
     struct oitem * temp;
     ro r1;
     int k;
-    scanf("%d",&k);
+    k = checkifint("enter valid option");
     
     if(k==1)
     {
@@ -416,6 +416,7 @@ int main(int argc, char * argv[]){
     {
         system("gcc restaurant_signup.c");
         system("./a.out");
+        exit(0);
         strcpy(r1.name ,f2());
         int sockfd, connfd, len;
         struct sockaddr_in servaddr, cli;

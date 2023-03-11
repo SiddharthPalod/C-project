@@ -35,13 +35,15 @@ char * menusearch() {
 	}
 	else if (strcmp(choice,"1")==0){
 		system("/usr/bin/clear");  //clearing screen for clarity
-		fpt = fopen("restroslist", "r");	// open file
-    label1:
+		fpt = fopen("databaseowner", "r");	// open file
+	label1:
+
 	c = fgetc(fpt);
     while (c != EOF){		// Read contents from file and printing until we encounter end of file
         printf ("%c", c);
         c = fgetc(fpt);
     }
+
     printf("\n\nEnter the NAME of the restaurant whose menu you wish to see and e if you want to go back : \n");
     scanf("%s", id);
     if(strcmp(id,"e")==0){
@@ -51,6 +53,8 @@ char * menusearch() {
     fpt = fopen(id, "r");
     if (fpt == NULL){
         printf("\nINVALID NAME  !!!\nPlease enter correct NAME\n"); //nif the entered word matches no existing file
+		fpt=fopen("databaseowner","r");
+		fseek(fpt,0,SEEK_SET);
         goto label1;
     }
     a = fgetc(fpt);		// Read contents from file
@@ -78,28 +82,28 @@ char * menusearch() {
 	else if(strcmp(choice,"3")==0){
 		system("/usr/bin/clear"); 
 		labelfilter:
-		printf("Filters :\n1.Veg Only\n2.Non-Veg\n3. Beverage\n4. Desert\n5.To go Back\n");
+		printf("Filters :\n1.Veg Only\n2.Non-Veg\n3. Beverage\n4. Dessert\n5.To go Back\n");
 		printf("Enter Choice ID\n");
 		scanf("%s", choice2);
 		if(strcmp(choice2,"1")==0){
 			printf("Dishes you want:\n");
-			search("veg", "menuitems"); //running the function with the filter based in user choice
+			search("(veg)", "menuitems"); //running the function with the filter based in user choice
 			goto labelfilter;
 		}
 		else if(strcmp(choice2,"2")==0){
 			printf("Dishes you want:\n");
-			search("non-veg", "menuitems"); //running the function with the filter based in user choice
+			search("(non-veg)", "menuitems"); //running the function with the filter based in user choice
 			goto labelfilter;
 		}
 		
 		else if(strcmp(choice2,"3")==0){
 			printf("Dishes you want:\n");
-			search("beverage", "menuitems"); //running the function with the filter based in user choice
+			search("(beverage)", "menuitems"); //running the function with the filter based in user choice
 			goto labelfilter;
 		}
 		else if(strcmp(choice2,"4")==0){
 			printf("Dishes you want:\n");
-			search("desert", "menuitems"); //running the function with the filter based in user choice
+			search("(desert)", "menuitems"); //running the function with the filter based in user choice
 			goto labelfilter;
 		}
 		else if(strcmp(choice2,"5")==0){
