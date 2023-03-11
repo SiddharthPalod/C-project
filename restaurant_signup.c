@@ -12,7 +12,7 @@ struct restaurant				//struct to hold values of parameters
 int main()
 {
 	struct restaurant* a[100];		//array of struct
-	int n;
+	int n,xcor,ycor;
 	char* new_username;
 	char* password;
 	FILE * r;			//file pointers to restaurant list and database owner
@@ -75,6 +75,11 @@ int main()
 		fprintf(r,"%s %s\n",a[i]->username,a[i]->password);
 	}
 	fclose(r);
+	fclose(r1);
+	r1=fopen("address", "a");
+	printf("enter your x and y co-ordinates: \n");
+	scanf("%d %d", &xcor, &ycor);
+	fprintf(r1,"%d %d", xcor, ycor);
 	fclose(r1);
 	printf("CONGRATS! YOU HAVE SUCCESSFULLY REGISTERED.\n");
     // Build a command string with the arguments
