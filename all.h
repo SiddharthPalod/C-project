@@ -25,4 +25,4 @@ struct restaurant1;
 char * f2();
 
 int checkifint(char str[]);
-int usrdelete();
+//int usrdelete();
