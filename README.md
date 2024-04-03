@@ -26,7 +26,7 @@
  <br>
  <h2><u>Overview:</u></h2>
  <p>Note: if you extract files with data you can see it work with sample restaurants note do no extract MenuOwner.c from zip as it is outdated</p>
-<p>The C project is a Food Delivery Management system called SastaSwiggy. This Management System is easy to use and it can be accessed by only certain customers and restaurants who are aware of the username and password. However, new account creation is allowed. This app had a wide functionality, from simple order creation to server-related order confirmation. <p>
+<p>The C project is a Logistics Optimization Platform for Food Delivery called SastaSwiggy. This Management System is easy to use and it can be accessed by only certain customers and restaurants who are aware of the username and password. However, new account creation is allowed. This app had a wide functionality, from simple order creation to server-related order confirmation. <p>
  <br>
  <h2><u>Features:</u></h2>
 <p>This Food Delivery Management System has many features which make it user-friendly, even a layman would not have any problem using it. Apart from some default data, there are many inbuilt functions to help you manage your directory as per your needs, giving it a personalized feel. You also have a password for your directory so, no one else can get your personalized information.</p><br>
